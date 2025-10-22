@@ -24,3 +24,118 @@ body {
   color: var(--foreground);
   font-family: Arial, Helvetica, sans-serif;
 }
+
+.inter-400 {
+    font-family: "Inter", sans-serif;
+    font-optical-sizing: auto;
+    font-weight: 400;
+    font-style: normal;
+}
+
+.inter-500 {
+    font-family: "Inter", sans-serif;
+    font-optical-sizing: auto;
+    font-weight: 500;
+    font-style: normal;
+}
+
+.inter-600 {
+    font-family: "Inter", sans-serif;
+    font-optical-sizing: auto;
+    font-weight: 600;
+    font-style: normal;
+}
+
+.lora-400 {
+    font-family: "Lora", sans-serif;
+    font-optical-sizing: auto;
+    font-weight: 400;
+    font-style: normal;
+}
+
+.lora-500 {
+    font-family: "Lora", sans-serif;
+    font-optical-sizing: auto;
+    font-weight: 500;
+    font-style: normal;
+}
+
+.lora-600 {
+    font-family: "Lora", sans-serif;
+    font-optical-sizing: auto;
+    font-weight: 600;
+    font-style: normal;
+}
+
+.inter-400 {
+    font-family: "Inter", sans-serif;
+    font-optical-sizing: auto;
+    font-weight: 400;
+    font-style: normal;
+}
+
+.inter-500 {
+    font-family: "Inter", sans-serif;
+    font-optical-sizing: auto;
+    font-weight: 500;
+    font-style: normal;
+}
+
+/*@layer base {*/
+/*    .animated-underline {*/
+/*        position: relative;*/
+/*        display: inline-block; !* or block, depending on your layout *!*/
+/*        padding-bottom: 0.2em;*/
+/*        overflow: hidden;*/
+/*    }*/
+
+/*    .animated-underline::after {*/
+/*        content: "";*/
+/*        position: absolute;*/
+/*        left: 0;*/
+/*        bottom: 0;*/
+/*        width: 100%;*/
+/*        height: 0.1em;*/
+/*        @apply bg-neutral-500;*/
+/*        !*transform: translate3d(-100%, 0, 0);*!*/
+/*        animation: underlineSlideIn 1.5s ease forwards;*/
+/*        animation-delay: 0.3s;*/
+/*    }*/
+
+/*    !* Slide-in animation *!*/
+/*    @keyframes underlineSlideIn {*/
+/*        0% {*/
+/*            transform: translate3d(-100%, 0, 0);*/
+/*            opacity: 0;*/
+/*        }*/
+/*        60% {*/
+/*            opacity: 1;*/
+/*        }*/
+/*        100% {*/
+/*            transform: translate3d(0, 0, 0);*/
+/*            opacity: 1;*/
+/*        }*/
+/*    }*/
+/*}*/
+
+@theme inline {
+    --animate-marquee: marquee var(--duration) infinite linear;
+    --animate-marquee-vertical: marquee-vertical var(--duration) linear infinite;
+
+    @keyframes marquee {
+        from {
+            transform: translateX(0);
+        }
+        to {
+            transform: translateX(calc(-100% - var(--gap)));
+        }
+    }
+    @keyframes marquee-vertical {
+        from {
+            transform: translateY(0);
+        }
+        to {
+            transform: translateY(calc(-100% - var(--gap)));
+        }
+    }
+}

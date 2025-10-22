@@ -1,103 +1,131 @@
-import Image from "next/image";
+"use client";
+
+import { TypingText } from "@/app/-components/typing-text";
+import { motion } from "framer-motion";
+import Link from "next/link";
+import AboutMe from "./about-me/page";
+
+const AnimatedTypingText = motion(TypingText);
 
 export default function Home() {
   return (
-    <div className="font-sans grid grid-rows-[20px_1fr_20px] items-center justify-items-center min-h-screen p-8 pb-20 gap-16 sm:p-20">
-      <main className="flex flex-col gap-[32px] row-start-2 items-center sm:items-start">
-        <Image
-          className="dark:invert"
-          src="/next.svg"
-          alt="Next.js logo"
-          width={180}
-          height={38}
-          priority
-        />
-        <ol className="font-mono list-inside list-decimal text-sm/6 text-center sm:text-left">
-          <li className="mb-2 tracking-[-.01em]">
-            Get started by editing{" "}
-            <code className="bg-black/[.05] dark:bg-white/[.06] font-mono font-semibold px-1 py-0.5 rounded">
-              src/app/page.tsx
-            </code>
-            .
-          </li>
-          <li className="tracking-[-.01em]">
-            Save and see your changes instantly.
-          </li>
-        </ol>
-
-        <div className="flex gap-4 items-center flex-col sm:flex-row">
-          <a
-            className="rounded-full border border-solid border-transparent transition-colors flex items-center justify-center bg-foreground text-background gap-2 hover:bg-[#383838] dark:hover:bg-[#ccc] font-medium text-sm sm:text-base h-10 sm:h-12 px-4 sm:px-5 sm:w-auto"
-            href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <Image
-              className="dark:invert"
-              src="/vercel.svg"
-              alt="Vercel logomark"
-              width={20}
-              height={20}
-            />
-            Deploy now
-          </a>
-          <a
-            className="rounded-full border border-solid border-black/[.08] dark:border-white/[.145] transition-colors flex items-center justify-center hover:bg-[#f2f2f2] dark:hover:bg-[#1a1a1a] hover:border-transparent font-medium text-sm sm:text-base h-10 sm:h-12 px-4 sm:px-5 w-full sm:w-auto md:w-[158px]"
-            href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Read our docs
-          </a>
+    <div className="min-h-screen min-w-screen relative flex flex-col">
+      <div className="container mx-auto my-12 flex flex-col gap-16 h-full w-full relative grow">
+        <div className="grid gap-y-8 xl:grid-cols-2 justify-center h-full w-full relative grow">
+          <div className="w-full items-center h-full flex">
+            <div className="relative w-max">
+              <div className="space-y-4 relative p-8 z-20 w-max">
+                <motion.div className="space-x-2">
+                  <motion.span
+                    className="text-4xl lora-400 inline-block transition-opacity"
+                    initial={{ opacity: 0, y: 50 }}
+                    animate={{ opacity: 1, y: 0 }}
+                    transition={{ type: "tween" }}
+                  >
+                    Hi,{" "}
+                  </motion.span>
+                  <motion.span
+                    className="text-4xl lora-400 inline-block transition-opacity"
+                    initial={{ opacity: 0, y: 50 }}
+                    animate={{ opacity: 1, y: 0 }}
+                    transition={{ delay: 0.15, type: "tween" }}
+                  >
+                    I&#39;m{" "}
+                  </motion.span>
+                  <AnimatedTypingText
+                    className="text-4xl lora-400 transition-opacity"
+                    text={["Bartłomiej", "nonameprogram"]}
+                    pauseDuration={3000}
+                    typingSpeed={50}
+                    initialDelay={300}
+                    initial={{ opacity: 0, y: 50 }}
+                    animate={{ opacity: 1, y: 0 }}
+                    transition={{ delay: 0.3, type: "tween" }}
+                  />
+                </motion.div>
+                <motion.div
+                  className="lora-400 text-4xl ml-8 relative transition-opacity"
+                  initial={{ opacity: 0, y: 50 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  transition={{ delay: 0.45, type: "tween" }}
+                  data-show={true}
+                >
+                  Software Developer
+                </motion.div>
+              </div>
+              <motion.div
+                className="absolute left-0 top-0 size-8 z-10"
+                initial={{ opacity: 0, y: 10 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ delay: 0.45, type: "tween" }}
+              >
+                <div className="bg-white w-full h-full pt-px pl-px">
+                  <div className="w-full h-full bg-background" />
+                </div>
+              </motion.div>
+            </div>
+          </div>
+          <div className="w-full h-full grid grid-cols-2 xl:grid-cols-3 grid-rows-3 gap-2">
+            <Link href="/about-me">
+              <motion.div
+                className="w-full h-full min-h-64 bg-neutral-900 col-start-1 row-start-1 rounded-tl-xl p-4 hover:bg-neutral-300 hover:text-black duration-300 cursor-pointer transition-all"
+                initial={{ opacity: 0, y: -30 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ delay: 0.45 }}
+              >
+                <div className="flex flex-col h-full">
+                  <div className="lora-400 text-left">01</div>
+                  <div className="mt-auto lora-400 text-right">About Me</div>
+                </div>
+              </motion.div>
+            </Link>
+            <motion.button
+              className="w-full h-full min-h-64 bg-neutral-900 col-start-1 xl:col-start-2 row-start-2 p-4 hover:bg-neutral-300 hover:text-black duration-300 cursor-pointer transition-all"
+              initial={{ opacity: 0, x: -30 }}
+              animate={{ opacity: 1, x: 0 }}
+              transition={{ delay: 0.6 }}
+            >
+              <div className="flex flex-col h-full">
+                <div className="lora-400 text-left">02</div>
+                <div className="mt-auto lora-400 text-right">
+                  Work Experience
+                </div>
+              </div>
+            </motion.button>
+            <motion.button
+              className="w-full h-full min-h-64 bg-neutral-900 col-start-2 xl:col-start-3 row-start-2 p-4 hover:bg-neutral-300 hover:text-black duration-300 cursor-pointer transition-all"
+              initial={{ opacity: 0, x: 30 }}
+              animate={{ opacity: 1, x: 0 }}
+              transition={{ delay: 0.6 }}
+            >
+              <div className="flex flex-col h-full">
+                <div className="lora-400 text-left">03</div>
+                <div className="mt-auto lora-400 text-right">Projects</div>
+              </div>
+            </motion.button>
+            <motion.button
+              className="w-full h-full min-h-64 bg-neutral-900 col-start-2 xl:col-start-3 row-start-3 rounded-br-xl p-4 hover:bg-neutral-300 hover:text-black duration-300 cursor-pointer transition-all"
+              initial={{ opacity: 0, y: 30 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ delay: 0.75 }}
+            >
+              <div className="flex flex-col h-full">
+                <div className="lora-400 text-left">04</div>
+                <div className="mt-auto lora-400 text-right">Contact</div>
+              </div>
+            </motion.button>
+          </div>
         </div>
-      </main>
-      <footer className="row-start-3 flex gap-[24px] flex-wrap items-center justify-center">
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
+        <motion.div
+          className="text-center w-full xl:text-left lora-400 text-neutral-300 shrink-0 xl:absolute relative bottom-0 left-0 transition-opacity"
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          transition={{ delay: 0.45 }}
         >
-          <Image
-            aria-hidden
-            src="/file.svg"
-            alt="File icon"
-            width={16}
-            height={16}
-          />
-          Learn
-        </a>
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="/window.svg"
-            alt="Window icon"
-            width={16}
-            height={16}
-          />
-          Examples
-        </a>
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://nextjs.org?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="/globe.svg"
-            alt="Globe icon"
-            width={16}
-            height={16}
-          />
-          Go to nextjs.org →
-        </a>
-      </footer>
+          @ bkosinski.dev
+        </motion.div>
+      </div>
+      <AboutMe />
     </div>
   );
 }
