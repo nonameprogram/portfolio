@@ -20,8 +20,8 @@ export default function Home() {
     target: ref,
   });
 
-  const opacity = useTransform(scrollY, [800, 1], [0, 1]);
-  const scale = useTransform(scrollY, [800, 1], [0.8, 1]);
+  const opacity = useTransform(scrollY, [1200, 1], [0, 1]);
+  const scale = useTransform(scrollY, [1200, 1], [0.8, 1]);
 
   return (
     <div className="flex flex-col">
@@ -31,20 +31,17 @@ export default function Home() {
         ref={ref}
       >
         <motion.div
-          className="w-full h-full relative flex flex-col"
-          // initial={{ opacity: 0, scale: 0.8 }}
-          // whileInView={{ opacity: 1, scale: 1 }}
-          // viewport={{ amount: 0.5 }}
+          className="w-full h-full relative grow grid"
           style={{ opacity, scale }}
         >
-          <div className="container mx-auto my-12 flex w-full flex-col gap-16 h-full relative">
-            <div className="grid gap-y-8 xl:grid-cols-2 justify-center h-full w-full relative">
-              <div className="w-full items-center h-full flex">
+          <div className="container px-12 mx-auto py-12 flex w-full flex-col gap-16 h-full relative">
+            <div className="grid grid-cols-1 gap-y-8 xl:grid-cols-2 justify-center h-full w-full relative">
+              <div className="w-full items-center h-full flex ">
                 <div className="relative">
-                  <div className="space-y-4 relative p-8 z-20">
-                    <motion.div className="space-x-2">
+                  <div className="space-y-4 relative p-8 z-20 space-x-2 text-3xl xl:text-4xl lora-400">
+                    <div className="space-x-2">
                       <motion.span
-                        className="text-4xl lora-400 inline-block transition-opacity"
+                        className="inline-block transition-opacity"
                         initial={{ opacity: 0, y: 50 }}
                         animate={{ opacity: 1, y: 0 }}
                         transition={{ type: "tween" }}
@@ -52,7 +49,7 @@ export default function Home() {
                         Hi,{" "}
                       </motion.span>
                       <motion.span
-                        className="text-4xl lora-400 inline-block transition-opacity"
+                        className="inline-block transition-opacity"
                         initial={{ opacity: 0, y: 50 }}
                         animate={{ opacity: 1, y: 0 }}
                         transition={{ delay: 0.15, type: "tween" }}
@@ -60,7 +57,7 @@ export default function Home() {
                         I&#39;m{" "}
                       </motion.span>
                       <AnimatedTypingText
-                        className="text-4xl lora-400 transition-opacity"
+                        className="transition-opacity"
                         text={["Bartłomiej", "nonameprogram"]}
                         pauseDuration={3000}
                         typingSpeed={50}
@@ -69,10 +66,10 @@ export default function Home() {
                         animate={{ opacity: 1, y: 0 }}
                         transition={{ delay: 0.3, type: "tween" }}
                       />
-                    </motion.div>
+                    </div>
                     <div className="flex gap-x-2">
                       <motion.div
-                        className="lora-400 text-4xl ml-8 relative transition-opacity"
+                        className="ml-8 relative transition-opacity"
                         initial={{ opacity: 0, y: 50 }}
                         animate={{ opacity: 1, y: 0 }}
                         transition={{ delay: 0.45, type: "tween" }}
@@ -81,7 +78,7 @@ export default function Home() {
                         Software{" "}
                       </motion.div>
                       <motion.div
-                        className="lora-400 text-4xl relative transition-opacity"
+                        className="relative transition-opacity"
                         initial={{ opacity: 0, y: 50 }}
                         animate={{ opacity: 1, y: 0 }}
                         transition={{ delay: 0.6, type: "tween" }}
@@ -148,6 +145,12 @@ export default function Home() {
                   initial={{ opacity: 0, x: 30 }}
                   animate={{ opacity: 1, x: 0 }}
                   transition={{ delay: 0.6 }}
+                  onClick={() => {
+                    const section = document.getElementById("projects");
+                    if (section) {
+                      section.scrollIntoView({ behavior: "smooth" });
+                    }
+                  }}
                 >
                   <div className="flex flex-col h-full">
                     <div className="lora-400 text-left">03</div>
@@ -159,6 +162,12 @@ export default function Home() {
                   initial={{ opacity: 0, y: 30 }}
                   animate={{ opacity: 1, y: 0 }}
                   transition={{ delay: 0.75 }}
+                  onClick={() => {
+                    const section = document.getElementById("contact");
+                    if (section) {
+                      section.scrollIntoView({ behavior: "smooth" });
+                    }
+                  }}
                 >
                   <div className="flex flex-col h-full">
                     <div className="lora-400 text-left">04</div>
@@ -168,7 +177,7 @@ export default function Home() {
               </div>
             </div>
             <motion.div
-              className="text-center w-full xl:text-left lora-400 text-neutral-300 shrink-0 xl:absolute relative bottom-0 left-0 transition-opacity"
+              className="text-center xl:text-left xl:bottom-12 xl:left-12 lora-400 text-neutral-300 shrink-0 xl:absolute relative bottom-0 left-0 transition-opacity"
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}
               transition={{ delay: 0.45 }}

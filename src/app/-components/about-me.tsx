@@ -20,7 +20,7 @@ const Pill = ({ text }: { text: string }) => (
 export default function AboutMe() {
   return (
     <div className="relative flex flex-col bg-neutral-900 rounded-t-4xl">
-      <div className="px-24 pb-24 flex flex-col gap-16 relative grow">
+      <div className="container mx-auto px-12 pb-24 flex flex-col gap-16 relative grow">
         <div className="flex gap-x-4 relative">
           <div className="grid grid-cols-3 gap-24 relative">
             <div className="col-span-3 xl:col-span-2">
@@ -307,7 +307,10 @@ export default function AboutMe() {
                 >
                   <div className="lora-400 text-4xl">04 / Contact</div>
                   <div className="flex flex-col gap-2">
-                    <div className="flex items-center gap-2 hover:underline">
+                    <a
+                      className="flex items-center gap-2 hover:underline"
+                      href="mailto:contact@bkosinski.dev"
+                    >
                       <svg
                         width="15"
                         height="15"
@@ -323,7 +326,7 @@ export default function AboutMe() {
                         ></path>
                       </svg>
                       contact@bkosinski.dev
-                    </div>
+                    </a>
                     <a
                       href="https://www.linkedin.com/in/bart%C5%82omiej-kosi%C5%84ski-9141051b9/"
                       className="flex items-center gap-2 hover:underline"
