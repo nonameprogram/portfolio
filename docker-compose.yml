@@ -5,9 +5,6 @@ services:
       dockerfile: ./Dockerfile
     container_name: web
     restart: on-failure
-    depends_on:
-      - mysql
-      - api
     networks:
       - local
 
