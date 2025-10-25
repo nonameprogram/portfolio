@@ -1,0 +1,24 @@
+services:
+  web:
+    build:
+      context: .
+      dockerfile: ./Dockerfile
+    container_name: web
+    restart: on-failure
+    depends_on:
+      - mysql
+      - api
+    networks:
+      - local
+
+  caddy:
+    image: caddy:latest
+    container_name: caddy
+    restart: on-failure
+    networks:
+      - local
+
+networks:
+  local:
+    name: local-network
+    driver: bridge

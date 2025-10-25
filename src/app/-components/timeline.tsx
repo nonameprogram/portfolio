@@ -14,7 +14,7 @@ const TimelineEntry = ({
   icon?: React.ReactNode;
 }) => (
   <li className="group [&:not(:last-child)]:mb-10 ms-10 last-child:mb-0">
-    <span className="absolute flex items-center justify-center w-8 h-8  rounded-full -start-4 bg-neutral-300 ring-8 ring-background">
+    <span className="absolute flex items-center justify-center w-8 h-8  rounded-full -start-4 bg-neutral-300 ring-8 ring-neutral-900">
       {!icon ? (
         <svg
           className="w-2.5 h-2.5 text-neutral-900"
@@ -46,9 +46,9 @@ const TimelineSubtitle = ({ children }: { children: React.ReactNode }) => (
 );
 
 const TimelineContent = ({ children }: { children: React.ReactNode }) => (
-  <p className="mb-4 text-sm font-normal text-neutral-300 group-last:mb-0">
+  <div className="mb-4 text-base font-normal text-neutral-300 group-last:mb-0">
     {children}
-  </p>
+  </div>
 );
 
 export {
