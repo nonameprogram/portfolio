@@ -29,3 +29,6 @@ networks:
   local:
     name: local-network
     driver: bridge
+volumes:
+  caddy_data:
+  caddy_config:
