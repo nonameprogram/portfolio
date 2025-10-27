@@ -42,7 +42,7 @@ export default function AboutMe() {
                       solutions.
                     </div>
                     <div className="inter-400 text-lg">
-                      The part I enjoy most is building{" "}
+                      The part I enjoy the most is building{" "}
                       <span className="underline">tools</span> that help other
                       developers — making their work faster, easier, and more
                       enjoyable. I love finding ways to streamline workflows,
@@ -50,7 +50,7 @@ export default function AboutMe() {
                       architecture.
                     </div>
                     <div className="inter-400 text-lg">
-                      Amid all of this, I always find opportunities to explore
+                      Amidst all of this, I always find opportunities to explore
                       new technologies — each one feels like an{" "}
                       <span className="underline">adventure</span> that fuels my
                       curiosity and drives me to learn and understand things on
@@ -117,9 +117,10 @@ export default function AboutMe() {
                               compliance with business requirements.
                             </div>
                             <div className="text-neutral-300">
-                              - Created and maintained comprehensive technical
-                              documentation for internal systems, improving
-                              onboarding and knowledge sharing across the team.
+                              - Responsible for creating and maintaining
+                              comprehensive technical documentation for internal
+                              systems to improve onboarding and team knowledge
+                              sharing.
                             </div>
                             <div className="flex mt-4 gap-2 text-sm flex-wrap">
                               {[
@@ -172,7 +173,7 @@ export default function AboutMe() {
                               for online learning and examing).
                             </div>
                             <div className="flex mt-4 gap-2 text-sm flex-wrap">
-                              {["JavaScript", "PHP", "MySQL"]
+                              {["JavaScript", "PHP", "MySQL", "WebSockets"]
                                 .sort()
                                 .map((tech, index) => (
                                   <Pill key={index} text={tech} />
@@ -231,9 +232,10 @@ export default function AboutMe() {
                         client and server, I discovered that the provided SDK
                         lacked proper type definitions, and calling unsubscribe
                         in one place stopped listeners from receiving updates in
-                        other parts of the application. To address this, I
-                        created a more type-safe abstraction and only triggers
-                        unsubscribe when the final listener has been removed.
+                        other parts of the application. To solve this, I
+                        implemented a type-safe abstraction that manages
+                        listener lifecycles, ensuring unsubscribe is called only
+                        when no listeners remain.
                       </div>
                     </div>
                   </div>
@@ -276,7 +278,6 @@ export default function AboutMe() {
                           "Kafka",
                           "ClickHouse",
                           "PostgreSQL",
-                          "HyperDX",
                         ]
                           .sort()
                           .map((tech, index) => (
