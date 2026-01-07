@@ -8,14 +8,14 @@ services:
     networks:
       - portfolio
 
-  caddy:
+  web-caddy:
     image: caddy:latest
-    container_name: caddy
+    container_name: web-caddy
     restart: on-failure
     volumes:
-      - ./Caddyfile:/etc/caddy/Caddyfile
-      - caddy_data:/data
-      - caddy_config:/config
+      - ./Caddyfile:/etc/caddy/portfolio/Caddyfile
+      - pf_caddy_data:/data
+      - pf_caddy_config:/config
     ports:
       - "80:80"
       - "443:443"
@@ -27,5 +27,5 @@ networks:
     name: portfolio-network
     driver: bridge
 volumes:
-  caddy_data:
-  caddy_config:
+  pf_caddy_data:
+  pf_caddy_config:
