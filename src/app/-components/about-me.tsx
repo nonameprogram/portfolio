@@ -105,32 +105,32 @@ export default function AboutMe() {
                           </TimelineSubtitle>
                           <TimelineContent>
                             <div className="text-neutral-300 mt-4">
-                              Designing and implementing modular architecture
+                              - Designing and implementing modular architecture
                               for on-premise applications, with a focus on the
                               ERP and MES ecosystem
                             </div>
                             <div className="text-neutral-300">
-                              Architecting and implementing backend solutions in
-                              PHP and Node.js, with responsibility for database
-                              schema design, data integrity, long-term
+                              - Architecting and implementing backend solutions
+                              in PHP and Node.js, with responsibility for
+                              database schema design, data integrity, long-term
                               maintainability, and event-driven architectures
                             </div>
                             <div className="text-neutral-300">
-                              Maintaining and developing existing systems,
+                              - Maintaining and developing existing systems,
                               ensuring their uninterrupted functionality and
                               compliance with business requirements
                             </div>
                             <div className="text-neutral-300">
-                              Collaborating with clients to understand and meet
-                              their requirements
+                              - Collaborating with clients to understand and
+                              meet their requirements
                             </div>
                             <div className="text-neutral-300">
-                              Creating and maintaining comprehensive technical
+                              - Creating and maintaining comprehensive technical
                               documentation for internal systems to improve
                               onboarding and team knowledge sharing
                             </div>
                             <div className="text-neutral-300">
-                              Integrating external systems and devices
+                              - Integrating external systems and devices
                             </div>
                             <div className="flex mt-4 gap-2 text-sm flex-wrap">
                               {[
