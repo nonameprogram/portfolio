@@ -6,7 +6,7 @@ services:
     container_name: web
     restart: on-failure
     networks:
-      - portfolio
+      - local
 
   caddy:
     image: caddy:latest
@@ -20,11 +20,11 @@ services:
       - "80:80"
       - "443:443"
     networks:
-      - portfolio
+      - local
 
 networks:
-  portfolio:
-    name: portfolio-network
+  local:
+    name: local-network
     driver: bridge
 volumes:
   caddy_data:
