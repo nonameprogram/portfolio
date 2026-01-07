@@ -1,9 +1,9 @@
 services:
-  web-portfolio:
+  web:
     build:
       context: .
       dockerfile: ./Dockerfile
-    container_name: web-portfolio
+    container_name: web
     restart: on-failure
     networks:
       - portfolio
