@@ -1,3 +1,3 @@
 bkosinski.dev {
-    reverse_proxy web:3000
+    reverse_proxy web-portfolio:3000
 }
