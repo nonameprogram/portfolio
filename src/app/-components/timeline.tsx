@@ -14,7 +14,7 @@ const TimelineEntry = ({
   icon?: React.ReactNode;
 }) => (
   <li className="group [&:not(:last-child)]:mb-10 ms-10 last-child:mb-0">
-    <span className="absolute flex items-center justify-center w-8 h-8  rounded-full -start-4 bg-neutral-300 ring-8 ring-neutral-900">
+    <span className="absolute flex items-center justify-center w-8 h-8  rounded-full -start-4 bg-neutral-300 ring-8 ring-neutral-950">
       {!icon ? (
         <svg
           className="w-2.5 h-2.5 text-neutral-900"

@@ -10,19 +10,92 @@ import {
   TimelineTitle,
 } from "@/app/-components/timeline";
 import { scrollToSectionHandler } from "@/app/-utils/scroll-to-section-handler";
+import Image from "next/image";
+import logo from "./shipment-tracking-diagram.svg";
+import img2 from "../-assets/img.png";
+import appImg1 from "../-assets/app/app1.png";
+import appImg2 from "../-assets/app/app2.png";
+import appImg3 from "../-assets/app/app3.png";
+import { BrainIcon, ImageIcon } from "lucide-react";
+import Zoom from "react-medium-image-zoom";
+import "react-medium-image-zoom/dist/styles.css";
+import {
+  SiNodered,
+  SiNoderedHex,
+  SiReact,
+  SiReactHex,
+  SiRedux,
+  SiReduxHex,
+  SiLaravel,
+  SiLaravelHex,
+  SiNestjs,
+  SiNestjsHex,
+  SiNextdotjs,
+  SiNextdotjsHex,
+  SiExpress,
+  SiExpressHex,
+  SiNodedotjs,
+  SiNodedotjsHex,
+  SiVite,
+  SiViteHex,
+  SiRedis,
+  SiRedisHex,
+  SiMysql,
+  SiMysqlHex,
+  SiPostgresql,
+  SiPostgresqlHex,
+  SiMongodb,
+  SiMongodbHex,
+  SiDocker,
+  SiDockerHex,
+  SiGithubactions,
+  SiGithubactionsHex,
+  SiVitest,
+  SiVitestHex,
+  SiTestinglibrary,
+  SiTestinglibraryHex,
+  SiJest,
+  SiJestHex,
+  SiStorybook,
+  SiStorybookHex,
+  SiNextra,
+  SiNextraHex,
+  SiTailwindcss,
+  SiTailwindcssHex,
+  SiDrizzle,
+  SiDrizzleHex,
+  SiPrisma,
+  SiPrismaHex,
+  SiTurborepo,
+  SiTurborepoHex,
+  SiNx,
+  SiNxHex,
+  SiFastify,
+  SiFastifyHex,
+} from "@icons-pack/react-simple-icons";
 
-const Pill = ({ text }: { text: string }) => (
-  <div className="bg-neutral-800 py-1 px-3 lora-400 hover:bg-neutral-300 hover:text-black transition-colors duration-300">
-    {text}
+const Pill = ({
+  text,
+}: {
+  text: string | { icon: React.ReactNode; label: string };
+}) => (
+  <div className="bg-neutral-900 py-1 px-3 inter-400 hover:bg-neutral-800  transition-colors duration-300">
+    {typeof text === "string" ? (
+      text
+    ) : (
+      <div className="flex items-center gap-2">
+        {text.icon} {text.label}
+      </div>
+    )}
   </div>
 );
 
 export default function AboutMe() {
   return (
-    <div className="relative flex flex-col bg-neutral-900 rounded-t-4xl">
-      <div className="container mx-auto px-12 pb-24 flex flex-col gap-16 relative grow">
+    <div className="relative flex flex-col bg-secondary-bg rounded-t-4xl">
+      <div className="container mx-auto px-12 pb-24 flex flex-col gap-16 relative grow !max-w-7xl">
         <div className="flex gap-x-4 relative">
-          <div className="grid grid-cols-3 gap-24 relative">
+          <div className="grid grid-cols-1 gap-24 relative">
             <div className="col-span-3 xl:col-span-2">
               <div className="space-y-16">
                 <motion.div
@@ -33,28 +106,38 @@ export default function AboutMe() {
                   viewport={{ once: true }}
                   transition={{ duration: 1 }}
                 >
-                  <div className="lora-400 text-4xl">01 / About Me</div>
+                  <div className="lora-400 text-4xl text-center inline-flex gap-x-2 justify-center">
+                    <div>01</div>
+                    <div>/</div>
+                    <div className="whitespace-nowrap text-transparent bg-clip-text bg-linear-to-br from-violet-100 to-violet-300">
+                      About Me
+                    </div>
+                  </div>
                   <div className="flex flex-col gap-y-8">
                     <div className="inter-400 text-lg">
                       I’m a{" "}
-                      <span className="underline">Software Developer</span>{" "}
+                      <span className="underline decoration-dotted">
+                        Software Developer
+                      </span>{" "}
                       driven by a passion for creating secure, high-performance
                       solutions.
                     </div>
                     <div className="inter-400 text-lg">
                       The part I enjoy the most is building{" "}
-                      <span className="underline">tools</span> that help other
-                      developers — making their work faster, easier, and more
-                      enjoyable. I love finding ways to streamline workflows,
-                      create reusable components, and improve overall
-                      architecture.
+                      <span className="underline decoration-dotted">tools</span>{" "}
+                      that help other developers — making their work faster,
+                      easier, and more enjoyable. I love finding ways to
+                      streamline workflows, create reusable components, and
+                      improve overall architecture.
                     </div>
                     <div className="inter-400 text-lg">
-                      Amidst all of this, I always find opportunities to explore
-                      new technologies — each one feels like an{" "}
-                      <span className="underline">adventure</span> that fuels my
-                      curiosity and drives me to learn and understand things on
-                      a deeper level.
+                      I always find opportunities to explore new technologies —
+                      each one feels like an{" "}
+                      <span className="underline decoration-dotted">
+                        adventure
+                      </span>{" "}
+                      that fuels my curiosity and drives me to learn and
+                      understand things on a deeper level.
                     </div>
 
                     <div className="inter-400 text-lg">
@@ -64,7 +147,421 @@ export default function AboutMe() {
                   </div>
                 </motion.div>
               </div>
-              <div className="h-px bg-neutral-800 w-full" />
+              <div className="h-px bg-neutral-900 w-full" />
+              <div className="space-y-16">
+                <motion.div
+                  className="flex flex-col gap-16 py-16"
+                  initial={{ opacity: 0, y: 30 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  viewport={{ once: true }}
+                  transition={{ duration: 1 }}
+                  id="techstack"
+                >
+                  <div className="lora-400 text-4xl text-center inline-flex gap-x-2 justify-center">
+                    <div>02</div>
+                    <div>/</div>
+                    <div className="whitespace-nowrap text-transparent bg-clip-text bg-linear-to-br from-violet-100 to-violet-300">
+                      TechStack
+                    </div>
+                  </div>
+                  <div className="text-center">
+                    The tools and technologies I use to design, deploy, and
+                    operate infrastructure at work.
+                  </div>
+                  <div className="grid grid-cols-3 gap-8">
+                    <div className="pr-4 pt-4 w-full h-full">
+                      <div className="relative w-full h-full">
+                        <div className="absolute -top-4 -right-4 bg-neutral-900 w-full h-full" />
+                        <div className="border border-neutral-700 bg-secondary-bg p-4 z-10 relative  w-full h-full">
+                          <div className="text-sm inter-500">Frontend</div>
+                          <div className="flex flex-wrap gap-2 text-sm mt-4">
+                            {[
+                              {
+                                icon: (
+                                  <SiVite
+                                    color={SiViteHex}
+                                    className="size-3 !text-white !fill-violet-300"
+                                  />
+                                ),
+                                label: "Vite",
+                              },
+                              {
+                                icon: (
+                                  <SiReact
+                                    color={SiReactHex}
+                                    className="size-3 !text-white !fill-violet-300"
+                                  />
+                                ),
+                                label: "React",
+                              },
+                              "TanStack Start",
+                              {
+                                icon: (
+                                  <SiNextdotjs
+                                    color={SiNextdotjsHex}
+                                    className="size-3 !text-white !fill-violet-300"
+                                  />
+                                ),
+                                label: "Next.js",
+                              },
+                              {
+                                icon: (
+                                  <SiRedux
+                                    color={SiReduxHex}
+                                    className="size-3 !text-white !fill-violet-300"
+                                  />
+                                ),
+                                label: "Redux Toolkit",
+                              },
+                              {
+                                icon: (
+                                  <SiTurborepo
+                                    color={SiTurborepoHex}
+                                    className="size-3 !text-white !fill-violet-300"
+                                  />
+                                ),
+                                label: "Turborepo",
+                              },
+                              {
+                                icon: (
+                                  <SiNx
+                                    color={SiNxHex}
+                                    className="size-3 !text-white !fill-violet-300"
+                                  />
+                                ),
+                                label: "Nx",
+                              },
+                              "Zustand",
+                            ].map((tech, index) => (
+                              <Pill key={index} text={tech} />
+                            ))}
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                    <div className="pr-4 pt-4 w-full h-full">
+                      <div className="relative w-full h-full">
+                        <div className="absolute -top-4 -right-4 bg-neutral-900 w-full h-full" />
+                        <div className="border border-neutral-700 bg-secondary-bg p-4 z-10 relative  w-full h-full">
+                          <div className="text-sm inter-500">UI / Styling</div>
+                          <div className="flex flex-wrap gap-2 text-sm mt-4">
+                            {[
+                              {
+                                icon: (
+                                  <svg
+                                    role="img"
+                                    viewBox="0 0 24 24"
+                                    xmlns="http://www.w3.org/2000/svg"
+                                    className="size-3 fill-[white]"
+                                  >
+                                    <title>Sass</title>
+                                    <path d="M12 0c6.627 0 12 5.373 12 12s-5.373 12-12 12S0 18.627 0 12 5.373 0 12 0zM9.615 15.998c.175.645.156 1.248-.024 1.792l-.065.18c-.024.061-.052.12-.078.176-.14.29-.326.56-.555.81-.698.759-1.672 1.047-2.09.805-.45-.262-.226-1.335.584-2.19.871-.918 2.12-1.509 2.12-1.509v-.003l.108-.061zm9.911-10.861c-.542-2.133-4.077-2.834-7.422-1.645-1.989.707-4.144 1.818-5.693 3.267C4.568 8.48 4.275 9.98 4.396 10.607c.427 2.211 3.457 3.657 4.703 4.73v.006c-.367.18-3.056 1.529-3.686 2.925-.675 1.47.105 2.521.615 2.655 1.575.436 3.195-.36 4.065-1.649.84-1.261.766-2.881.404-3.676.496-.135 1.08-.195 1.83-.104 2.101.24 2.521 1.56 2.43 2.1-.09.539-.523.854-.674.944-.15.091-.195.12-.181.181.015.09.091.09.21.075.165-.03 1.096-.45 1.141-1.471.045-1.29-1.186-2.729-3.375-2.7-.9.016-1.471.091-1.875.256-.03-.045-.061-.075-.105-.105-1.35-1.455-3.855-2.475-3.75-4.41.03-.705.285-2.564 4.8-4.814 3.705-1.846 6.661-1.335 7.171-.21.733 1.604-1.576 4.59-5.431 5.024-1.47.165-2.235-.404-2.431-.615-.209-.225-.239-.24-.314-.194-.12.06-.045.255 0 .375.12.3.585.825 1.396 1.095.704.225 2.43.359 4.5-.45 2.324-.899 4.139-3.405 3.614-5.505l.073.067z" />
+                                  </svg>
+                                ),
+                                label: "Saas",
+                              },
+                              {
+                                icon: (
+                                  <SiTailwindcss
+                                    color={SiTailwindcssHex}
+                                    className="size-3 !text-white !fill-violet-300"
+                                  />
+                                ),
+                                label: "TailwindCSS",
+                              },
+                              "Framer Motion",
+                            ].map((tech, index) => (
+                              <Pill key={index} text={tech} />
+                            ))}
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                    <div className="pr-4 pt-4 w-full h-full">
+                      <div className="relative w-full h-full">
+                        <div className="absolute -top-4 -right-4 bg-neutral-900 w-full h-full" />
+                        <div className="border border-neutral-700 bg-secondary-bg p-4 z-10 relative  w-full h-full">
+                          <div className="text-sm inter-500">
+                            Form / Validation
+                          </div>
+                          <div className="flex flex-wrap gap-2 text-sm mt-4">
+                            {[
+                              "TanStack Form",
+                              "React Hook Form",
+                              "Formik",
+                              "Zod",
+                              "ArkType",
+                              "Yup",
+                            ].map((tech, index) => (
+                              <Pill key={index} text={tech} />
+                            ))}
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                    {/*<div className="border border-neutral-700 shadow-md shadow-violet-900/50 p-4">*/}
+                    {/*  <div className="text-sm inter-500">Form / Validation</div>*/}
+                    {/*  <div className="flex flex-wrap gap-2 text-sm mt-4">*/}
+                    {/*    {[*/}
+                    {/*      "TanStack Form",*/}
+                    {/*      "React Hook Form",*/}
+                    {/*      "Formik",*/}
+                    {/*      "Zod",*/}
+                    {/*      "ArkType",*/}
+                    {/*      "Yup",*/}
+                    {/*    ].map((tech, index) => (*/}
+                    {/*      <Pill key={index} text={tech} />*/}
+                    {/*    ))}*/}
+                    {/*  </div>*/}
+                    {/*</div>*/}
+                    <div className="pr-4 pt-4 w-full h-full">
+                      <div className="relative w-full h-full">
+                        <div className="absolute -top-4 -right-4 bg-neutral-900 w-full h-full" />
+                        <div className="border border-neutral-700 bg-secondary-bg p-4 z-10 relative  w-full h-full">
+                          <div className="text-sm inter-500">Backend</div>
+                          <div className="flex flex-wrap gap-2 text-sm mt-4">
+                            {[
+                              {
+                                icon: (
+                                  <SiNodedotjs
+                                    color={SiNodedotjsHex}
+                                    className="size-3 !text-white !fill-violet-300"
+                                  />
+                                ),
+                                label: "Node.js",
+                              },
+                              {
+                                icon: (
+                                  <SiExpress
+                                    color={SiExpressHex}
+                                    className="size-3 !text-white !fill-violet-300"
+                                  />
+                                ),
+                                label: "Express",
+                              },
+                              {
+                                icon: (
+                                  <SiNestjs
+                                    color={SiNestjsHex}
+                                    className="size-3 !text-white !fill-violet-300"
+                                  />
+                                ),
+                                label: "NestJS",
+                              },
+                              {
+                                icon: (
+                                  <SiFastify
+                                    color={SiFastifyHex}
+                                    className="size-3 !text-white !fill-violet-300"
+                                  />
+                                ),
+                                label: "Fastify",
+                              },
+                              {
+                                icon: (
+                                  <SiNodered
+                                    color={SiNoderedHex}
+                                    className="size-3 !text-white !fill-violet-300"
+                                  />
+                                ),
+                                label: "Node-RED",
+                              },
+                              {
+                                icon: (
+                                  <SiLaravel
+                                    color={SiLaravelHex}
+                                    className="size-3 !text-white !fill-violet-300"
+                                  />
+                                ),
+                                label: "Laravel",
+                              },
+                            ].map((tech, index) => (
+                              <Pill key={index} text={tech} />
+                            ))}
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                    <div className="pr-4 pt-4 w-full h-full">
+                      <div className="relative w-full h-full">
+                        <div className="absolute -top-4 -right-4 bg-neutral-900 w-full h-full" />
+                        <div className="border border-neutral-700 bg-secondary-bg p-4 z-10 relative  w-full h-full">
+                          <div className="text-sm inter-500">
+                            Testing / Documentation
+                          </div>
+                          <div className="flex flex-wrap gap-2 text-sm mt-4">
+                            {[
+                              {
+                                icon: (
+                                  <SiJest
+                                    color={SiJestHex}
+                                    className="size-3 !text-white !fill-violet-300"
+                                  />
+                                ),
+                                label: "Jest",
+                              },
+                              {
+                                icon: (
+                                  <SiVitest
+                                    color={SiVitestHex}
+                                    className="size-3 !text-white !fill-violet-300"
+                                  />
+                                ),
+                                label: "Vitest",
+                              },
+                              {
+                                icon: (
+                                  <SiTestinglibrary
+                                    color={SiTestinglibraryHex}
+                                    className="size-3 !text-white !fill-violet-300"
+                                  />
+                                ),
+                                label: "React Testing Library",
+                              },
+                              "Playwright",
+                              "PHPUnit",
+                              {
+                                icon: (
+                                  <SiNextra
+                                    color={SiNextraHex}
+                                    className="size-3 !text-white !fill-violet-300"
+                                  />
+                                ),
+                                label: "Nextra",
+                              },
+                              {
+                                icon: (
+                                  <SiStorybook
+                                    color={SiStorybookHex}
+                                    className="size-3 !text-white !fill-violet-300"
+                                  />
+                                ),
+                                label: "Storybook",
+                              },
+                            ].map((tech, index) => (
+                              <Pill key={index} text={tech} />
+                            ))}
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                    <div className="pr-4 pt-4 w-full h-full">
+                      <div className="relative w-full h-full">
+                        <div className="absolute -top-4 -right-4 bg-neutral-900 w-full h-full" />
+                        <div className="border border-neutral-700 bg-secondary-bg p-4 z-10 relative  w-full h-full">
+                          <div className="text-sm inter-500">
+                            Databases / ORM
+                          </div>
+                          <div className="flex flex-wrap gap-2 text-sm mt-4">
+                            {[
+                              {
+                                icon: (
+                                  <SiMysql
+                                    color={SiMysqlHex}
+                                    className="size-3 !text-white !fill-violet-300"
+                                  />
+                                ),
+                                label: "MySQL",
+                              },
+                              {
+                                icon: (
+                                  <SiPostgresql
+                                    color={SiPostgresqlHex}
+                                    className="size-3 !text-white !fill-violet-300"
+                                  />
+                                ),
+                                label: "PostgreSQL",
+                              },
+                              {
+                                icon: (
+                                  <SiMongodb
+                                    color={SiMongodbHex}
+                                    className="size-3 !text-white !fill-violet-300"
+                                  />
+                                ),
+                                label: "MongoDB",
+                              },
+                              {
+                                icon: (
+                                  <SiRedis
+                                    color={SiRedisHex}
+                                    className="size-3 !text-white !fill-violet-300"
+                                  />
+                                ),
+                                label: "Redis",
+                              },
+                              {
+                                icon: (
+                                  <SiDrizzle
+                                    color={SiDrizzleHex}
+                                    className="size-3 !text-white !fill-violet-300"
+                                  />
+                                ),
+                                label: "Drizzle",
+                              },
+                              {
+                                icon: (
+                                  <SiPrisma
+                                    color={SiPrismaHex}
+                                    className="size-3 !text-white !fill-violet-300"
+                                  />
+                                ),
+                                label: "Prisma",
+                              },
+                              {
+                                icon: (
+                                  <SiLaravel
+                                    color={SiLaravelHex}
+                                    className="size-3 !text-white !fill-violet-300"
+                                  />
+                                ),
+                                label: "Eloquent",
+                              },
+                            ].map((tech, index) => (
+                              <Pill key={index} text={tech} />
+                            ))}
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                    <div className="pr-4 pt-4 w-full h-full">
+                      <div className="relative w-full h-full">
+                        <div className="absolute -top-4 -right-4 bg-neutral-900 w-full h-full" />
+                        <div className="border border-neutral-700 bg-secondary-bg p-4 z-10 relative  w-full h-full">
+                          <div className="text-sm inter-500">
+                            Containers & CI/CD
+                          </div>
+                          <div className="flex flex-wrap gap-2 text-sm mt-4">
+                            {[
+                              {
+                                icon: (
+                                  <SiDocker
+                                    color={SiDockerHex}
+                                    className="size-3 !text-white !fill-violet-300"
+                                  />
+                                ),
+                                label: "Docker",
+                              },
+                              {
+                                icon: (
+                                  <SiGithubactions
+                                    color={SiGithubactionsHex}
+                                    className="size-3 !text-white !fill-violet-300"
+                                  />
+                                ),
+                                label: "Github Actions",
+                              },
+                            ].map((tech, index) => (
+                              <Pill key={index} text={tech} />
+                            ))}
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </motion.div>
+              </div>
+              <div className="h-px bg-neutral-900 w-full" />
               <div className="space-y-16">
                 <motion.div
                   className="flex flex-col gap-16 py-16"
@@ -74,7 +571,13 @@ export default function AboutMe() {
                   transition={{ duration: 1 }}
                   id="experience"
                 >
-                  <div className="lora-400 text-4xl">02 / Experience</div>
+                  <div className="lora-400 text-4xl text-center inline-flex gap-x-2 justify-center">
+                    <div>03</div>
+                    <div>/</div>
+                    <div className="whitespace-nowrap text-transparent bg-clip-text bg-linear-to-br from-violet-100 to-violet-300">
+                      Experience
+                    </div>
+                  </div>
                   <div className="flex flex-col gap-y-8">
                     <div className="inter-400">
                       <Timeline>
@@ -101,36 +604,29 @@ export default function AboutMe() {
                             Full-Stack Developer, Frontend Lead
                           </TimelineTitle>
                           <TimelineSubtitle>
-                            Link-Point, 01.2022 - Present
+                            Link-Point, Jan 2022 - Present
                           </TimelineSubtitle>
                           <TimelineContent>
                             <div className="text-neutral-300 mt-4">
-                              - Designing and implementing modular architecture
-                              for on-premise applications, with a focus on the
-                              ERP and MES ecosystem
+                              - Designed and implemented modular architectures
+                              for on-premise ERP and MES systems
                             </div>
                             <div className="text-neutral-300">
-                              - Architecting and implementing backend solutions
-                              in PHP and Node.js, with responsibility for
-                              database schema design, data integrity, long-term
-                              maintainability, and event-driven architectures
+                              - Developed and maintained backend services in PHP
+                              and Node.js (databases, data integrity,
+                              event-driven architecture)
                             </div>
                             <div className="text-neutral-300">
-                              - Maintaining and developing existing systems,
-                              ensuring their uninterrupted functionality and
-                              compliance with business requirements
+                              - Maintained and evolved existing systems to meet
+                              business and reliability requirements
                             </div>
                             <div className="text-neutral-300">
-                              - Collaborating with clients to understand and
-                              meet their requirements
+                              - Integrated external systems and devices,
+                              collaborated directly with clients
                             </div>
                             <div className="text-neutral-300">
-                              - Creating and maintaining comprehensive technical
-                              documentation for internal systems to improve
-                              onboarding and team knowledge sharing
-                            </div>
-                            <div className="text-neutral-300">
-                              - Integrating external systems and devices
+                              - Created and maintained internal technical
+                              documentation
                             </div>
                             <div className="flex mt-4 gap-2 text-sm flex-wrap">
                               {[
@@ -141,7 +637,6 @@ export default function AboutMe() {
                                 "Node.js",
                                 "Redis",
                                 "MySQL",
-                                "MDX",
                                 "Docker",
                                 "PHPUnit",
                                 "Vitest",
@@ -205,7 +700,7 @@ export default function AboutMe() {
                   </div>
                 </motion.div>
               </div>
-              <div className="h-px bg-neutral-800 w-full" />
+              <div className="h-px bg-neutral-900 w-full" />
               <div className="space-y-16">
                 <motion.div
                   className="flex flex-col gap-16 py-16"
@@ -213,9 +708,15 @@ export default function AboutMe() {
                   whileInView={{ opacity: 1, y: 0 }}
                   viewport={{ once: true }}
                   transition={{ duration: 1 }}
-                  id="projects"
+                  id="experience"
                 >
-                  <div className="lora-400 text-4xl">03 / Projects</div>
+                  <div className="lora-400 text-4xl text-center inline-flex gap-x-2 justify-center">
+                    <div>04</div>
+                    <div>/</div>
+                    <div className="whitespace-nowrap text-transparent bg-clip-text bg-linear-to-br from-violet-100 to-violet-300">
+                      Projects
+                    </div>
+                  </div>
                   <div className="flex flex-col gap-y-8">
                     <div className="lora-400">
                       <div className="flex flex-col gap-2 sm:flex-row justify-between">
@@ -291,41 +792,68 @@ export default function AboutMe() {
                           ))}
                       </div>
                       <div className="mt-6 inter-400">
-                        While implementing real-time communication between the
-                        client and server, I discovered that the provided SDK
-                        lacked proper type definitions, and calling unsubscribe
-                        in one place stopped listeners from receiving updates in
-                        other parts of the application. To solve this, I
-                        implemented a type-safe abstraction that manages
-                        listener lifecycles, ensuring unsubscribe is called only
-                        when no listeners remain.
+                        The project addresses limitations of the official app,
+                        which provides only vague shipment statuses. Using
+                        Poland Post's public SOAP API, it automates tracking and
+                        sends email notifications for updates.
                       </div>
                     </div>
                   </div>
+                  <div className="h-px bg-neutral-900 w-1/2" />
                   <div className="flex flex-col gap-y-8">
                     <div className="lora-400">
                       <div className="text-2xl">Shipment Tracking</div>
                       <div className="mt-2 flex gap-2 text-sm flex-wrap">
-                        {["TypeScript", "NestJS", "SOAP", "React"]
+                        {[
+                          "TypeScript",
+                          "NestJS",
+                          "TanStack Start",
+                          "SOAP",
+                          "React",
+                        ]
                           .sort()
                           .map((tech, index) => (
                             <Pill key={index} text={tech} />
                           ))}
                       </div>
                       <div className="inter-400 mt-6">
-                        When ordering packages from abroad, I often faced
-                        situations where the courier couldn’t reach me or I
-                        didn’t have enough cash on hand. I didn’t want to
-                        manually check the shipment status every day, and the
-                        official app provided only three vague statuses — with
-                        the last one always being “in transit.” <br />
-                        <br />
-                        Using the public SOAP API provided by the Poland Post, I
-                        automated the entire shipment tracking process and added
-                        email notifications for status updates.
+                        Vague shipment statuses from the official app are
+                        resolved by automating tracking via Poland Post's public
+                        SOAP API, with email notifications for each update.
+                      </div>
+                      <div className="flex flex-wrap mt-4 gap-4">
+                        <div className="p-1 border-2 border-neutral-700 rounded-md relative overflow-hidden group hover:border-neutral-300 transition-colors duration-300">
+                          <Zoom>
+                            <div className="relative h-20">
+                              <Image
+                                src={logo}
+                                className="opacity-50 object-fill h-full w-full"
+                                alt="process-diagram"
+                              />
+                            </div>
+                            <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 pointer-events-none opacity-50 group-hover:opacity-100 transition-opacity duration-300">
+                              <ImageIcon />
+                            </div>
+                          </Zoom>
+                        </div>
+                        <div className="p-1 border-2 border-neutral-700 rounded-md relative overflow-hidden group hover:border-neutral-300 transition-colors duration-300">
+                          <Zoom>
+                            <div className="relative h-20">
+                              <Image
+                                src={img2}
+                                className="opacity-50 object-fill h-full w-full"
+                                alt="app"
+                              />
+                            </div>
+                            <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 pointer-events-none opacity-50 group-hover:opacity-100 transition-opacity duration-300">
+                              <ImageIcon />
+                            </div>
+                          </Zoom>
+                        </div>
                       </div>
                     </div>
                   </div>
+                  <div className="h-px bg-neutral-900 w-1/2" />
                   <div className="flex flex-col gap-y-8">
                     <div className="lora-400">
                       <div className="text-2xl">Book Collections</div>
@@ -341,6 +869,9 @@ export default function AboutMe() {
                           "Kafka",
                           "ClickHouse",
                           "PostgreSQL",
+                          "Docker",
+                          "TanStack Start",
+                          "ArkType",
                         ]
                           .sort()
                           .map((tech, index) => (
@@ -348,18 +879,61 @@ export default function AboutMe() {
                           ))}
                       </div>
                       <div className="inter-400 mt-6">
-                        Frustrated by duplicate book orders and missing entries
-                        in platforms like Goodreads (especially for books in
-                        non-English languages), I am developing a personal
-                        library management system. This will allow me to track
-                        my entire collection, including multilingual titles, and
-                        efficiently manage my reading history.
+                        To address duplicate book orders and incomplete entries
+                        on platforms like Goodreads, a personal library
+                        management system tracks the entire collection,
+                        including multilingual titles, and efficiently manages
+                        reading history.
+                      </div>
+                      <div className="flex flex-wrap mt-4 gap-4">
+                        <div className="p-1 border-2 border-neutral-700 rounded-md relative overflow-hidden group hover:border-neutral-300 transition-colors duration-300">
+                          <Zoom>
+                            <div className="relative h-20">
+                              <Image
+                                src={appImg2}
+                                className="opacity-50 object-fill h-full w-full"
+                                alt="process-diagram"
+                              />
+                            </div>
+                            <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 pointer-events-none opacity-50 group-hover:opacity-100 transition-opacity duration-300">
+                              <ImageIcon />
+                            </div>
+                          </Zoom>
+                        </div>
+                        <div className="p-1 border-2 border-neutral-700 rounded-md relative overflow-hidden group hover:border-neutral-300 transition-colors duration-300">
+                          <Zoom>
+                            <div className="relative h-20">
+                              <Image
+                                src={appImg1}
+                                className="opacity-50 object-fill h-full w-full"
+                                alt="app"
+                              />
+                            </div>
+                            <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 pointer-events-none opacity-50 group-hover:opacity-100 transition-opacity duration-300">
+                              <ImageIcon />
+                            </div>
+                          </Zoom>
+                        </div>
+                        <div className="p-1 border-2 border-neutral-700 rounded-md relative overflow-hidden group hover:border-neutral-300 transition-colors duration-300">
+                          <Zoom>
+                            <div className="relative h-20">
+                              <Image
+                                src={appImg3}
+                                className="opacity-50 object-fill h-full w-full"
+                                alt="app"
+                              />
+                            </div>
+                            <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 pointer-events-none opacity-50 group-hover:opacity-100 transition-opacity duration-300">
+                              <ImageIcon />
+                            </div>
+                          </Zoom>
+                        </div>
                       </div>
                     </div>
                   </div>
                 </motion.div>
               </div>
-              <div className="h-px bg-neutral-800 w-full" />
+              <div className="h-px bg-neutral-900 w-full" />
               <div className="space-y-16">
                 <motion.div
                   className="flex flex-col gap-16 py-16"
@@ -369,7 +943,13 @@ export default function AboutMe() {
                   transition={{ duration: 1 }}
                   id="contact"
                 >
-                  <div className="lora-400 text-4xl">04 / Contact</div>
+                  <div className="lora-400 text-4xl text-center inline-flex gap-x-2 justify-center">
+                    <div>05</div>
+                    <div>/</div>
+                    <div className="whitespace-nowrap text-transparent bg-clip-text bg-linear-to-br from-violet-100 to-violet-300">
+                      Contact
+                    </div>
+                  </div>
                   <div className="flex flex-col gap-2">
                     <a
                       className="flex items-center gap-2 hover:underline"
@@ -454,46 +1034,6 @@ export default function AboutMe() {
                   </div>
                 </motion.div>
               </div>
-            </div>
-            <div className="hidden xl:block sticky top-0 text-neutral-300 text-lg h-max pt-24">
-              <ul className="space-y-2">
-                <li className="lora-400">
-                  <a
-                    href="#about-me"
-                    className="hover:underline"
-                    onClick={scrollToSectionHandler("about-me")}
-                  >
-                    About Me
-                  </a>
-                </li>
-                <li className="lora-400">
-                  <a
-                    href="#experience"
-                    className="hover:underline"
-                    onClick={scrollToSectionHandler("experience")}
-                  >
-                    Experience
-                  </a>
-                </li>
-                <li className="lora-400">
-                  <a
-                    href="#projects"
-                    className="hover:underline"
-                    onClick={scrollToSectionHandler("projects")}
-                  >
-                    Projects
-                  </a>
-                </li>
-                <li className="lora-400">
-                  <a
-                    href="#contact"
-                    className="hover:underline"
-                    onClick={scrollToSectionHandler("contact")}
-                  >
-                    Contact
-                  </a>
-                </li>
-              </ul>
             </div>
           </div>
         </div>
