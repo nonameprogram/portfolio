@@ -1,7 +1,7 @@
 "use client";
 
 import { motion } from "motion/react";
-import React, { useRef } from "react";
+import React from "react";
 import {
   Timeline,
   TimelineContent,
@@ -9,14 +9,13 @@ import {
   TimelineSubtitle,
   TimelineTitle,
 } from "@/app/-components/timeline";
-import { scrollToSectionHandler } from "@/app/-utils/scroll-to-section-handler";
 import Image from "next/image";
 import logo from "./shipment-tracking-diagram.svg";
 import img2 from "../-assets/img.png";
 import appImg1 from "../-assets/app/app1.png";
 import appImg2 from "../-assets/app/app2.png";
 import appImg3 from "../-assets/app/app3.png";
-import { BrainIcon, ImageIcon } from "lucide-react";
+import { ImageIcon } from "lucide-react";
 import Zoom from "react-medium-image-zoom";
 import "react-medium-image-zoom/dist/styles.css";
 import {
@@ -794,8 +793,8 @@ export default function AboutMe() {
                       <div className="mt-6 inter-400">
                         The project addresses limitations of the official app,
                         which provides only vague shipment statuses. Using
-                        Poland Post's public SOAP API, it automates tracking and
-                        sends email notifications for updates.
+                        Poland Post&apos;s public SOAP API, it automates
+                        tracking and sends email notifications for updates.
                       </div>
                     </div>
                   </div>
@@ -818,8 +817,9 @@ export default function AboutMe() {
                       </div>
                       <div className="inter-400 mt-6">
                         Vague shipment statuses from the official app are
-                        resolved by automating tracking via Poland Post's public
-                        SOAP API, with email notifications for each update.
+                        resolved by automating tracking via Poland Post&apos;s
+                        public SOAP API, with email notifications for each
+                        update.
                       </div>
                       <div className="flex flex-wrap mt-4 gap-4">
                         <div className="p-1 border-2 border-neutral-700 rounded-md relative overflow-hidden group hover:border-neutral-300 transition-colors duration-300">

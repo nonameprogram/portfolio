@@ -1,6 +1,5 @@
 "use client";
 
-import { TypingText } from "@/app/-components/typing-text";
 import { motion, useTransform } from "motion/react";
 import AboutMe from "./-components/about-me";
 import React from "react";
@@ -8,17 +7,11 @@ import { useScroll } from "motion/react";
 import {
   BrainIcon,
   BriefcaseBusinessIcon,
-  Flower2Icon,
-  FlowerIcon,
   LayersIcon,
-  LinkedinIcon,
   MailIcon,
   RocketIcon,
 } from "lucide-react";
-import { BackpackIcon } from "@radix-ui/react-icons";
 import PixelBlast from "@/app/-components/pixel-blast";
-
-const AnimatedTypingText = motion(TypingText);
 
 export default function Home() {
   const ref = React.useRef(null);
