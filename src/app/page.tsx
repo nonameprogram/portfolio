@@ -127,7 +127,7 @@ export default function Home() {
                     className="group w-full h-full min-h-64 bg-neutral-900/50 backdrop-blur-sm col-start-1 row-start-1 rounded-tl-xl p-4 hover:bg-neutral-300 hover:text-black duration-300 cursor-pointer transition-all"
                     initial={{ opacity: 0, y: -30 }}
                     animate={{ opacity: 1, y: 0 }}
-                    transition={{ delay: 0.45 }}
+                    transition={{ delay: 0.6 }}
                   >
                     <div className="flex flex-col h-full relative">
                       <div className="lora-400 text-left">01</div>
@@ -142,9 +142,9 @@ export default function Home() {
                 </button>
                 <motion.button
                   className="group w-full h-full min-h-64 bg-neutral-900/50 backdrop-blur-sm col-start-2 row-start-1 p-4 hover:bg-neutral-300 hover:text-black duration-300 cursor-pointer transition-all"
-                  initial={{ opacity: 0, x: -30 }}
-                  animate={{ opacity: 1, x: 0 }}
-                  transition={{ delay: 0.6 }}
+                  initial={{ opacity: 0, y: -30 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  transition={{ delay: 0.45 }}
                   onClick={() => {
                     const section = document.getElementById("techstack");
                     if (section) {
