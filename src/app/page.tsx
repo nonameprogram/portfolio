@@ -198,7 +198,7 @@ export default function Home() {
                   }}
                 >
                   <div className="flex flex-col h-full relative">
-                    <div className="lora-400 text-left">03</div>
+                    <div className="lora-400 text-left">04</div>
                     <div className="mt-auto lora-400 text-right">Projects</div>
                     <div className="absolute right-0 top-0 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
                       <RocketIcon strokeWidth={1} className="size-12" />
@@ -218,7 +218,7 @@ export default function Home() {
                   }}
                 >
                   <div className="flex flex-col h-full relative">
-                    <div className="lora-400 text-left">04</div>
+                    <div className="lora-400 text-left">05</div>
                     <div className="mt-auto lora-400 text-right">Contact</div>
                     <div className="absolute right-0 top-0 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
                       <MailIcon strokeWidth={1} className="size-12" />
