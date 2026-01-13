@@ -161,8 +161,8 @@ export const AboutMeSection = () => {
                 <div className="inter-400 text-sm">
                   Applying modern security standards and best practices,
                   including secure authentication flows, proper data validation,
-                  and safe API communication — without compromising performance
-                  or speed.
+                  monitoring including OpenTelemetry and safe API communication
+                  — without compromising performance or speed.
                 </div>
               </div>
             </div>
