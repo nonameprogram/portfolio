@@ -1,15 +1,13 @@
-"use client";
-
 import React from "react";
 import "react-medium-image-zoom/dist/styles.css";
 import { AboutMeSection } from "@/app/-components/sections/about-me-section";
 import { TechStackSection } from "@/app/-components/sections/tech-stack-section";
-import { ExperienceSection } from "@/app/-components/sections/experience-section";
+import { CarrierSection } from "@/app/-components/sections/carrier-section";
 import { ContactSection } from "@/app/-components/sections/contact-section";
 import { ProjectsSection } from "@/app/-components/sections/projects-section";
 import { Separator } from "@/components/separator";
 
-export default function AboutMe() {
+export default function PageContent() {
   return (
     <div className="relative flex flex-col bg-secondary-bg rounded-t-4xl">
       <div className="container mx-auto px-12 pb-24 flex flex-col gap-16 relative grow !max-w-7xl">
@@ -20,7 +18,7 @@ export default function AboutMe() {
               <Separator />
               <TechStackSection />
               <Separator />
-              <ExperienceSection />
+              <CarrierSection />
               <Separator />
               <ProjectsSection />
               <Separator />

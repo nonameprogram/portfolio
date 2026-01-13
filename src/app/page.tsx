@@ -1,7 +1,7 @@
 "use client";
 
 import { motion, useTransform } from "motion/react";
-import AboutMe from "./-components/about-me";
+import PageContent from "./-components/page-content";
 import React from "react";
 import { useScroll } from "motion/react";
 import {
@@ -11,7 +11,7 @@ import {
   MailIcon,
   RocketIcon,
 } from "lucide-react";
-import PixelBlast from "@/app/-components/pixel-blast";
+import PixelBlast from "@/components/pixel-blast";
 
 export default function Home() {
   const ref = React.useRef(null);
@@ -60,10 +60,15 @@ export default function Home() {
             <div className="grid grid-cols-1 gap-y-8 xl:grid-cols-2 justify-center h-full w-full relative">
               <div className="w-full items-center h-full flex ">
                 <div className="relative">
-                  <div className="py-2 px-3 rounded-full bg-neutral-950 flex w-max gap-2 items-center border-violet-300/30 border shadow shadow-violet-700/30">
-                    <div className="size-3 rounded-full bg-linear-to-br from-violet-200 to-violet-300" />
+                  <motion.div
+                    className="py-2 px-3 rounded-full bg-neutral-950 flex w-max gap-2 items-center border-violet-300/30 border shadow shadow-violet-700/30"
+                    initial={{ opacity: 0, y: -50 }}
+                    animate={{ opacity: 1, y: 0 }}
+                    transition={{ type: "tween" }}
+                  >
+                    <div className="size-2 rounded-full bg-linear-to-br from-violet-300 to-violet-400 animate-pulse" />
                     <span>Available for new opportunities</span>
-                  </div>
+                  </motion.div>
                   <div className="space-y-4 relative p-8 z-20 space-x-2 text-3xl xl:text-4xl lora-400">
                     <div className="space-x-2">
                       <motion.span
@@ -166,7 +171,7 @@ export default function Home() {
                   animate={{ opacity: 1, x: 0 }}
                   transition={{ delay: 0.6 }}
                   onClick={() => {
-                    const section = document.getElementById("experience");
+                    const section = document.getElementById("carrier");
                     if (section) {
                       section.scrollIntoView({ behavior: "smooth" });
                     }
@@ -174,9 +179,7 @@ export default function Home() {
                 >
                   <div className="flex flex-col h-full relative">
                     <div className="lora-400 text-left">03</div>
-                    <div className="mt-auto lora-400 text-right">
-                      Experience
-                    </div>
+                    <div className="mt-auto lora-400 text-right">Carrier</div>
                     <div className="absolute right-0 top-0 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
                       <BriefcaseBusinessIcon
                         strokeWidth={1}
@@ -278,7 +281,7 @@ export default function Home() {
           </div>
         </motion.div>
       </div>
-      <AboutMe />
+      <PageContent />
     </div>
   );
 }
