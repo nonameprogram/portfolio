@@ -23,7 +23,7 @@ export const CarrierSection = () => {
         transition={{ duration: 1 }}
         id="carrier"
       >
-        <div className="lora-400 text-4xl text-center inline-flex gap-x-2 justify-center">
+        <div className="lora-400 text-4xl text-center inline-flex gap-x-2 justify-center flex-wrap">
           <div>03</div>
           <div>/</div>
           <div className="whitespace-nowrap text-transparent bg-clip-text bg-linear-to-br from-violet-100 to-violet-300">
