@@ -15,9 +15,32 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
-  title: "Portfolio – Bartłomiej Kosiński",
+  title: "Bartłomiej Kosiński | Software Developer",
   description:
     "Hi, I'm Bartłomiej Kosiński — a Software Developer passionate about building secure, high-performance solutions.",
+  keywords: [
+    "Software Developer",
+    "Frontend Developer",
+    "Backend Developer",
+    "Full-Stack Developer",
+    "React",
+    "NestJS",
+    "Node.js",
+    "Next.js",
+    "JavaScript",
+    "TypeScript",
+    "Portfolio",
+  ],
+  authors: [{ name: "Bartłomiej Kosiński" }],
+  openGraph: {
+    title: "Bartłomiej Kosiński | Software Developer",
+    description:
+      "Software Developer focused on secure, high-performance web applications.",
+    url: "https://bkosinski.dev",
+    siteName: "Bartłomiej Kosiński | Software Developer",
+    locale: "en_US",
+    type: "website",
+  },
 };
 
 export default function RootLayout({

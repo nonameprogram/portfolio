@@ -4,9 +4,36 @@ import React from "react";
 import { motion } from "motion/react";
 import "react-medium-image-zoom/dist/styles.css";
 import { Tooltip } from "@/components/tooltip";
-import { ChatBubbleIcon, RocketIcon } from "@radix-ui/react-icons";
-import { BikeIcon, FlaskConicalIcon, ShieldIcon } from "lucide-react";
+import { RocketIcon } from "@radix-ui/react-icons";
+import { FlaskConicalIcon, ShieldIcon } from "lucide-react";
 import { SiTypescript } from "@icons-pack/react-simple-icons";
+import { SpotlightCard } from "@/components/spotlight-card";
+
+const gridVariants = {
+  inactive: {},
+  active: {
+    transition: {
+      staggerChildren: 0.12,
+    },
+  },
+};
+
+const cardVariants = {
+  inactive: {
+    opacity: 0,
+    y: 20,
+    scale: 0.98,
+  },
+  active: {
+    opacity: 1,
+    y: 0,
+    scale: 1,
+    transition: {
+      duration: 0.4,
+      ease: "easeOut",
+    },
+  },
+};
 
 export const AboutMeSection = () => {
   return (
@@ -109,64 +136,58 @@ export const AboutMeSection = () => {
             </div>
           </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-8 mt-16">
-            <div className="border border-neutral-800 rounded p-6 flex gap-4">
-              <div className="bg-violet-400/20 size-12 rounded-md shrink-0 flex items-center justify-center">
-                <SiTypescript className="fill-violet-300 size-6" />
-              </div>
-              <div className="flex gap-y-2 flex-col">
-                <div className="inter-500">Type-safe approach</div>
-                <div className="inter-400 text-sm">
-                  Seamlessly bringing API types into the web environment with
-                  OpenAPI, monorepos, and automated code generation — ensuring
-                  reliability and reducing runtime errors, regardless of the
-                  programming language or framework.
-                </div>
-              </div>
-            </div>
-            <div className="border border-neutral-800 rounded p-6 flex gap-4">
-              <div className="bg-violet-500/20 size-12 rounded shrink-0 flex items-center justify-center">
-                <RocketIcon className="text-violet-300 size-6" />
-              </div>
-              <div className="flex gap-y-2 flex-col">
-                <div className="inter-500">Performance</div>
-                <div className="inter-400 text-sm">
-                  Optimizing build and test times by picking right tools,
-                  caching and making sure code-splitting is effective.
-                  Continuously tracking and eliminating latency and performance
-                  bottlenecks in applications.
-                </div>
-              </div>
-            </div>
-            <div className="border border-neutral-800 rounded p-6 flex gap-4">
-              <div className="bg-violet-600/20 size-12 rounded shrink-0 flex items-center justify-center">
-                <FlaskConicalIcon className="text-violet-300 size-6" />
-              </div>
-              <div className="flex gap-y-2 flex-col">
-                <div className="inter-500">Testing & Quality</div>
-                <div className="inter-400 text-sm">
-                  Ensuring high code quality through unit, integration, and
-                  end-to-end testing. Catching issues early and maintaining
-                  confidence when refactoring or shipping new features — and
-                  sleeping well at night.
-                </div>
-              </div>
-            </div>
-            <div className="border border-neutral-800 rounded p-6 flex gap-4">
-              <div className="bg-violet-700/20 size-12 rounded shrink-0 flex items-center justify-center">
-                <ShieldIcon className="text-violet-300 size-6" />
-              </div>
-              <div className="flex gap-y-2 flex-col">
-                <div className="inter-500">Security</div>
-                <div className="inter-400 text-sm">
-                  Applying modern security standards and best practices,
-                  including secure authentication flows, proper data validation,
-                  monitoring including OpenTelemetry and safe API communication
-                  — without compromising performance or speed.
-                </div>
-              </div>
-            </div>
-          </div>
+          <motion.div
+            className="grid grid-cols-1 md:grid-cols-2 gap-8 mt-16"
+            variants={gridVariants}
+            initial="hidden"
+            whileInView="visible"
+            viewport={{ once: true, margin: "-100px" }}
+            animate="active"
+          >
+            {[
+              {
+                icon: <SiTypescript className="fill-violet-300 size-6" />,
+                title: "Type-safe approach",
+                text: "Seamlessly bringing API types into the web environment with OpenAPI, monorepos, and automated code generation — ensuring reliability and reducing runtime errors.",
+              },
+              {
+                icon: <RocketIcon className="text-violet-300 size-6" />,
+                title: "Performance",
+                text: "Optimizing build and test times by picking right tools, caching and making sure code-splitting is effective.",
+              },
+              {
+                icon: <FlaskConicalIcon className="text-violet-300 size-6" />,
+                title: "Testing & Quality",
+                text: "Ensuring high code quality through unit, integration, and end-to-end testing.",
+              },
+              {
+                icon: <ShieldIcon className="text-violet-300 size-6" />,
+                title: "Security",
+                text: "Applying modern security standards and best practices without compromising performance or speed.",
+              },
+            ].map((item, i) => (
+              <motion.div
+                key={i}
+                initial={{ opacity: 0, y: 30 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true, amount: 0.3 }}
+                transition={{ type: "tween", delay: 0.15 * i }}
+              >
+                <SpotlightCard
+                  spotlightColor="rgba(194, 122, 255, 0.2)"
+                  className="flex flex-row gap-4 w-full h-full"
+                >
+                  <div className="bg-violet-600/20 size-12 rounded shrink-0 flex items-center justify-center">
+                    {item.icon}
+                  </div>
+                  <div className="flex gap-y-2 flex-col">
+                    <div className="inter-500">{item.title}</div>
+                    <div className="inter-400 text-sm">{item.text}</div>
+                  </div>
+                </SpotlightCard>
+              </motion.div>
+            ))}
+          </motion.div>
         </motion.div>
       </div>
     </React.Fragment>

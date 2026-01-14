@@ -63,6 +63,7 @@ import {
   SiZodHex,
 } from "@icons-pack/react-simple-icons";
 import { Pill } from "@/components/pill";
+import { SpotlightCard } from "@/components/spotlight-card";
 
 export const TechStackSection = () => {
   return (

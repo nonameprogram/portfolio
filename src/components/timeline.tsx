@@ -9,11 +9,16 @@ const Timeline = ({ children }: { children: React.ReactNode }) => (
 const TimelineEntry = ({
   children,
   icon,
+  ref,
 }: {
   children: React.ReactNode;
   icon?: React.ReactNode;
+  ref?: React.Ref<HTMLLIElement>;
 }) => (
-  <li className="group [&:not(:last-child)]:mb-10 ms-10 last-child:mb-0">
+  <li
+    className="group [&:not(:last-child)]:mb-10 ms-10 last-child:mb-0"
+    ref={ref}
+  >
     <span className="absolute flex items-center justify-center w-8 h-8  rounded-full -start-4 bg-neutral-300 ring-8 ring-neutral-950">
       {!icon ? (
         <svg
