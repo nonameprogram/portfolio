@@ -175,7 +175,7 @@ export const AboutMeSection = () => {
               >
                 <SpotlightCard
                   spotlightColor="rgba(194, 122, 255, 0.2)"
-                  className="flex flex-row gap-4 w-full h-full"
+                  className="flex flex-col lg:flex-row gap-4 w-full h-full"
                 >
                   <div className="bg-violet-600/20 size-12 rounded shrink-0 flex items-center justify-center">
                     {item.icon}

@@ -62,7 +62,7 @@ export default function Home() {
                 className="w-full items-center h-full flex"
                 style={{ opacity }}
               >
-                <div className="relative">
+                <div className="relative flex flex-col items-center md:items-start w-full">
                   <motion.div
                     className="py-2 px-3 rounded-full bg-neutral-950 flex w-max gap-2 items-center border-violet-300/30 border shadow shadow-violet-700/30"
                     initial={{ opacity: 0, y: -50 }}
@@ -101,7 +101,7 @@ export default function Home() {
                     </div>
                     <div className="flex gap-x-2">
                       <motion.div
-                        className="ml-8 relative transition-opacity"
+                        className="lg:ml-8 relative transition-opacity"
                         initial={{ opacity: 0, y: 50 }}
                         animate={{ opacity: 1, y: 0 }}
                         transition={{ delay: 0.45, type: "tween" }}
