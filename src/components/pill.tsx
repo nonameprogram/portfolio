@@ -1,13 +1,20 @@
 import React from "react";
+import { cn } from "@/utils/cn";
 
 export type PillContent = string | { icon: React.ReactNode; label: string };
 
 export type PillProps = {
   content: PillContent;
+  className?: string;
 };
 
-export const Pill = ({ content }: PillProps) => (
-  <div className="bg-neutral-900 py-1 px-3 inter-400 hover:bg-neutral-800  transition-colors duration-300">
+export const Pill = ({ content, className }: PillProps) => (
+  <div
+    className={cn(
+      "bg-neutral-900 py-1 px-3 inter-400 hover:bg-neutral-800  transition-colors duration-300",
+      className,
+    )}
+  >
     {typeof content === "string" ? (
       content
     ) : (

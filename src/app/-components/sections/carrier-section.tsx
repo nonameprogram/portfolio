@@ -52,49 +52,62 @@ export const CarrierSection = () => {
                   </svg>
                 }
               >
-                <TimelineTitle>
-                  Full-Stack Developer, Frontend Lead
-                </TimelineTitle>
-                <TimelineSubtitle>
-                  Link-Point, Jan 2022 - Present
-                </TimelineSubtitle>
-                <TimelineContent>
-                  <div className="text-neutral-300 mt-4">
-                    - Designed and implemented modular architectures for
-                    on-premise ERP and MES systems
-                  </div>
-                  <div className="text-neutral-300">
-                    - Developed and maintained backend services in PHP and
-                    Node.js (databases, data integrity, event-driven
-                    architecture)
-                  </div>
-                  <div className="text-neutral-300">
-                    - Maintained and evolved existing systems to meet business
-                    and reliability requirements
-                  </div>
-                  <div className="text-neutral-300">
-                    - Integrated external systems and devices, collaborated
-                    directly with clients
-                  </div>
-                  <div className="text-neutral-300">
-                    - Created and maintained internal technical documentation
-                  </div>
-                  <PillGroup
-                    items={[
-                      "TypeScript",
-                      "React",
-                      "Laravel",
-                      "NestJS",
-                      "Node.js",
-                      "Redis",
-                      "MySQL",
-                      "Docker",
-                      "PHPUnit",
-                      "Vitest",
-                      "Slim",
-                    ]}
-                  />
-                </TimelineContent>
+                <div className="hover:-translate-y-2 transition-all duration-300">
+                  <motion.div
+                    initial={{ opacity: 0, y: 30 }}
+                    whileInView={{ opacity: 1, y: 0 }}
+                    viewport={{ once: true, amount: 0.3 }}
+                    transition={{ duration: 0.6, ease: "easeOut", delay: 0.15 }}
+                  >
+                    <div className="p-8 border rounded-2xl bg-[#111] border-[#222]">
+                      <TimelineTitle>
+                        Full-Stack Developer, Frontend Lead
+                      </TimelineTitle>
+                      <TimelineSubtitle>
+                        Link-Point, Jan 2022 - Present
+                      </TimelineSubtitle>
+                      <TimelineContent>
+                        <div className="text-neutral-300 mt-4">
+                          - Designed and implemented modular architectures for
+                          on-premise ERP and MES systems
+                        </div>
+                        <div className="text-neutral-300">
+                          - Developed and maintained backend services in PHP and
+                          Node.js (databases, data integrity, event-driven
+                          architecture)
+                        </div>
+                        <div className="text-neutral-300">
+                          - Maintained and evolved existing systems to meet
+                          business and reliability requirements
+                        </div>
+                        <div className="text-neutral-300">
+                          - Integrated external systems and devices,
+                          collaborated directly with clients
+                        </div>
+                        <div className="text-neutral-300">
+                          - Created and maintained internal technical
+                          documentation
+                        </div>
+                        <PillGroup
+                          items={[
+                            "TypeScript",
+                            "React",
+                            "Laravel",
+                            "NestJS",
+                            "Node.js",
+                            "Redis",
+                            "MySQL",
+                            "Docker",
+                            "PHPUnit",
+                            "Vitest",
+                            "Slim",
+                          ]}
+                          pillClasses="bg-neutral-800 hover:bg-neutral-700"
+                        />
+                      </TimelineContent>
+                    </div>
+                  </motion.div>
+                </div>
               </TimelineEntry>
               <TimelineEntry
                 icon={
@@ -116,21 +129,39 @@ export const CarrierSection = () => {
                   </svg>
                 }
               >
-                <TimelineTitle>
-                  Technical College for Computer Science
-                </TimelineTitle>
-                <TimelineSubtitle>2017 - 2021</TimelineSubtitle>
-                <TimelineContent>
-                  <div className="text-neutral-300 mt-4">
-                    - Laureate of Polish Technical Innovation and Invention
-                    Olympiad in category didactic help (co-creator of
-                    educational web platform Live-Text for online learning and
-                    examing).
-                  </div>
-                  <PillGroup
-                    items={["JavaScript", "PHP", "C++", "MySQL", "WebSockets"]}
-                  />
-                </TimelineContent>
+                <div className="hover:-translate-y-2 transition-all duration-300">
+                  <motion.div
+                    initial={{ opacity: 0, y: 30 }}
+                    whileInView={{ opacity: 1, y: 0 }}
+                    viewport={{ once: true, amount: 0.3 }}
+                    transition={{ duration: 0.6, ease: "easeOut", delay: 0.3 }}
+                  >
+                    <div className="p-8 border rounded-2xl bg-[#111] border-[#222]">
+                      <TimelineTitle>
+                        Technical College for Computer Science
+                      </TimelineTitle>
+                      <TimelineSubtitle>2017 - 2021</TimelineSubtitle>
+                      <TimelineContent>
+                        <div className="text-neutral-300 mt-4">
+                          - Laureate of Polish Technical Innovation and
+                          Invention Olympiad in category didactic help
+                          (co-creator of educational web platform Live-Text for
+                          online learning and examing).
+                        </div>
+                        <PillGroup
+                          items={[
+                            "JavaScript",
+                            "PHP",
+                            "C++",
+                            "MySQL",
+                            "WebSockets",
+                          ]}
+                          pillClasses="bg-neutral-800 hover:bg-neutral-700"
+                        />
+                      </TimelineContent>
+                    </div>
+                  </motion.div>
+                </div>
               </TimelineEntry>
             </Timeline>
           </div>
