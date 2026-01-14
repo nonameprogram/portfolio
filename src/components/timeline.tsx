@@ -1,7 +1,7 @@
 import React from "react";
 
 const Timeline = ({ children }: { children: React.ReactNode }) => (
-  <ol className="relative md:border-s border-neutral-200 dark:border-neutral-700 ml-3">
+  <ol className="relative md:border-s border-neutral-200 dark:border-neutral-700 md:ml-3">
     {children}
   </ol>
 );

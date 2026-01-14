@@ -56,7 +56,7 @@ export default function Home() {
               />
             </div>
           </div>
-          <div className="container px-12 mx-auto py-12 flex w-full flex-col gap-16 h-full relative">
+          <div className="container px-6 md:px-12 mx-auto py-12 flex w-full flex-col gap-16 h-full relative">
             <div className="grid grid-cols-1 gap-y-8 xl:grid-cols-2 justify-center h-full w-full relative">
               <motion.div
                 className="w-full items-center h-full flex"
@@ -132,7 +132,7 @@ export default function Home() {
                   }}
                 >
                   <motion.div
-                    className="group w-full h-full min-h-64 bg-neutral-900/50 backdrop-blur-sm col-start-1 row-start-1 rounded-tl-xl p-4 hover:bg-neutral-300 hover:text-black duration-300 cursor-pointer transition-all"
+                    className="group w-full h-full min-h-48 md:min-h-64 bg-neutral-900/50 backdrop-blur-sm col-start-1 row-start-1 rounded-tl-xl p-4 hover:bg-neutral-300 hover:text-black duration-300 cursor-pointer transition-all"
                     initial={{ opacity: 0, y: -30 }}
                     animate={{ opacity: 1, y: 0 }}
                     transition={{ delay: 0.6 }}
@@ -149,7 +149,7 @@ export default function Home() {
                   </motion.div>
                 </button>
                 <motion.button
-                  className="group w-full h-full min-h-64 bg-neutral-900/50 backdrop-blur-sm col-start-2 row-start-1 p-4 hover:bg-neutral-300 hover:text-black duration-300 cursor-pointer transition-all"
+                  className="group w-full h-full min-h-48 md:min-h-64 bg-neutral-900/50 backdrop-blur-sm col-start-2 row-start-1 p-4 hover:bg-neutral-300 hover:text-black duration-300 cursor-pointer transition-all"
                   initial={{ opacity: 0, y: -30 }}
                   animate={{ opacity: 1, y: 0 }}
                   transition={{ delay: 0.45 }}
@@ -169,7 +169,7 @@ export default function Home() {
                   </div>
                 </motion.button>
                 <motion.button
-                  className="group w-full h-full min-h-64 bg-neutral-900/50 backdrop-blur-sm col-start-1 xl:col-start-2 row-start-2 p-4 hover:bg-neutral-300 hover:text-black duration-300 cursor-pointer transition-all"
+                  className="group w-full h-full min-h-48 md:min-h-64 bg-neutral-900/50 backdrop-blur-sm col-start-1 xl:col-start-2 row-start-2 p-4 hover:bg-neutral-300 hover:text-black duration-300 cursor-pointer transition-all"
                   initial={{ opacity: 0, x: -30 }}
                   animate={{ opacity: 1, x: 0 }}
                   transition={{ delay: 0.6 }}
@@ -192,7 +192,7 @@ export default function Home() {
                   </div>
                 </motion.button>
                 <motion.button
-                  className="group w-full h-full min-h-64 bg-neutral-900/50 backdrop-blur-sm col-start-2 xl:col-start-3 row-start-2 p-4 hover:bg-neutral-300 hover:text-black duration-300 cursor-pointer transition-all"
+                  className="group w-full h-full min-h-48 md:min-h-64 bg-neutral-900/50 backdrop-blur-sm col-start-2 xl:col-start-3 row-start-2 p-4 hover:bg-neutral-300 hover:text-black duration-300 cursor-pointer transition-all"
                   initial={{ opacity: 0, x: 30 }}
                   animate={{ opacity: 1, x: 0 }}
                   transition={{ delay: 0.6 }}
@@ -212,7 +212,7 @@ export default function Home() {
                   </div>
                 </motion.button>
                 <motion.button
-                  className="group w-full h-full min-h-64 bg-neutral-900/50 backdrop-blur-sm col-start-1 xl:col-start-3 row-start-3 rounded-br-xl p-4 hover:bg-neutral-300 hover:text-black duration-300 cursor-pointer transition-all"
+                  className="group w-full h-full min-h-48 md:min-h-64 bg-neutral-900/50 backdrop-blur-sm col-start-1 xl:col-start-3 row-start-3 rounded-br-xl p-4 hover:bg-neutral-300 hover:text-black duration-300 cursor-pointer transition-all"
                   initial={{ opacity: 0, y: 30 }}
                   animate={{ opacity: 1, y: 0 }}
                   transition={{ delay: 0.75 }}
