@@ -19,7 +19,7 @@ const TimelineEntry = ({
     className="group [&:not(:last-child)]:mb-10 md:ms-10 last-child:mb-0"
     ref={ref}
   >
-    <div className="absolute md:flex items-center justify-center w-8 h-8  rounded-full -start-4 bg-secondary-bg  ring-8 ring-secondary-bg hidden">
+    <div className="absolute md:flex items-center justify-center w-8 h-8 rounded-full -start-4 bg-secondary-bg  ring-8 ring-secondary-bg hidden">
       <div className="w-full h-full bg-violet-600/20 [&>*]:!text-violet-300 flex items-center justify-center rounded-full">
         {!icon ? (
           <svg

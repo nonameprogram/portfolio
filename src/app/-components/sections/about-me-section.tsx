@@ -148,7 +148,7 @@ export const AboutMeSection = () => {
               {
                 icon: <SiTypescript className="fill-violet-300 size-6" />,
                 title: "Type-safe approach",
-                text: "Seamlessly bringing API types into the web environment with OpenAPI, monorepos, and automated code generation — ensuring reliability and reducing runtime errors, regardless of the programming language or framework.",
+                text: "Seamlessly bringing API types into the web environment with OpenAPI, monorepos, and automated code generation, regardless of the programming language or framework.",
               },
               {
                 icon: <RocketIcon className="text-violet-300 size-6" />,
@@ -158,12 +158,12 @@ export const AboutMeSection = () => {
               {
                 icon: <FlaskConicalIcon className="text-violet-300 size-6" />,
                 title: "Testing & Quality",
-                text: "Ensuring high code quality through unit, integration, and end-to-end testing. Catching issues early and maintaining confidence when refactoring or shipping new features — and sleeping well at night.",
+                text: "Ensuring high code quality through unit, integration, and end-to-end testing. Catching issues early and maintaining confidence when refactoring or shipping new features.",
               },
               {
                 icon: <ShieldIcon className="text-violet-300 size-6" />,
                 title: "Security",
-                text: "Applying modern security standards and best practices, including secure authentication flows, proper data validation, monitoring including OpenTelemetry and safe API communication — without compromising performance or speed.",
+                text: "Applying modern security standards and best practices, including secure authentication flows, proper data validation, monitoring including OpenTelemetry and safe API communication.",
               },
             ].map((item, i) => (
               <motion.div

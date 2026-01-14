@@ -96,7 +96,7 @@ export const TechStackSection = () => {
             transition={{ duration: 0.6, ease: "easeOut", delay: 0 }}
           >
             <div className="relative w-full h-full group">
-              <div className="absolute -top-4 -right-4 bg-neutral-900 w-full h-full group-hover:bg-purple-900 transition-colors duration-300" />
+              <div className="absolute -top-4 -right-4 bg-neutral-900 w-full h-full group-hover:bg-violet-900 transition-colors duration-300" />
               <div className="border border-neutral-700 bg-secondary-bg p-4 z-10 relative  w-full h-full">
                 <div className="text-sm inter-500">Frontend</div>
                 <div className="flex flex-wrap gap-2 text-sm mt-4">
@@ -172,7 +172,7 @@ export const TechStackSection = () => {
             transition={{ duration: 0.6, ease: "easeOut", delay: 0.15 }}
           >
             <div className="relative w-full h-full group">
-              <div className="absolute -top-4 -right-4 bg-neutral-900 w-full h-full group-hover:bg-purple-900 transition-colors duration-300 overflow-hidden" />
+              <div className="absolute -top-4 -right-4 bg-neutral-900 w-full h-full group-hover:bg-violet-900 transition-colors duration-300 overflow-hidden" />
               <div className="border border-neutral-700 bg-secondary-bg p-4 z-10 relative  w-full h-full">
                 <div className="text-sm inter-500">UI / Styling</div>
                 <div className="flex flex-wrap gap-2 text-sm mt-4">
@@ -216,7 +216,7 @@ export const TechStackSection = () => {
             transition={{ duration: 0.6, ease: "easeOut", delay: 0.3 }}
           >
             <div className="relative w-full h-full group">
-              <div className="absolute -top-4 -right-4 bg-neutral-900 w-full h-full group-hover:bg-purple-900 transition-colors duration-300" />
+              <div className="absolute -top-4 -right-4 bg-neutral-900 w-full h-full group-hover:bg-violet-900 transition-colors duration-300" />
               <div className="border border-neutral-700 bg-secondary-bg p-4 z-10 relative  w-full h-full">
                 <div className="text-sm inter-500">Form / Validation</div>
                 <div className="flex flex-wrap gap-2 text-sm mt-4">
@@ -266,7 +266,7 @@ export const TechStackSection = () => {
             transition={{ duration: 0.6, ease: "easeOut", delay: 0.45 }}
           >
             <div className="relative w-full h-full group">
-              <div className="absolute -top-4 -right-4 bg-neutral-900 w-full h-full group-hover:bg-purple-900 transition-colors duration-300" />
+              <div className="absolute -top-4 -right-4 bg-neutral-900 w-full h-full group-hover:bg-violet-900 transition-colors duration-300" />
               <div className="border border-neutral-700 bg-secondary-bg p-4 z-10 relative  w-full h-full">
                 <div className="text-sm inter-500">Backend</div>
                 <div className="flex flex-wrap gap-2 text-sm mt-4">
@@ -340,7 +340,7 @@ export const TechStackSection = () => {
             transition={{ duration: 0.6, ease: "easeOut", delay: 0.6 }}
           >
             <div className="relative w-full h-full group">
-              <div className="absolute -top-4 -right-4 bg-neutral-900 w-full h-full group-hover:bg-purple-900 transition-colors duration-300" />
+              <div className="absolute -top-4 -right-4 bg-neutral-900 w-full h-full group-hover:bg-violet-900 transition-colors duration-300" />
               <div className="border border-neutral-700 bg-secondary-bg p-4 z-10 relative  w-full h-full">
                 <div className="text-sm inter-500">Testing / Documentation</div>
                 <div className="flex flex-wrap gap-2 text-sm mt-4">
@@ -407,7 +407,7 @@ export const TechStackSection = () => {
             transition={{ duration: 0.6, ease: "easeOut", delay: 0.75 }}
           >
             <div className="relative w-full h-full group">
-              <div className="absolute -top-4 -right-4 bg-neutral-900 w-full h-full group-hover:bg-purple-900 transition-colors duration-300" />
+              <div className="absolute -top-4 -right-4 bg-neutral-900 w-full h-full group-hover:bg-violet-900 transition-colors duration-300" />
               <div className="border border-neutral-700 bg-secondary-bg p-4 z-10 relative  w-full h-full">
                 <div className="text-sm inter-500">Databases / ORM</div>
                 <div className="flex flex-wrap gap-2 text-sm mt-4">
@@ -490,7 +490,7 @@ export const TechStackSection = () => {
             transition={{ duration: 0.6, ease: "easeOut", delay: 0.9 }}
           >
             <div className="relative w-full h-full group">
-              <div className="absolute -top-4 -right-4 bg-neutral-900 w-full h-full group-hover:bg-purple-900 transition-colors duration-300" />
+              <div className="absolute -top-4 -right-4 bg-neutral-900 w-full h-full group-hover:bg-violet-900 transition-colors duration-300" />
               <div className="border border-neutral-700 bg-secondary-bg p-4 z-10 relative  w-full h-full">
                 <div className="text-sm inter-500">Containers & CI/CD</div>
                 <div className="flex flex-wrap gap-2 text-sm mt-4">
