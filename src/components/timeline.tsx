@@ -1,7 +1,7 @@
 import React from "react";
 
 const Timeline = ({ children }: { children: React.ReactNode }) => (
-  <ol className="relative border-s border-neutral-200 dark:border-neutral-700 ml-3">
+  <ol className="relative md:border-s border-neutral-200 dark:border-neutral-700 ml-3">
     {children}
   </ol>
 );
@@ -16,10 +16,10 @@ const TimelineEntry = ({
   ref?: React.Ref<HTMLLIElement>;
 }) => (
   <li
-    className="group [&:not(:last-child)]:mb-10 ms-10 last-child:mb-0"
+    className="group [&:not(:last-child)]:mb-10 md:ms-10 last-child:mb-0"
     ref={ref}
   >
-    <div className="absolute flex items-center justify-center w-8 h-8  rounded-full -start-4 bg-secondary-bg  ring-8 ring-secondary-bg">
+    <div className="absolute md:flex items-center justify-center w-8 h-8  rounded-full -start-4 bg-secondary-bg  ring-8 ring-secondary-bg hidden">
       <div className="w-full h-full bg-violet-600/20 [&>*]:!text-violet-300 flex items-center justify-center rounded-full">
         {!icon ? (
           <svg
