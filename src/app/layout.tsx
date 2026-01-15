@@ -4,6 +4,7 @@ import { Geist, Geist_Mono } from "next/font/google";
 import { TooltipProvider } from "@/components/tooltip";
 import "./globals.css";
 import Script from "next/script";
+import { GoogleAnalytics } from "@next/third-parties/google";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -52,22 +53,6 @@ export default function RootLayout({
   return (
     <html lang="en">
       <head>
-        {process.env.NODE_ENV === "production" && (
-          <React.Fragment>
-            <Script
-              src={`https://www.googletagmanager.com/gtag/js?id=G-VZXG93D33R`}
-              strategy="afterInteractive"
-            />
-            <Script id="ga-init" strategy="afterInteractive">
-              {`
-            window.dataLayer = window.dataLayer || [];
-            function gtag(){dataLayer.push(arguments);}
-            gtag('js', new Date());
-            gtag('config', 'G-VZXG93D33R');
-          `}
-            </Script>
-          </React.Fragment>
-        )}
         <link
           href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Lora:ital,wght@0,400..700;1,400..700&display=swap"
           rel="stylesheet"
@@ -77,6 +62,9 @@ export default function RootLayout({
         className={`${geistSans.variable} ${geistMono.variable} antialiased`}
       >
         <TooltipProvider>{children}</TooltipProvider>
+        {process.env.NODE_ENV === "production" && (
+          <GoogleAnalytics gaId="G-VZXG93D33R" />
+        )}
       </body>
     </html>
   );
