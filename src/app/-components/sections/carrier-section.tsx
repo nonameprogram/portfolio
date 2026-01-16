@@ -143,7 +143,7 @@ export const CarrierSection = () => {
                       <TimelineSubtitle>2017 - 2021</TimelineSubtitle>
                       <TimelineContent>
                         <div className="text-neutral-300 mt-4">
-                          - Laureate of Polish Technical Innovation and
+                          - Finalist of Polish Technical Innovation and
                           Invention Olympiad in category didactic help
                           (co-creator of educational web platform Live-Text for
                           online learning and examing).
