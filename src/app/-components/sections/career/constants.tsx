@@ -1,5 +1,6 @@
 import React from "react";
-import { BackpackIcon, GraduationCapIcon } from "lucide-react";
+import { GraduationCapIcon } from "lucide-react";
+import { BackpackIcon } from "@radix-ui/react-icons";
 
 export type CareerEntry = {
   icon: React.ReactNode;
