@@ -1,8 +1,8 @@
 import React from "react";
 import "react-medium-image-zoom/dist/styles.css";
-import { AboutMeSection } from "@/app/-components/sections/about-me-section";
-import { TechStackSection } from "@/app/-components/sections/tech-stack-section";
-import { CareerSection } from "@/app/-components/sections/career-section";
+import { AboutMeSection } from "@/app/-components/sections/about-me/about-me-section";
+import { TechStackSection } from "@/app/-components/sections/tech-stack/tech-stack-section";
+import { CareerSection } from "@/app/-components/sections/career/career-section";
 import { ContactSection } from "@/app/-components/sections/contact-section";
 import { ProjectsSection } from "@/app/-components/sections/projects-section";
 import { Separator } from "@/components/separator";

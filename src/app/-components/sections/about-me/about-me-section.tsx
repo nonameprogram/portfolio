@@ -3,10 +3,8 @@
 import React from "react";
 import { motion } from "motion/react";
 import { Tooltip } from "@/components/tooltip";
-import { RocketIcon } from "@radix-ui/react-icons";
-import { FlaskConicalIcon, ShieldIcon } from "lucide-react";
-import { SiTypescript } from "@icons-pack/react-simple-icons";
 import { SpotlightCard } from "@/components/spotlight-card";
+import { aboutMeEntries } from "@/app/-components/sections/about-me/constants";
 
 const gridVariants = {
   inactive: {},
@@ -16,29 +14,6 @@ const gridVariants = {
     },
   },
 };
-
-const data = [
-  {
-    icon: <SiTypescript className="fill-violet-300 size-6" />,
-    title: "Type-safe approach",
-    text: "Seamlessly bringing API types into the web environment with OpenAPI, monorepos, and automated code generation, regardless of the programming language or framework.",
-  },
-  {
-    icon: <RocketIcon className="text-violet-300 size-6" />,
-    title: "Performance",
-    text: "Optimizing build and test times by picking right tools, caching and making sure code-splitting is effective. Continuously tracking and eliminating latency and performance bottlenecks in applications.",
-  },
-  {
-    icon: <FlaskConicalIcon className="text-violet-300 size-6" />,
-    title: "Testing & Quality",
-    text: "Ensuring high code quality through unit, integration, and end-to-end testing. Catching issues early and maintaining confidence when refactoring or shipping new features.",
-  },
-  {
-    icon: <ShieldIcon className="text-violet-300 size-6" />,
-    title: "Security",
-    text: "Applying modern security standards and best practices, including secure authentication flows, proper data validation, monitoring including OpenTelemetry and safe API communication.",
-  },
-];
 
 export const AboutMeSection = () => {
   return (
@@ -149,7 +124,7 @@ export const AboutMeSection = () => {
             viewport={{ once: true, margin: "-100px" }}
             animate="active"
           >
-            {data.map((item, i) => (
+            {aboutMeEntries.map((item, i) => (
               <motion.div
                 key={i}
                 initial={{ opacity: 0, y: 30 }}
