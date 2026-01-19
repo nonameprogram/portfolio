@@ -10,8 +10,8 @@ export const ContactSection = () => {
         className="flex flex-col gap-16 py-16"
         initial={{ opacity: 0, y: 30 }}
         whileInView={{ opacity: 1, y: 0 }}
-        viewport={{ once: true }}
-        transition={{ duration: 1 }}
+        viewport={{ once: true, amount: 0.3 }}
+        transition={{ duration: 0.6, ease: "easeOut", delay: 0.3 }}
         id="contact"
       >
         <div className="lora-400 text-4xl text-center inline-flex gap-x-2 justify-center flex-wrap">

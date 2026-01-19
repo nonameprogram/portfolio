@@ -2,7 +2,7 @@ import React from "react";
 import "react-medium-image-zoom/dist/styles.css";
 import { AboutMeSection } from "@/app/-components/sections/about-me-section";
 import { TechStackSection } from "@/app/-components/sections/tech-stack-section";
-import { CarrierSection } from "@/app/-components/sections/carrier-section";
+import { CareerSection } from "@/app/-components/sections/career-section";
 import { ContactSection } from "@/app/-components/sections/contact-section";
 import { ProjectsSection } from "@/app/-components/sections/projects-section";
 import { Separator } from "@/components/separator";
@@ -18,7 +18,7 @@ export default function PageContent() {
               <Separator />
               <TechStackSection />
               <Separator />
-              <CarrierSection />
+              <CareerSection />
               <Separator />
               <ProjectsSection />
               <Separator />

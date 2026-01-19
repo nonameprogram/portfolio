@@ -21,23 +21,28 @@ import { SiGithub, SiNpm } from "@icons-pack/react-simple-icons";
 export const ProjectsSection = () => {
   return (
     <div className="space-y-16">
-      <motion.div
-        className="flex flex-col gap-16 py-16"
-        initial={{ opacity: 0, y: 30 }}
-        whileInView={{ opacity: 1, y: 0 }}
-        viewport={{ once: true }}
-        transition={{ duration: 1 }}
-        id="projects"
-      >
-        <div className="lora-400 text-4xl text-center inline-flex gap-x-2 justify-center flex-wrap">
+      <div className="flex flex-col gap-16 py-16" id="projects">
+        <motion.div
+          className="lora-400 text-4xl text-center inline-flex gap-x-2 justify-center flex-wrap"
+          initial={{ opacity: 0, y: 30 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true, amount: 0.3 }}
+          transition={{ duration: 0.6, ease: "easeOut", delay: 0.3 }}
+        >
           <div>04</div>
           <div>/</div>
           <div className="whitespace-nowrap text-transparent bg-clip-text bg-linear-to-br from-violet-100 to-violet-300">
             Projects
           </div>
-        </div>
+        </motion.div>
         <div className="flex flex-col gap-y-24">
-          <div className="flex flex-col md:flex-row-reverse gap-8 items-center">
+          <motion.div
+            className="flex flex-col md:flex-row-reverse gap-8 items-center"
+            initial={{ opacity: 0, y: 30 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true, amount: 0.3 }}
+            transition={{ duration: 0.6, ease: "easeOut", delay: 0.3 }}
+          >
             <div className="pr-4 pt-4 relative w-full md:w-1/2 shrink-0">
               <div className="relative w-full h-full">
                 <AspectRatio ratio={576 / 449}>
@@ -99,8 +104,14 @@ export const ProjectsSection = () => {
                 ]}
               />
             </div>
-          </div>
-          <div className="flex flex-col md:flex-row gap-8 items-center">
+          </motion.div>
+          <motion.div
+            className="flex flex-col md:flex-row gap-8 items-center"
+            initial={{ opacity: 0, y: 30 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true, amount: 0.3 }}
+            transition={{ duration: 0.6, ease: "easeOut", delay: 0.3 }}
+          >
             <div className="pr-4 pt-4 relative w-full md:w-1/2 shrink-0">
               <div className="relative w-full h-full">
                 <AspectRatio ratio={576 / 449}>
@@ -184,8 +195,14 @@ export const ProjectsSection = () => {
                 ]}
               />
             </div>
-          </div>
-          <div className="flex flex-col md:flex-row-reverse gap-8 items-center">
+          </motion.div>
+          <motion.div
+            className="flex flex-col md:flex-row-reverse gap-8 items-center"
+            initial={{ opacity: 0, y: 30 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true, amount: 0.3 }}
+            transition={{ duration: 0.6, ease: "easeOut", delay: 0.3 }}
+          >
             <div className="pr-4 pt-4 relative w-full md:w-1/2 shrink-0">
               <div className="relative w-full h-full">
                 <AspectRatio ratio={576 / 449}>
@@ -235,8 +252,14 @@ export const ProjectsSection = () => {
                 </a>
               </div>
             </div>
-          </div>
-          <div className="flex flex-col md:flex-row gap-8 items-center">
+          </motion.div>
+          <motion.div
+            className="flex flex-col md:flex-row gap-8 items-center"
+            initial={{ opacity: 0, y: 30 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true, amount: 0.3 }}
+            transition={{ duration: 0.6, ease: "easeOut", delay: 0.3 }}
+          >
             <div className="lora-400">
               <div className="flex flex-col gap-2 sm:flex-row justify-between">
                 <div className="text-2xl">WebSocketKit</div>
@@ -320,9 +343,9 @@ export const ProjectsSection = () => {
                 </a>
               </div>
             </div>
-          </div>
+          </motion.div>
         </div>
-      </motion.div>
+      </div>
     </div>
   );
 };

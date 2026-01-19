@@ -174,7 +174,7 @@ export default function Home() {
                   animate={{ opacity: 1, x: 0 }}
                   transition={{ delay: 0.6 }}
                   onClick={() => {
-                    const section = document.getElementById("carrier");
+                    const section = document.getElementById("career");
                     if (section) {
                       section.scrollIntoView({ behavior: "smooth" });
                     }
@@ -182,7 +182,7 @@ export default function Home() {
                 >
                   <div className="flex flex-col h-full relative">
                     <div className="lora-400 text-left">03</div>
-                    <div className="mt-auto lora-400 text-right">Carrier</div>
+                    <div className="mt-auto lora-400 text-right">Career</div>
                     <div className="absolute right-0 top-0 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
                       <BriefcaseBusinessIcon
                         strokeWidth={1}

@@ -61,8 +61,18 @@ export const AboutMeSection = () => {
           </div>
           <div className="flex flex-col gap-y-8">
             <div className="inter-400 text-base">
-              I’m on a journey to reach a new level, building things that are
-              fast, secure, and enjoyable to work with.
+              I’m on a journey to reach a new{" "}
+              <Tooltip
+                content={
+                  <span className="inter-400">I hope it never ends.</span>
+                }
+              >
+                <span className="underline decoration-dotted text-violet-200">
+                  level
+                </span>
+              </Tooltip>
+              , building things that are fast, secure, and enjoyable to work
+              with.
             </div>{" "}
             <div className="inter-400 text-base">
               That mindset naturally leads me to creating tools that help

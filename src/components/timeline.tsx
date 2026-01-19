@@ -1,4 +1,5 @@
 import React from "react";
+import { cn } from "@/utils/cn";
 
 const Timeline = ({ children }: { children: React.ReactNode }) => (
   <ol className="relative md:border-s border-neutral-200 dark:border-neutral-700 md:ml-3">
@@ -41,7 +42,7 @@ const TimelineEntry = ({
 );
 
 const TimelineTitle = ({ children }: { children: React.ReactNode }) => (
-  <h3 className="flex items-center mb-1 text-2xl text-violet-100 lora-400">
+  <h3 className="flex items-center mb-1 text-xl text-violet-100 lora-400">
     {children}
   </h3>
 );
@@ -52,8 +53,19 @@ const TimelineSubtitle = ({ children }: { children: React.ReactNode }) => (
   </time>
 );
 
-const TimelineContent = ({ children }: { children: React.ReactNode }) => (
-  <div className="mb-4 text-base font-normal text-neutral-300 group-last:mb-0">
+const TimelineContent = ({
+  children,
+  className,
+}: {
+  children: React.ReactNode;
+  className?: string;
+}) => (
+  <div
+    className={cn(
+      "mb-4 text-sm font-normal text-neutral-300 group-last:mb-0",
+      className,
+    )}
+  >
     {children}
   </div>
 );
