@@ -88,30 +88,38 @@ export const CareerSection = () => {
                         </div>
                         <div className="text-neutral-300">
                           - Designed and implemented modular architectures for
-                          on-premise ERP and MES systems
+                          on-premise ERP and MES systems using a monorepo
+                          approach (e.g., Turborepo, Nx)
                         </div>
                         <div className="text-neutral-300">
-                          - Developed and maintained backend services in PHP and
-                          Node.js (databases, data integrity, event-driven
-                          architecture)
-                        </div>
-                        <div>
                           - Led a team of frontend developers, overseeing task
                           distribution, code reviews, and technical
                           decision-making
                         </div>
-                        <div className="text-neutral-300">
-                          - Maintained and evolved existing systems to meet
-                          business and reliability requirements
+                        <div>
+                          - Built user interfaces with React and TypeScript,
+                          creating responsive designs, adhering to accessibility
+                          standards (a11y), and enhancing user experience
                         </div>
                         <div className="text-neutral-300">
-                          - Integrated external systems and devices,
-                          collaborated directly with clients
+                          - Developed and maintained backend services in PHP and
+                          Node.js, focusing on relational databases, data
+                          integrity, and event-driven architecture
+                        </div>
+                        <div className="text-neutral-300">
+                          - Enhanced existing systems to meet business and
+                          reliability requirements, emphasizing unit and
+                          end-to-end testing
+                        </div>
+                        <div className="text-neutral-300">
+                          - Integrated ERP and MES systems with industrial
+                          devices (PLC, OPC UA)
                         </div>
                         <div className="text-neutral-300">
                           - Created and maintained internal technical
-                          documentation, improving knowledge sharing and
-                          accelerating onboarding of new team members
+                          documentation using OpenAPI and MDX, improving
+                          knowledge sharing and accelerating onboarding of new
+                          team members
                         </div>
                         <PillGroup
                           items={[
