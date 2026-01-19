@@ -11,7 +11,7 @@ export const CertificatesSection = () => {
   return (
     <React.Fragment>
       <motion.div
-        className="lora-400 text-center text-2xl bg-linear-to-br from-violet-100 to-violet-300 bg-clip-text whitespace-nowrap text-transparent mb-8"
+        className="lora-400 mb-8 bg-linear-to-br from-violet-100 to-violet-300 bg-clip-text text-center text-2xl whitespace-nowrap text-transparent"
         initial={{ opacity: 0, y: 30 }}
         whileInView={{ opacity: 1, y: 0 }}
         viewport={{ once: true, amount: 0.3 }}
@@ -26,7 +26,7 @@ export const CertificatesSection = () => {
 
       {certifications.map((item, index) => (
         <motion.div
-          className="space-y-4 mb-8 group"
+          className="group mb-8 space-y-4"
           key={index}
           initial={{ opacity: 0, y: 30 }}
           whileInView={{ opacity: 1, y: 0 }}
@@ -42,31 +42,31 @@ export const CertificatesSection = () => {
               <div className="inter-400 text-lg text-violet-300">
                 {item.certificate.label}
               </div>
-              <AnimatedLink href={item.provider.url} className="gap-1 w-max">
+              <AnimatedLink href={item.provider.url} className="w-max gap-1">
                 <div className="inter-400 text-sm">{item.provider.name}</div>
                 <ExternalLinkIcon />
               </AnimatedLink>
             </div>
             <div className="flex flex-col items-end gap-y-1">
-              <div className="inter-400 text-lg text-right">
+              <div className="inter-400 text-right text-lg">
                 {item.certificate.issueDate}
               </div>
               {item.certificate.credentialUrl ? (
                 <a href={item.certificate.credentialUrl}>
-                  <div className="flex items-center gap-1 py-1 pl-3 pr-2 rounded-full border border-neutral-800">
+                  <div className="flex items-center gap-1 rounded-full border border-neutral-800 py-1 pr-2 pl-3">
                     <span className="text-xs">Credential</span>
                     <ArrowTopRightIcon className="size-4" />
                   </div>
                 </a>
               ) : (
-                <div className="flex items-center gap-1 py-1 pl-3 pr-2 rounded-full border border-neutral-800">
+                <div className="flex items-center gap-1 rounded-full border border-neutral-800 py-1 pr-2 pl-3">
                   <span className="text-xs">In Progress</span>
                   <CircleDashedIcon className="size-3" />
                 </div>
               )}
             </div>
           </div>
-          <div className="w-full h-px bg-neutral-800 group-last:hidden" />
+          <div className="h-px w-full bg-neutral-800 group-last:hidden" />
         </motion.div>
       ))}
     </React.Fragment>

@@ -15,7 +15,7 @@ export const AnimatedLink = ({
   ...props
 }: AnimatedLinkProps) => (
   <a
-    className={cn("flex items-center gap-2 animated-link", className)}
+    className={cn("animated-link flex items-center gap-2", className)}
     {...(shouldOpenInNewTab
       ? {
           target: "_blank",

@@ -27,15 +27,15 @@ export const AboutMeSection = () => {
           viewport={{ once: true }}
           transition={{ duration: 1 }}
         >
-          <div className="flex items-center justify-center mb-8">
-            <div className="text-sm inter-500 border py-2 px-3 rounded-full bg-violet-950/50 text-violet-300 border-violet-950">
+          <div className="mb-8 flex items-center justify-center">
+            <div className="inter-500 rounded-full border border-violet-950 bg-violet-950/50 px-3 py-2 text-sm text-violet-300">
               4+ Years of Experience
             </div>
           </div>
-          <div className="lora-400 text-4xl text-center inline-flex gap-x-2 justify-center flex-wrap mb-16">
+          <div className="lora-400 mb-16 inline-flex flex-wrap justify-center gap-x-2 text-center text-4xl">
             <div>01</div>
             <div>/</div>
-            <div className="whitespace-nowrap text-transparent bg-clip-text bg-linear-to-br from-violet-100 to-violet-300">
+            <div className="bg-linear-to-br from-violet-100 to-violet-300 bg-clip-text whitespace-nowrap text-transparent">
               About Me
             </div>
           </div>
@@ -56,7 +56,7 @@ export const AboutMeSection = () => {
                   </span>
                 }
               >
-                <span className="underline decoration-dotted text-violet-200">
+                <span className="text-violet-200 underline decoration-dotted">
                   maintainable architectures
                 </span>
               </Tooltip>
@@ -73,7 +73,7 @@ export const AboutMeSection = () => {
                   </span>
                 }
               >
-                <span className="underline decoration-dotted text-violet-200">
+                <span className="text-violet-200 underline decoration-dotted">
                   technologies
                 </span>
               </Tooltip>{" "}
@@ -95,7 +95,7 @@ export const AboutMeSection = () => {
                   </span>
                 }
               >
-                <span className="underline decoration-dotted text-violet-200">
+                <span className="text-violet-200 underline decoration-dotted">
                   light novels
                 </span>
               </Tooltip>
@@ -108,7 +108,7 @@ export const AboutMeSection = () => {
                   </span>
                 }
               >
-                <span className="underline decoration-dotted text-violet-200">
+                <span className="text-violet-200 underline decoration-dotted">
                   kitchen
                 </span>
               </Tooltip>
@@ -117,7 +117,7 @@ export const AboutMeSection = () => {
           </div>
 
           <motion.div
-            className="grid grid-cols-1 md:grid-cols-2 gap-8 mt-16"
+            className="mt-16 grid grid-cols-1 gap-8 md:grid-cols-2"
             variants={gridVariants}
             initial="hidden"
             whileInView="visible"
@@ -134,12 +134,12 @@ export const AboutMeSection = () => {
               >
                 <SpotlightCard
                   spotlightColor="rgba(194, 122, 255, 0.2)"
-                  className="flex flex-col lg:flex-row gap-4 w-full h-full"
+                  className="flex h-full w-full flex-col gap-4 lg:flex-row"
                 >
-                  <div className="bg-violet-600/20 size-12 rounded shrink-0 flex items-center justify-center">
+                  <div className="flex size-12 shrink-0 items-center justify-center rounded bg-violet-600/20">
                     {item.icon}
                   </div>
-                  <div className="flex gap-y-2 flex-col">
+                  <div className="flex flex-col gap-y-2">
                     <div className="inter-500">{item.title}</div>
                     <div className="inter-400 text-sm">{item.text}</div>
                   </div>

@@ -16,7 +16,7 @@ export const PillGroup = ({
 }: PillGroupProps) => {
   return (
     <div
-      className={cn("flex mt-4 gap-2 text-sm flex-wrap", className)}
+      className={cn("mt-4 flex flex-wrap gap-2 text-sm", className)}
       {...props}
     >
       {items.sort().map((content, index) => (

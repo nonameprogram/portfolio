@@ -29,10 +29,10 @@ export const CareerSection = () => {
         }}
         id="career"
       >
-        <div className="lora-400 text-4xl text-center inline-flex gap-x-2 justify-center flex-wrap">
+        <div className="lora-400 inline-flex flex-wrap justify-center gap-x-2 text-center text-4xl">
           <div>03</div>
           <div>/</div>
-          <div className="whitespace-nowrap text-transparent bg-clip-text bg-linear-to-br from-violet-100 to-violet-300">
+          <div className="bg-linear-to-br from-violet-100 to-violet-300 bg-clip-text whitespace-nowrap text-transparent">
             Career Journey
           </div>
         </div>
@@ -41,7 +41,7 @@ export const CareerSection = () => {
             <Timeline>
               {careerEntries.map((entry, index) => (
                 <TimelineEntry icon={entry.icon} key={index}>
-                  <div className="hover:-translate-y-2 transition-all duration-300">
+                  <div className="transition-all duration-300 hover:-translate-y-2">
                     <motion.div
                       initial={{ opacity: 0, y: 30 }}
                       whileInView={{ opacity: 1, y: 0 }}
@@ -52,29 +52,29 @@ export const CareerSection = () => {
                         delay: 0.3,
                       }}
                     >
-                      <div className="p-8 border rounded-2xl bg-[#111] border-[#222]">
-                        <div className="flex gap-y-2 flex-col md:flex-row justify-between">
+                      <div className="rounded-2xl border border-[#222] bg-[#111] p-8">
+                        <div className="flex flex-col justify-between gap-y-2 md:flex-row">
                           <div className="flex flex-col items-start justify-center">
                             <TimelineTitle>{entry.title}</TimelineTitle>
                             <TimelineSubtitle>
                               {entry.subtitle}
                             </TimelineSubtitle>
                           </div>
-                          <div className="flex flex-col gap-1 md:items-end text-sm">
-                            <div className="flex gap-1 items-center">
+                          <div className="flex flex-col gap-1 text-sm md:items-end">
+                            <div className="flex items-center gap-1">
                               <CalendarIcon className="size-4" />
                               <div>{entry.date}</div>
                             </div>
-                            <div className="flex gap-1 items-center">
+                            <div className="flex items-center gap-1">
                               <MapPinIcon className="size-4" />
                               <span>{entry.location}</span>
                             </div>
                           </div>
                         </div>
                         <TimelineContent className="space-y-2">
-                          <div className="flex text-violet-400 gap-x-1 items-center mt-3">
+                          <div className="mt-3 flex items-center gap-x-1 text-violet-400">
                             <TrendingUpIcon className="size-4" />
-                            <span className="text-sm inter-500">
+                            <span className="inter-500 text-sm">
                               Key Achievements
                             </span>
                           </div>

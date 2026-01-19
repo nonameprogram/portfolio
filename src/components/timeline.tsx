@@ -6,8 +6,8 @@ export interface TimelineProps extends React.OlHTMLAttributes<HTMLOListElement> 
 const Timeline = ({ children, className, ...props }: TimelineProps) => (
   <ol
     className={cn(
-      "relative md:border-s border-neutral-200 dark:border-neutral-700 md:ml-3",
-      className,
+      "relative border-neutral-200 md:ml-3 md:border-s dark:border-neutral-700",
+      className
     )}
     {...props}
   >
@@ -27,16 +27,16 @@ const TimelineEntry = ({
 }: TimelineEntryProps) => (
   <li
     className={cn(
-      "group [&:not(:last-child)]:mb-10 md:ms-10 last-child:mb-0",
-      className,
+      "group last-child:mb-0 md:ms-10 [&:not(:last-child)]:mb-10",
+      className
     )}
     {...props}
   >
-    <div className="absolute md:flex items-center justify-center w-8 h-8 rounded-full -start-4 bg-secondary-bg  ring-8 ring-secondary-bg hidden">
-      <div className="w-full h-full bg-violet-600/20 [&>*]:!text-violet-300 flex items-center justify-center rounded-full">
+    <div className="bg-secondary-bg ring-secondary-bg absolute -start-4 hidden h-8 w-8 items-center justify-center rounded-full ring-8 md:flex">
+      <div className="flex h-full w-full items-center justify-center rounded-full bg-violet-600/20 [&>*]:!text-violet-300">
         {!icon ? (
           <svg
-            className="w-2.5 h-2.5 text-violet-300"
+            className="h-2.5 w-2.5 text-violet-300"
             aria-hidden="true"
             xmlns="http://www.w3.org/2000/svg"
             fill="currentColor"
@@ -62,8 +62,8 @@ const TimelineTitle = ({
 }: TimelineTitleProps) => (
   <h3
     className={cn(
-      "flex items-center mb-1 text-xl text-violet-100 lora-400",
-      className,
+      "lora-400 mb-1 flex items-center text-xl text-violet-100",
+      className
     )}
     {...props}
   >
@@ -80,8 +80,8 @@ const TimelineSubtitle = ({
 }: TimelineSubtitleProps) => (
   <div
     className={cn(
-      "mb-2 text-base font-normal leading-none text-violet-300",
-      className,
+      "mb-2 text-base leading-none font-normal text-violet-300",
+      className
     )}
     {...props}
   >
@@ -101,7 +101,7 @@ const TimelineContent = ({
   <div
     className={cn(
       "mb-4 text-sm font-normal text-neutral-300 group-last:mb-0",
-      className,
+      className
     )}
     {...props}
   >

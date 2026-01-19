@@ -25,16 +25,16 @@ export default function Home() {
   return (
     <div className="flex flex-col">
       <div
-        className="w-full flex flex-col"
+        className="flex w-full flex-col"
         style={{ minHeight: "100dvh" }}
         ref={ref}
       >
         <motion.div
-          className="w-full h-full relative grow grid"
+          className="relative grid h-full w-full grow"
           style={{ scale }}
         >
-          <div className="w-full h-full absolute left-0 top-0">
-            <div className="relative w-full h-full opacity-50">
+          <div className="absolute top-0 left-0 h-full w-full">
+            <div className="relative h-full w-full opacity-50">
               <PixelBlast
                 variant="circle"
                 pixelSize={6}
@@ -56,23 +56,23 @@ export default function Home() {
               />
             </div>
           </div>
-          <div className="container px-6 md:px-12 mx-auto py-12 flex w-full flex-col gap-16 h-full relative">
-            <div className="grid grid-cols-1 gap-y-8 xl:grid-cols-2 justify-center h-full w-full relative">
+          <div className="relative container mx-auto flex h-full w-full flex-col gap-16 px-6 py-12 md:px-12">
+            <div className="relative grid h-full w-full grid-cols-1 justify-center gap-y-8 xl:grid-cols-2">
               <motion.div
-                className="w-full items-center h-full flex"
+                className="flex h-full w-full items-center"
                 style={{ opacity }}
               >
-                <div className="relative flex flex-col items-center md:items-start w-full">
+                <div className="relative flex w-full flex-col items-center md:items-start">
                   <motion.div
-                    className="py-2 px-3 rounded-full bg-neutral-950 flex w-max gap-2 items-center border-violet-300/30 border shadow shadow-violet-700/30"
+                    className="flex w-max items-center gap-2 rounded-full border border-violet-300/30 bg-neutral-950 px-3 py-2 shadow shadow-violet-700/30"
                     initial={{ opacity: 0, y: -50 }}
                     animate={{ opacity: 1, y: 0 }}
                     transition={{ type: "tween" }}
                   >
-                    <div className="size-2 rounded-full bg-linear-to-br from-violet-300 to-violet-400 animate-pulse" />
+                    <div className="size-2 animate-pulse rounded-full bg-linear-to-br from-violet-300 to-violet-400" />
                     <span>Available for new opportunities</span>
                   </motion.div>
-                  <div className="space-y-4 relative p-8 z-20 space-x-2 text-3xl xl:text-4xl lora-400">
+                  <div className="lora-400 relative z-20 space-y-4 space-x-2 p-8 text-3xl xl:text-4xl">
                     <div className="space-x-2">
                       <motion.span
                         className="inline-block transition-opacity"
@@ -101,7 +101,7 @@ export default function Home() {
                     </div>
                     <div className="flex gap-x-2">
                       <motion.div
-                        className="lg:ml-8 relative transition-opacity"
+                        className="relative transition-opacity lg:ml-8"
                         initial={{ opacity: 0, y: 50 }}
                         animate={{ opacity: 1, y: 0 }}
                         transition={{ delay: 0.45, type: "tween" }}
@@ -122,7 +122,7 @@ export default function Home() {
                   </div>
                 </div>
               </motion.div>
-              <div className="w-full h-full grid grid-cols-2 xl:grid-cols-3 grid-rows-3 gap-2">
+              <div className="grid h-full w-full grid-cols-2 grid-rows-3 gap-2 xl:grid-cols-3">
                 <button
                   onClick={() => {
                     const section = document.getElementById("about-me");
@@ -132,24 +132,24 @@ export default function Home() {
                   }}
                 >
                   <motion.div
-                    className="group w-full h-full min-h-48 md:min-h-64 bg-neutral-900/50 backdrop-blur-sm col-start-1 row-start-1 rounded-tl-xl p-4 hover:bg-neutral-300 hover:text-black duration-300 cursor-pointer transition-all"
+                    className="group col-start-1 row-start-1 h-full min-h-48 w-full cursor-pointer rounded-tl-xl bg-neutral-900/50 p-4 backdrop-blur-sm transition-all duration-300 hover:bg-neutral-300 hover:text-black md:min-h-64"
                     initial={{ opacity: 0, y: -30 }}
                     animate={{ opacity: 1, y: 0 }}
                     transition={{ delay: 0.6 }}
                   >
-                    <div className="flex flex-col h-full relative">
+                    <div className="relative flex h-full flex-col">
                       <div className="lora-400 text-left">01</div>
-                      <div className="mt-auto lora-400 text-right">
+                      <div className="lora-400 mt-auto text-right">
                         About Me
                       </div>
-                      <div className="absolute right-0 top-0 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+                      <div className="absolute top-0 right-0 opacity-0 transition-opacity duration-300 group-hover:opacity-100">
                         <BrainIcon strokeWidth={1} className="size-12" />
                       </div>
                     </div>
                   </motion.div>
                 </button>
                 <motion.button
-                  className="group w-full h-full min-h-48 md:min-h-64 bg-neutral-900/50 backdrop-blur-sm col-start-2 row-start-1 rounded-tr-xl xl:rounded-tr-none p-4 hover:bg-neutral-300 hover:text-black duration-300 cursor-pointer transition-all"
+                  className="group col-start-2 row-start-1 h-full min-h-48 w-full cursor-pointer rounded-tr-xl bg-neutral-900/50 p-4 backdrop-blur-sm transition-all duration-300 hover:bg-neutral-300 hover:text-black md:min-h-64 xl:rounded-tr-none"
                   initial={{ opacity: 0, y: -30 }}
                   animate={{ opacity: 1, y: 0 }}
                   transition={{ delay: 0.45 }}
@@ -160,16 +160,16 @@ export default function Home() {
                     }
                   }}
                 >
-                  <div className="flex flex-col h-full relative">
+                  <div className="relative flex h-full flex-col">
                     <div className="lora-400 text-left">02</div>
-                    <div className="mt-auto lora-400 text-right">TechStack</div>
-                    <div className="absolute right-0 top-0 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+                    <div className="lora-400 mt-auto text-right">TechStack</div>
+                    <div className="absolute top-0 right-0 opacity-0 transition-opacity duration-300 group-hover:opacity-100">
                       <LayersIcon strokeWidth={1} className="size-12" />
                     </div>
                   </div>
                 </motion.button>
                 <motion.button
-                  className="group w-full h-full min-h-48 md:min-h-64 bg-neutral-900/50 backdrop-blur-sm col-start-1 xl:col-start-2 row-start-2 p-4 hover:bg-neutral-300 hover:text-black duration-300 cursor-pointer transition-all"
+                  className="group col-start-1 row-start-2 h-full min-h-48 w-full cursor-pointer bg-neutral-900/50 p-4 backdrop-blur-sm transition-all duration-300 hover:bg-neutral-300 hover:text-black md:min-h-64 xl:col-start-2"
                   initial={{ opacity: 0, x: -30 }}
                   animate={{ opacity: 1, x: 0 }}
                   transition={{ delay: 0.6 }}
@@ -180,10 +180,10 @@ export default function Home() {
                     }
                   }}
                 >
-                  <div className="flex flex-col h-full relative">
+                  <div className="relative flex h-full flex-col">
                     <div className="lora-400 text-left">03</div>
-                    <div className="mt-auto lora-400 text-right">Career</div>
-                    <div className="absolute right-0 top-0 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+                    <div className="lora-400 mt-auto text-right">Career</div>
+                    <div className="absolute top-0 right-0 opacity-0 transition-opacity duration-300 group-hover:opacity-100">
                       <BriefcaseBusinessIcon
                         strokeWidth={1}
                         className="size-12"
@@ -192,7 +192,7 @@ export default function Home() {
                   </div>
                 </motion.button>
                 <motion.button
-                  className="group w-full h-full min-h-48 md:min-h-64 bg-neutral-900/50 backdrop-blur-sm col-start-2 xl:col-start-3 row-start-2 p-4 hover:bg-neutral-300 hover:text-black duration-300 cursor-pointer transition-all"
+                  className="group col-start-2 row-start-2 h-full min-h-48 w-full cursor-pointer bg-neutral-900/50 p-4 backdrop-blur-sm transition-all duration-300 hover:bg-neutral-300 hover:text-black md:min-h-64 xl:col-start-3"
                   initial={{ opacity: 0, x: 30 }}
                   animate={{ opacity: 1, x: 0 }}
                   transition={{ delay: 0.6 }}
@@ -203,16 +203,16 @@ export default function Home() {
                     }
                   }}
                 >
-                  <div className="flex flex-col h-full relative">
+                  <div className="relative flex h-full flex-col">
                     <div className="lora-400 text-left">04</div>
-                    <div className="mt-auto lora-400 text-right">Projects</div>
-                    <div className="absolute right-0 top-0 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+                    <div className="lora-400 mt-auto text-right">Projects</div>
+                    <div className="absolute top-0 right-0 opacity-0 transition-opacity duration-300 group-hover:opacity-100">
                       <RocketIcon strokeWidth={1} className="size-12" />
                     </div>
                   </div>
                 </motion.button>
                 <motion.button
-                  className="group w-full h-full min-h-48 md:min-h-64 bg-neutral-900/50 backdrop-blur-sm col-start-1 xl:col-start-3 row-start-3 rounded-bl-xl xl:rounded-bl-none xl:rounded-br-xl p-4 hover:bg-neutral-300 hover:text-black duration-300 cursor-pointer transition-all"
+                  className="group col-start-1 row-start-3 h-full min-h-48 w-full cursor-pointer rounded-bl-xl bg-neutral-900/50 p-4 backdrop-blur-sm transition-all duration-300 hover:bg-neutral-300 hover:text-black md:min-h-64 xl:col-start-3 xl:rounded-br-xl xl:rounded-bl-none"
                   initial={{ opacity: 0, y: 30 }}
                   animate={{ opacity: 1, y: 0 }}
                   transition={{ delay: 0.75 }}
@@ -223,10 +223,10 @@ export default function Home() {
                     }
                   }}
                 >
-                  <div className="flex flex-col h-full relative">
+                  <div className="relative flex h-full flex-col">
                     <div className="lora-400 text-left">05</div>
-                    <div className="mt-auto lora-400 text-right">Contact</div>
-                    <div className="absolute right-0 top-0 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+                    <div className="lora-400 mt-auto text-right">Contact</div>
+                    <div className="absolute top-0 right-0 opacity-0 transition-opacity duration-300 group-hover:opacity-100">
                       <MailIcon strokeWidth={1} className="size-12" />
                     </div>
                   </div>
@@ -235,12 +235,12 @@ export default function Home() {
             </div>
             <motion.div style={{ opacity }}>
               <motion.div
-                className="text-center xl:text-left xl:bottom-12 xl:left-12 lora-400 text-neutral-300 shrink-0 xl:absolute relative bottom-0 left-0 transition-opacity"
+                className="lora-400 relative bottom-0 left-0 shrink-0 text-center text-neutral-300 transition-opacity xl:absolute xl:bottom-12 xl:left-12 xl:text-left"
                 initial={{ opacity: 0 }}
                 animate={{ opacity: 1 }}
                 transition={{ delay: 0.45 }}
               >
-                <div className="flex items-center gap-2 mb-2">
+                <div className="mb-2 flex items-center gap-2">
                   <a
                     href="https://www.linkedin.com/in/bart%C5%82omiej-kosi%C5%84ski-9141051b9/"
                     className="flex items-center"

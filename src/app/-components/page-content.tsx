@@ -9,10 +9,10 @@ import { Separator } from "@/components/separator";
 
 export default function PageContent() {
   return (
-    <div className="relative flex flex-col bg-secondary-bg rounded-t-4xl">
-      <div className="container mx-auto px-6 sm:px-12 flex flex-col gap-16 relative grow !max-w-7xl">
-        <div className="flex gap-x-4 relative">
-          <div className="grid grid-cols-1 gap-24 relative">
+    <div className="bg-secondary-bg relative flex flex-col rounded-t-4xl">
+      <div className="relative container mx-auto flex !max-w-7xl grow flex-col gap-16 px-6 sm:px-12">
+        <div className="relative flex gap-x-4">
+          <div className="relative grid grid-cols-1 gap-24">
             <div className="col-span-3 xl:col-span-2">
               <AboutMeSection />
               <Separator />

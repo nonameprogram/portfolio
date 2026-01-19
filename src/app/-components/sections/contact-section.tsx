@@ -19,10 +19,10 @@ export const ContactSection = () => {
         transition={{ duration: 0.6, ease: "easeOut", delay: 0.3 }}
         id="contact"
       >
-        <div className="lora-400 text-4xl text-center inline-flex gap-x-2 justify-center flex-wrap">
+        <div className="lora-400 inline-flex flex-wrap justify-center gap-x-2 text-center text-4xl">
           <div>05</div>
           <div>/</div>
-          <div className="whitespace-nowrap text-transparent bg-clip-text bg-linear-to-br from-violet-100 to-violet-300">
+          <div className="bg-linear-to-br from-violet-100 to-violet-300 bg-clip-text whitespace-nowrap text-transparent">
             Contact
           </div>
         </div>
