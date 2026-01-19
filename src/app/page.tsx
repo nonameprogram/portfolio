@@ -149,7 +149,7 @@ export default function Home() {
                   </motion.div>
                 </button>
                 <motion.button
-                  className="group w-full h-full min-h-48 md:min-h-64 bg-neutral-900/50 backdrop-blur-sm col-start-2 row-start-1 p-4 hover:bg-neutral-300 hover:text-black duration-300 cursor-pointer transition-all"
+                  className="group w-full h-full min-h-48 md:min-h-64 bg-neutral-900/50 backdrop-blur-sm col-start-2 row-start-1 rounded-tr-xl xl:rounded-tr-none p-4 hover:bg-neutral-300 hover:text-black duration-300 cursor-pointer transition-all"
                   initial={{ opacity: 0, y: -30 }}
                   animate={{ opacity: 1, y: 0 }}
                   transition={{ delay: 0.45 }}
@@ -212,7 +212,7 @@ export default function Home() {
                   </div>
                 </motion.button>
                 <motion.button
-                  className="group w-full h-full min-h-48 md:min-h-64 bg-neutral-900/50 backdrop-blur-sm col-start-1 xl:col-start-3 row-start-3 rounded-br-xl p-4 hover:bg-neutral-300 hover:text-black duration-300 cursor-pointer transition-all"
+                  className="group w-full h-full min-h-48 md:min-h-64 bg-neutral-900/50 backdrop-blur-sm col-start-1 xl:col-start-3 row-start-3 rounded-bl-xl xl:rounded-bl-none xl:rounded-br-xl p-4 hover:bg-neutral-300 hover:text-black duration-300 cursor-pointer transition-all"
                   initial={{ opacity: 0, y: 30 }}
                   animate={{ opacity: 1, y: 0 }}
                   transition={{ delay: 0.75 }}

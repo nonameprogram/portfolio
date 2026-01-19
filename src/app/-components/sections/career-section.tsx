@@ -61,14 +61,14 @@ export const CareerSection = () => {
                     transition={{ duration: 0.6, ease: "easeOut", delay: 0.3 }}
                   >
                     <div className="p-8 border rounded-2xl bg-[#111] border-[#222]">
-                      <div className="flex justify-between">
+                      <div className="flex gap-y-2 flex-col md:flex-row justify-between">
                         <div className="flex flex-col items-start justify-center">
                           <TimelineTitle>
                             Full Stack Developer, Frontend Lead
                           </TimelineTitle>
                           <TimelineSubtitle>Link-Point</TimelineSubtitle>
                         </div>
-                        <div className="flex flex-col gap-1 items-end text-sm">
+                        <div className="flex flex-col gap-1 md:items-end text-sm">
                           <div className="flex gap-1 items-center">
                             <CalendarIcon className="size-4" />
                             <div>Jan 2023 - Present</div>
@@ -169,12 +169,12 @@ export const CareerSection = () => {
                     transition={{ duration: 0.6, ease: "easeOut", delay: 0.3 }}
                   >
                     <div className="p-8 border rounded-2xl bg-[#111] border-[#222]">
-                      <div className="flex justify-between">
+                      <div className="flex gap-y-2 flex-col md:flex-row justify-between">
                         <div className="flex flex-col items-start justify-center">
                           <TimelineTitle>Frontend Developer</TimelineTitle>
                           <TimelineSubtitle>Link-Point</TimelineSubtitle>
                         </div>
-                        <div className="flex flex-col gap-1 items-end text-sm">
+                        <div className="flex flex-col gap-1 md:items-end text-sm">
                           <div className="flex gap-1 items-center">
                             <CalendarIcon className="size-4" />
                             <div>Jan 2022 - Dec 2022</div>
@@ -254,7 +254,7 @@ export const CareerSection = () => {
                     transition={{ duration: 0.6, ease: "easeOut", delay: 0.3 }}
                   >
                     <div className="p-8 border rounded-2xl bg-[#111] border-[#222]">
-                      <div className="flex justify-between">
+                      <div className="flex gap-y-2 flex-col md:flex-row justify-between">
                         <div className="flex flex-col items-start justify-center">
                           <TimelineTitle>
                             Information Technology and Computer Science
@@ -263,7 +263,7 @@ export const CareerSection = () => {
                             Technical College for Computer Science
                           </TimelineSubtitle>
                         </div>
-                        <div className="flex flex-col gap-1 items-end text-sm">
+                        <div className="flex flex-col gap-1 md:items-end text-sm">
                           <div className="flex gap-1 items-center">
                             <CalendarIcon className="size-4" />
                             <div>2017 - 2021</div>

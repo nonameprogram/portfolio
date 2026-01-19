@@ -637,7 +637,7 @@ export const TechStackSection = () => {
               </a>
             </div>
             <div className="flex flex-col items-end gap-y-1">
-              <div className="inter-400 text-lg">
+              <div className="inter-400 text-lg text-right">
                 {item.certificate.issueDate}
               </div>
               {item.certificate.credentialUrl ? (
