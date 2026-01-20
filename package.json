@@ -1,6 +1,12 @@
 {
   "name": "portfolio",
   "version": "0.1.0",
+  "homepage": "https://bkosinski.dev",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/nonameprogram/portfolio"
+  },
+  "author": "Bartłomiej Kosiński <contact@bkosinski.dev>",
   "private": true,
   "scripts": {
     "dev": "next dev --turbopack",
