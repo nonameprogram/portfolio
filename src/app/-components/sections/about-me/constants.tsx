@@ -11,7 +11,7 @@ export const aboutMeEntries = [
   {
     icon: <RocketIcon className="size-6 text-violet-300" />,
     title: "Performance",
-    text: "Optimizing build and test times by picking right tools, caching and making sure code-splitting is effective. Continuously tracking and eliminating latency and performance bottlenecks in applications.",
+    text: "Optimizing build and test times by choosing the right tools, leveraging caching, and ensuring effective code-splitting, while continuously identifying and eliminating performance bottlenecks.",
   },
   {
     icon: <FlaskConicalIcon className="size-6 text-violet-300" />,

@@ -5,41 +5,49 @@ import React from "react";
 import { Pill } from "@/components/pill";
 import { techStack } from "@/app/-components/sections/tech-stack/constants";
 import { CertificatesSection } from "@/app/-components/sections/tech-stack/certificates-section";
+import { cn } from "@/utils/cn";
 
 const data = [
   {
     label: "Frontend",
     items: techStack.frontend,
+    className: "col-span-12 lg:col-span-8 lg:col-start-3",
   },
   {
     label: "UI / Styling",
     items: techStack.ui,
+    className: "col-span-12 lg:col-span-6 xl:col-span-4",
   },
   {
     label: "Form / Validation",
     items: techStack.form,
+    className: "col-span-12 lg:col-span-6 xl:col-span-4",
   },
   {
     label: "Backend",
     items: techStack.backend,
+    className: "col-span-12 lg:col-span-6 xl:col-span-4",
   },
   {
     label: "Testing / Documentation",
     items: techStack.testing,
+    className: "col-span-12 lg:col-span-6 xl:col-span-6",
   },
   {
     label: "Databases / ORM",
     items: techStack.databases,
+    className: "col-span-12 lg:col-span-6 xl:col-span-6",
   },
   {
     label: "Containers & CI/CD",
     items: techStack.containers,
+    className: "col-span-12 lg:col-span-6 xl:col-span-4 xl:col-start-5",
   },
 ];
 
 export const TechStackSection = () => {
   return (
-    <div>
+    <div className="space-y-8">
       <motion.div
         className="flex flex-col gap-16 py-16"
         initial={{ opacity: 0, y: 30 }}
@@ -59,10 +67,13 @@ export const TechStackSection = () => {
           The tools and technologies I use to design, deploy, and operate
           infrastructure at work.
         </div>
-        <div className="grid grid-cols-1 gap-8 md:grid-cols-2 xl:grid-cols-3">
+        <div className="grid grid-cols-12 gap-8">
           {data.map((item, index) => (
             <motion.div
-              className="h-full w-full pt-4 pr-4"
+              className={cn(
+                "col-span-12 h-full w-full pt-4 pr-4",
+                item.className
+              )}
               initial={{ opacity: 0, y: 30 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true, amount: 0.3 }}

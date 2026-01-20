@@ -41,51 +41,70 @@ export const AboutMeSection = () => {
           </div>
           <div className="flex flex-col gap-y-8">
             <div className="inter-400 text-base">
-              I’m on a journey to reach a new level, building things that are
-              fast, secure, and enjoyable to work with.
-            </div>{" "}
-            <div className="inter-400 text-base">
-              That mindset naturally leads me to creating tools that help
-              developers move faster and work more efficiently — from reusable
-              components to cleaner, more{" "}
+              I build applications from the ground up — from concept to
+              real-world solutions, always with a{" "}
               <Tooltip
                 content={
-                  <span className="inter-400">
-                    Removing duplication and sharing types across API and web
-                    applications.
-                  </span>
+                  <span className="inter-400">Only AI could say that.</span>
                 }
               >
-                <span className="text-violet-200 underline decoration-dotted">
-                  maintainable architectures
-                </span>
-              </Tooltip>
-              .
-            </div>
-            <div className="inter-400 text-base">
-              Curiosity drives me to explore new{" "}
-              <Tooltip
-                content={
-                  <span className="inter-400">
-                    Recently i had fun with{" "}
-                    <span className="inter-600">.NET Framework</span> and{" "}
-                    <span className="inter-600">Hot Chocolate GraphQL</span>.
-                  </span>
-                }
-              >
-                <span className="text-violet-200 underline decoration-dotted">
-                  technologies
+                <span className="rounded bg-violet-950/50 px-1.5 text-violet-200 underline decoration-dotted">
+                  human
                 </span>
               </Tooltip>{" "}
-              and understand them on a deeper level.
+              touch.
+            </div>
+            <div className="inter-400 text-base">
+              Specializing in full-stack development with a focus on frontend
+              architecture, including monorepos, micro-frontends, module
+              federation, and monolithic applications. Among the projects I’ve
+              delivered, one extended the core product through multiple modular
+              solutions, helping the team scale efficiently and maintain
+              high-quality code.
+            </div>
+            <div className="inter-400 text-base">
+              I also had the chance to lead a frontend team, an experience I’m
+              grateful for, where I made strategic decisions, guided
+              architectural direction, and fostered collaboration across complex
+              projects.
             </div>
             <div className="inter-400 text-base">
               To me, good engineering isn’t about chasing the newest tools, but
               about choosing the right tools for the right problems — and
-              understanding them deeply enough to use them with confidence.
+              understanding them deeply enough to use them with confidence. I
+              also value collaboration and{" "}
+              <Tooltip
+                content={
+                  <span className="inter-400">
+                    Regularly sharing knowledge and experiences during daily
+                    standups.
+                  </span>
+                }
+              >
+                <span className="rounded bg-violet-950/50 px-1.5 text-violet-200 underline decoration-dotted">
+                  knowledge sharing
+                </span>
+              </Tooltip>
+              , believing that the best solutions often come from teamwork and
+              open communication.
             </div>
             <div className="inter-400 text-base">
-              When I’m not coding, you’ll probably find me reading{" "}
+              In my free time, I explore new{" "}
+              <Tooltip
+                content={
+                  <span className="inter-400">
+                    Recently, I discovered the real magic of combining .NET
+                    Framework with Hot Chocolate GraphQL to dramatically speed
+                    up development.
+                  </span>
+                }
+              >
+                <span className="rounded bg-violet-950/50 px-1.5 text-violet-200 underline decoration-dotted">
+                  technologies
+                </span>
+              </Tooltip>{" "}
+              that broaden my knowledge, and when I’m not coding, you’ll
+              probably find me reading{" "}
               <Tooltip
                 content={
                   <span className="inter-400">
@@ -95,7 +114,7 @@ export const AboutMeSection = () => {
                   </span>
                 }
               >
-                <span className="text-violet-200 underline decoration-dotted">
+                <span className="rounded bg-violet-950/50 px-1.5 text-violet-200 underline decoration-dotted">
                   light novels
                 </span>
               </Tooltip>
@@ -108,11 +127,11 @@ export const AboutMeSection = () => {
                   </span>
                 }
               >
-                <span className="text-violet-200 underline decoration-dotted">
+                <span className="rounded bg-violet-950/50 px-1.5 text-violet-200 underline decoration-dotted">
                   kitchen
                 </span>
               </Tooltip>
-              , or exercising.
+              , exercising, or spending time with my dog.
             </div>
           </div>
 
