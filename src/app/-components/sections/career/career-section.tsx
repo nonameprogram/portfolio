@@ -17,25 +17,24 @@ import { careerEntries } from "@/app/-components/sections/career/constants";
 export const CareerSection = () => {
   return (
     <div className="space-y-16">
-      <motion.div
-        className="flex flex-col gap-16 py-16"
-        initial={{ opacity: 0, y: 30 }}
-        whileInView={{ opacity: 1, y: 0 }}
-        viewport={{ once: true, amount: 0.3 }}
-        transition={{
-          duration: 0.6,
-          ease: "easeOut",
-          delay: 0.3,
-        }}
-        id="career"
-      >
-        <div className="lora-400 inline-flex flex-wrap justify-center gap-x-2 text-center text-4xl">
+      <div className="flex flex-col gap-16 py-16" id="career">
+        <motion.div
+          className="lora-400 inline-flex flex-wrap justify-center gap-x-2 text-center text-4xl"
+          initial={{ opacity: 0, y: 30 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true, amount: 0.3 }}
+          transition={{
+            duration: 0.6,
+            ease: "easeOut",
+            delay: 0.3,
+          }}
+        >
           <div>03</div>
           <div>/</div>
           <div className="bg-linear-to-br from-violet-100 to-violet-300 bg-clip-text whitespace-nowrap text-transparent">
             Career Journey
           </div>
-        </div>
+        </motion.div>
         <div className="flex flex-col gap-y-8">
           <div className="inter-400">
             <Timeline>
@@ -94,7 +93,7 @@ export const CareerSection = () => {
             </Timeline>
           </div>
         </div>
-      </motion.div>
+      </div>
     </div>
   );
 };
