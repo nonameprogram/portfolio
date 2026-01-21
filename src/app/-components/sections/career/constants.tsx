@@ -20,10 +20,10 @@ export const careerEntries: CareerEntry[] = [
     achievements: [
       "Designed and implemented modular architectures for on-premise ERP and MES systems using a monorepo approach (e.g., Turborepo, Nx)",
       "Led a team of frontend developers, overseeing task distribution, code reviews, and technical decision-making",
-      "Built user interfaces with React and TypeScript, creating responsive designs, adhering to accessibility standards (a11y), and enhancing user experience",
-      "Developed and maintained backend services in PHP and Node.js, focusing on relational databases, data integrity, and event-driven architecture",
+      "Built user interfaces with React and TypeScript, creating responsive designs, and enhancing user experience",
+      "Developed and maintained backend services in Node.js and PHP, focusing on relational databases, data integrity, and event-driven architecture",
       "Enhanced existing systems to meet business and reliability requirements, emphasizing unit and end-to-end testing",
-      "Integrated ERP and MES systems with industrial devices (PLC, OPC UA)",
+      "Integrated ERP and MES systems with industrial devices (e.g., PLC, OPC UA)",
       "Created and maintained internal technical documentation using OpenAPI and MDX, improving knowledge sharing and accelerating onboarding of new team members",
     ],
     skills: [

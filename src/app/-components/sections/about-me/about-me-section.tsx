@@ -41,8 +41,7 @@ export const AboutMeSection = () => {
           </div>
           <div className="flex flex-col gap-y-8">
             <div className="inter-400 text-base">
-              I build applications from the ground up — from concept to
-              real-world solutions, always with a{" "}
+              I build applications from the ground up, always with a{" "}
               <Tooltip
                 content={
                   <span className="inter-400">Only AI could say that.</span>
@@ -57,22 +56,19 @@ export const AboutMeSection = () => {
             <div className="inter-400 text-base">
               Specializing in full-stack development with a focus on frontend
               architecture, including monorepos, micro-frontends, module
-              federation, and monolithic applications. Among the projects I’ve
-              delivered, one extended the core product through multiple modular
-              solutions, helping the team scale efficiently and maintain
-              high-quality code.
+              federation, and monolithic applications.
             </div>
             <div className="inter-400 text-base">
-              I also had the chance to lead a frontend team, an experience I’m
-              grateful for, where I made strategic decisions, guided
-              architectural direction, and fostered collaboration across complex
-              projects.
+              Led a frontend team, guiding architectural decisions, code
+              quality, and collaboration across complex projects.
             </div>
             <div className="inter-400 text-base">
               To me, good engineering isn’t about chasing the newest tools, but
               about choosing the right tools for the right problems — and
-              understanding them deeply enough to use them with confidence. I
-              also value collaboration and{" "}
+              understanding them deeply enough to use them with confidence.
+            </div>
+            <div className="inter-400 text-base">
+              I also value collaboration and{" "}
               <Tooltip
                 content={
                   <span className="inter-400">
