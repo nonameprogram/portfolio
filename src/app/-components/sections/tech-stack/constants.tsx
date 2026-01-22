@@ -117,15 +117,7 @@ export const techStack = {
     },
     {
       icon: <TanStack className="size-3 !fill-violet-300 !text-white" />,
-      label: "TanStack Start",
-    },
-    {
-      icon: <TanStack className="size-3 !fill-violet-300 !text-white" />,
-      label: "TanStack Router",
-    },
-    {
-      icon: <TanStack className="size-3 !fill-violet-300 !text-white" />,
-      label: "TanStack Query",
+      label: "TanStack",
     },
     {
       icon: (
@@ -136,7 +128,6 @@ export const techStack = {
       ),
       label: "Redux Toolkit",
     },
-    "Zustand",
     {
       icon: <SiApollographql className="size-3 !fill-violet-300 !text-white" />,
       label: "Apollo Client",
@@ -164,15 +155,6 @@ export const techStack = {
         />
       ),
       label: "Pusher",
-    },
-    {
-      icon: (
-        <SiSocketdotio
-          color={SiNxHex}
-          className="size-3 !fill-violet-300 !text-white"
-        />
-      ),
-      label: "Socket.io",
     },
     "MDX",
   ],
@@ -208,7 +190,10 @@ export const techStack = {
     },
   ],
   form: [
-    "TanStack Form",
+    {
+      icon: <TanStack className="size-3 !fill-violet-300 !text-white" />,
+      label: "TanStack Form",
+    },
     {
       icon: (
         <SiReacthookform
@@ -220,15 +205,6 @@ export const techStack = {
     },
     {
       icon: (
-        <SiFormik
-          color={SiFormikHex}
-          className="size-3 !fill-violet-300 !text-white"
-        />
-      ),
-      label: "Formik",
-    },
-    {
-      icon: (
         <SiZod
           color={SiZodHex}
           className="size-3 !fill-violet-300 !text-white"
@@ -237,7 +213,6 @@ export const techStack = {
       label: "Zod",
     },
     "ArkType",
-    "Yup",
   ],
   backend: [
     {
