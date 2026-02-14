@@ -1,6 +1,6 @@
-import { Pill, PillContent } from "@/components/pill";
+import type React from "react";
+import { Pill, type PillContent } from "@/components/pill";
 import { cn } from "@/utils/cn";
-import React from "react";
 
 export type PillGroupProps = React.HTMLAttributes<HTMLDivElement> & {
   items: PillContent[];
@@ -20,7 +20,7 @@ export const PillGroup = ({
       {...props}
     >
       {items.sort().map((content, index) => (
-        <Pill key={index} content={content} className={pillClasses} />
+        <Pill className={pillClasses} content={content} key={index} />
       ))}
     </div>
   );

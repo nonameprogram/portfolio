@@ -4,7 +4,7 @@
 :root {
   --background: #0a0a0a;
   --foreground: #ededed;
---secondary-bg: #0D0D0D;
+  --secondary-bg: #0d0d0d;
 }
 
 @theme inline {
@@ -20,59 +20,59 @@ body {
 }
 
 .inter-400 {
-    font-family: "Inter", sans-serif;
-    font-optical-sizing: auto;
-    font-weight: 400;
-    font-style: normal;
+  font-family: "Inter", sans-serif;
+  font-optical-sizing: auto;
+  font-weight: 400;
+  font-style: normal;
 }
 
 .inter-500 {
-    font-family: "Inter", sans-serif;
-    font-optical-sizing: auto;
-    font-weight: 500;
-    font-style: normal;
+  font-family: "Inter", sans-serif;
+  font-optical-sizing: auto;
+  font-weight: 500;
+  font-style: normal;
 }
 
 .inter-600 {
-    font-family: "Inter", sans-serif;
-    font-optical-sizing: auto;
-    font-weight: 600;
-    font-style: normal;
+  font-family: "Inter", sans-serif;
+  font-optical-sizing: auto;
+  font-weight: 600;
+  font-style: normal;
 }
 
 .lora-400 {
-    font-family: "Lora", sans-serif;
-    font-optical-sizing: auto;
-    font-weight: 400;
-    font-style: normal;
+  font-family: "Lora", sans-serif;
+  font-optical-sizing: auto;
+  font-weight: 400;
+  font-style: normal;
 }
 
 .lora-500 {
-    font-family: "Lora", sans-serif;
-    font-optical-sizing: auto;
-    font-weight: 500;
-    font-style: normal;
+  font-family: "Lora", sans-serif;
+  font-optical-sizing: auto;
+  font-weight: 500;
+  font-style: normal;
 }
 
 .lora-600 {
-    font-family: "Lora", sans-serif;
-    font-optical-sizing: auto;
-    font-weight: 600;
-    font-style: normal;
+  font-family: "Lora", sans-serif;
+  font-optical-sizing: auto;
+  font-weight: 600;
+  font-style: normal;
 }
 
 .inter-400 {
-    font-family: "Inter", sans-serif;
-    font-optical-sizing: auto;
-    font-weight: 400;
-    font-style: normal;
+  font-family: "Inter", sans-serif;
+  font-optical-sizing: auto;
+  font-weight: 400;
+  font-style: normal;
 }
 
 .inter-500 {
-    font-family: "Inter", sans-serif;
-    font-optical-sizing: auto;
-    font-weight: 500;
-    font-style: normal;
+  font-family: "Inter", sans-serif;
+  font-optical-sizing: auto;
+  font-weight: 500;
+  font-style: normal;
 }
 
 /*@layer base {*/
@@ -113,125 +113,136 @@ body {
 /*}*/
 
 @theme inline {
-    --animate-marquee: marquee var(--duration) infinite linear;
-    --animate-marquee-vertical: marquee-vertical var(--duration) linear infinite;
+  --animate-marquee: marquee var(--duration) infinite linear;
+  --animate-marquee-vertical: marquee-vertical var(--duration) linear infinite;
 
-    @keyframes marquee {
-        from {
-            transform: translateX(0);
-        }
-        to {
-            transform: translateX(calc(-100% - var(--gap)));
-        }
+  @keyframes marquee {
+    from {
+      transform: translateX(0);
     }
-    @keyframes marquee-vertical {
-        from {
-            transform: translateY(0);
-        }
-        to {
-            transform: translateY(calc(-100% - var(--gap)));
-        }
+    to {
+      transform: translateX(calc(-100% - var(--gap)));
     }
+  }
+  @keyframes marquee-vertical {
+    from {
+      transform: translateY(0);
+    }
+    to {
+      transform: translateY(calc(-100% - var(--gap)));
+    }
+  }
 }
 
-@media (min-width: 112rem) { /* 1792px → 3xl */
-    .container {
-        max-width: 112rem;
-    }
+@media (min-width: 112rem) {
+  /* 1792px → 3xl */
+  .container {
+    max-width: 112rem;
+  }
 }
 
-@media (min-width: 128rem) { /* 2048px → 4xl */
-    .container {
-        max-width: 128rem;
-    }
+@media (min-width: 128rem) {
+  /* 2048px → 4xl */
+  .container {
+    max-width: 128rem;
+  }
 }
 
 @layer utilities {
-    [data-rmiz-modal-overlay="visible"] {
-        @apply !bg-neutral-950;
-    }
+  [data-rmiz-modal-overlay="visible"] {
+    @apply !bg-neutral-950;
+  }
 
-    [data-rmiz-modal][open] {
-        @apply !bg-neutral-950;
-    }
+  [data-rmiz-modal][open] {
+    @apply !bg-neutral-950;
+  }
 }
 
 .pixel-blast-container {
-    width: 100%;
-    height: 100%;
-    position: relative;
-    overflow: hidden;
+  width: 100%;
+  height: 100%;
+  position: relative;
+  overflow: hidden;
 }
 
 .card-spotlight {
-    position: relative;
-    border-radius: 1.5rem;
-    border: 1px solid #222;
-    background-color: #111;
-    padding: 2rem;
-    overflow: hidden;
-    --mouse-x: 50%;
-    --mouse-y: 50%;
-    --spotlight-color: rgba(255, 255, 255, 0.05);
+  position: relative;
+  border-radius: 1.5rem;
+  border: 1px solid #222;
+  background-color: #111;
+  padding: 2rem;
+  overflow: hidden;
+  --mouse-x: 50%;
+  --mouse-y: 50%;
+  --spotlight-color: rgba(255, 255, 255, 0.05);
 }
 
 .card-spotlight::before {
-    content: '';
-    position: absolute;
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    background: radial-gradient(circle at var(--mouse-x) var(--mouse-y), var(--spotlight-color), transparent 80%);
-    opacity: 0;
-    transition: opacity 0.5s ease;
-    pointer-events: none;
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: radial-gradient(
+    circle at var(--mouse-x) var(--mouse-y),
+    var(--spotlight-color),
+    transparent 80%
+  );
+  opacity: 0;
+  transition: opacity 0.5s ease;
+  pointer-events: none;
 }
 
 .card-spotlight:hover::before,
 .card-spotlight:focus-within::before {
-    opacity: 0.6;
+  opacity: 0.6;
 }
 a.animated-link {
-    position: relative;
-    color: #fff;
-    text-decoration: none;
+  position: relative;
+  color: #fff;
+  text-decoration: none;
 }
 
 a.animated-link:hover {
-    color: #fff;
+  color: #fff;
 }
 
 a.animated-link::before {
-    content: "";
-    position: absolute;
-    display: block;
-    width: 100%;
-    height: 1px;
-    bottom: 0;
-    left: 0;
-    background-color: #fff;
-    transform: scaleX(0);
-    transform-origin: top left;
-    transition: transform 0.3s ease;
+  content: "";
+  position: absolute;
+  display: block;
+  width: 100%;
+  height: 1px;
+  bottom: 0;
+  left: 0;
+  background-color: #fff;
+  transform: scaleX(0);
+  transform-origin: top left;
+  transition: transform 0.3s ease;
 }
 
 a.animated-link:hover::before {
-    transform: scaleX(1);
+  transform: scaleX(1);
 }
 
 .dots-container::before {
-    content: "";
-    pointer-events: none;
-    z-index: 0;
-    -webkit-mask-composite: source-in;
-    background-image: radial-gradient(circle, #392e4e 1px, #0000 1px);
-    background-size: 20px 20px;
-    position: absolute;
-    top: 0;
-    right: 0;
-    bottom: 0;
-    left: 0;
-    -webkit-mask: linear-gradient(90deg, #0000 0%, #000 35% 55%, #0000 100%), linear-gradient(#0000 0%, #000 35% 55%, #0000 100%);
-    mask: linear-gradient(90deg, #0000 0%, #000 35% 55%, #0000 100%), linear-gradient(#0000 0%, #000 35% 55%, #0000 100%);
+  content: "";
+  pointer-events: none;
+  z-index: 0;
+  -webkit-mask-composite: source-in;
+  background-image: radial-gradient(circle, #392e4e 1px, #0000 1px);
+  background-size: 20px 20px;
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  /* biome-ignore lint/suspicious/noShorthandPropertyOverrides: use non standard feature */
+  -webkit-mask:
+    linear-gradient(90deg, #0000 0%, #000 35% 55%, #0000 100%),
+    linear-gradient(#0000 0%, #000 35% 55%, #0000 100%);
+  mask:
+    linear-gradient(90deg, #0000 0%, #000 35% 55%, #0000 100%),
+    linear-gradient(#0000 0%, #000 35% 55%, #0000 100%);
 }

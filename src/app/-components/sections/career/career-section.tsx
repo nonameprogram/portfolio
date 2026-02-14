@@ -1,7 +1,6 @@
 "use client";
 
 import { motion } from "motion/react";
-import React from "react";
 import {
   Timeline,
   TimelineContent,
@@ -10,9 +9,9 @@ import {
   TimelineTitle,
 } from "@/components/timeline";
 import "react-medium-image-zoom/dist/styles.css";
-import { PillGroup } from "@/components/pill-group";
 import { CalendarIcon, MapPinIcon, TrendingUpIcon } from "lucide-react";
 import { careerEntries } from "@/app/-components/sections/career/constants";
+import { PillGroup } from "@/components/pill-group";
 
 export const CareerSection = () => {
   return (
@@ -21,17 +20,17 @@ export const CareerSection = () => {
         <motion.div
           className="lora-400 inline-flex flex-wrap justify-center gap-x-2 text-center text-4xl"
           initial={{ opacity: 0, y: 30 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true, amount: 0.3 }}
           transition={{
             duration: 0.6,
             ease: "easeOut",
             delay: 0.3,
           }}
+          viewport={{ once: true, amount: 0.3 }}
+          whileInView={{ opacity: 1, y: 0 }}
         >
           <div>03</div>
           <div>/</div>
-          <div className="bg-linear-to-br from-violet-100 to-violet-300 bg-clip-text whitespace-nowrap text-transparent">
+          <div className="whitespace-nowrap bg-linear-to-br from-violet-100 to-violet-300 bg-clip-text text-transparent">
             Career Journey
           </div>
         </motion.div>
@@ -43,13 +42,13 @@ export const CareerSection = () => {
                   <div className="transition-all duration-300 hover:-translate-y-2">
                     <motion.div
                       initial={{ opacity: 0, y: 30 }}
-                      whileInView={{ opacity: 1, y: 0 }}
-                      viewport={{ once: true, amount: 0.3 }}
                       transition={{
                         duration: 0.6,
                         ease: "easeOut",
                         delay: 0.3,
                       }}
+                      viewport={{ once: true, amount: 0.3 }}
+                      whileInView={{ opacity: 1, y: 0 }}
                     >
                       <div className="rounded-2xl border border-[#222] bg-[#111] p-8">
                         <div className="flex flex-col justify-between gap-y-2 md:flex-row">

@@ -1,23 +1,22 @@
 "use client";
 
-import React from "react";
+import { ImageIcon } from "lucide-react";
 import { motion } from "motion/react";
 import Image from "next/image";
-import shipmentTrackingDiagram from "../../-assets/shipment-tracking-diagram.svg";
-import shipmentHistoryImage from "../../-assets/shipment-tracking-app-shipment-history.png";
-import appCreateWorkImage from "../../-assets/app/app-create-work.png";
-import appBookPreviewImage from "../../-assets/app/app-book-preview.png";
-import appUpdateBookImage from "../../-assets/app/app-update-book.png";
-import appPersonalSite from "../../-assets/app/app-personal-site.png";
-import { ImageIcon } from "lucide-react";
 import Zoom from "react-medium-image-zoom";
+import appBookPreviewImage from "../../-assets/app/app-book-preview.png";
+import appCreateWorkImage from "../../-assets/app/app-create-work.png";
+import appPersonalSite from "../../-assets/app/app-personal-site.png";
+import appUpdateBookImage from "../../-assets/app/app-update-book.png";
+import shipmentHistoryImage from "../../-assets/shipment-tracking-app-shipment-history.png";
+import shipmentTrackingDiagram from "../../-assets/shipment-tracking-diagram.svg";
 import "react-medium-image-zoom/dist/styles.css";
-import { Pill } from "@/components/pill";
-import { PillGroup } from "@/components/pill-group";
+import { SiGithub, SiNpm } from "@icons-pack/react-simple-icons";
 import { AspectRatio } from "@radix-ui/react-aspect-ratio";
 import { ExternalLinkIcon } from "@radix-ui/react-icons";
-import { SiGithub, SiNpm } from "@icons-pack/react-simple-icons";
 import { AnimatedLink } from "@/components/animated-link";
+import { Pill } from "@/components/pill";
+import { PillGroup } from "@/components/pill-group";
 
 export const ProjectsSection = () => {
   return (
@@ -26,13 +25,13 @@ export const ProjectsSection = () => {
         <motion.div
           className="lora-400 inline-flex flex-wrap justify-center gap-x-2 text-center text-4xl"
           initial={{ opacity: 0, y: 30 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true, amount: 0.3 }}
           transition={{ duration: 0.6, ease: "easeOut", delay: 0.3 }}
+          viewport={{ once: true, amount: 0.3 }}
+          whileInView={{ opacity: 1, y: 0 }}
         >
           <div>04</div>
           <div>/</div>
-          <div className="bg-linear-to-br from-violet-100 to-violet-300 bg-clip-text whitespace-nowrap text-transparent">
+          <div className="whitespace-nowrap bg-linear-to-br from-violet-100 to-violet-300 bg-clip-text text-transparent">
             Projects
           </div>
         </motion.div>
@@ -40,18 +39,18 @@ export const ProjectsSection = () => {
           <motion.div
             className="flex flex-col items-center gap-8 md:flex-row-reverse"
             initial={{ opacity: 0, y: 30 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true, amount: 0.3 }}
             transition={{ duration: 0.6, ease: "easeOut", delay: 0.3 }}
+            viewport={{ once: true, amount: 0.3 }}
+            whileInView={{ opacity: 1, y: 0 }}
           >
             <div className="relative w-full shrink-0 pt-4 pr-4 md:w-1/2">
               <div className="relative h-full w-full">
                 <AspectRatio ratio={576 / 449}>
                   <Image
-                    src={shipmentHistoryImage}
-                    fill
-                    className="relative z-20 rounded-2xl object-cover shadow-sm"
                     alt="process-diagram"
+                    className="relative z-20 rounded-2xl object-cover shadow-sm"
+                    fill
+                    src={shipmentHistoryImage}
                   />
                 </AspectRatio>
                 <div className="absolute -top-4 -right-4 z-10 h-full w-full rounded-2xl bg-white/90" />
@@ -69,9 +68,9 @@ export const ProjectsSection = () => {
                   <Zoom>
                     <div className="relative h-20">
                       <Image
-                        src={shipmentTrackingDiagram}
-                        className="h-full w-full object-fill opacity-50"
                         alt="process-diagram"
+                        className="h-full w-full object-fill opacity-50"
+                        src={shipmentTrackingDiagram}
                       />
                     </div>
                     <div className="pointer-events-none absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 opacity-50 transition-opacity duration-300 group-hover:opacity-100">
@@ -83,9 +82,9 @@ export const ProjectsSection = () => {
                   <Zoom>
                     <div className="relative h-20">
                       <Image
-                        src={shipmentHistoryImage}
-                        className="h-full w-full object-fill opacity-50"
                         alt="app"
+                        className="h-full w-full object-fill opacity-50"
+                        src={shipmentHistoryImage}
                       />
                     </div>
                     <div className="pointer-events-none absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 opacity-50 transition-opacity duration-300 group-hover:opacity-100">
@@ -109,17 +108,17 @@ export const ProjectsSection = () => {
           <motion.div
             className="flex flex-col items-center gap-8 md:flex-row"
             initial={{ opacity: 0, y: 30 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true, amount: 0.3 }}
             transition={{ duration: 0.6, ease: "easeOut", delay: 0.3 }}
+            viewport={{ once: true, amount: 0.3 }}
+            whileInView={{ opacity: 1, y: 0 }}
           >
             <div className="relative w-full shrink-0 pt-4 pr-4 md:w-1/2">
               <div className="relative h-full w-full">
                 <AspectRatio ratio={576 / 449}>
                   <Image
-                    src={appBookPreviewImage}
-                    className="relative z-20 rounded-2xl shadow-sm"
                     alt="process-diagram"
+                    className="relative z-20 rounded-2xl shadow-sm"
+                    src={appBookPreviewImage}
                   />
                 </AspectRatio>
                 <div className="absolute -top-4 -right-4 z-10 h-full w-full rounded-2xl bg-[#b5b0a8]" />
@@ -138,9 +137,9 @@ export const ProjectsSection = () => {
                   <Zoom>
                     <div className="relative h-20">
                       <Image
-                        src={appBookPreviewImage}
-                        className="h-full w-full object-fill opacity-50"
                         alt="process-diagram"
+                        className="h-full w-full object-fill opacity-50"
+                        src={appBookPreviewImage}
                       />
                     </div>
                     <div className="pointer-events-none absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 opacity-50 transition-opacity duration-300 group-hover:opacity-100">
@@ -152,9 +151,9 @@ export const ProjectsSection = () => {
                   <Zoom>
                     <div className="relative h-20">
                       <Image
+                        alt="app"
+                        className="h-full w-full object-fill opacity-50"
                         src={appCreateWorkImage}
-                        className="h-full w-full object-fill opacity-50"
-                        alt="app"
                       />
                     </div>
                     <div className="pointer-events-none absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 opacity-50 transition-opacity duration-300 group-hover:opacity-100">
@@ -166,9 +165,9 @@ export const ProjectsSection = () => {
                   <Zoom>
                     <div className="relative h-20">
                       <Image
-                        src={appUpdateBookImage}
-                        className="h-full w-full object-fill opacity-50"
                         alt="app"
+                        className="h-full w-full object-fill opacity-50"
+                        src={appUpdateBookImage}
                       />
                     </div>
                     <div className="pointer-events-none absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 opacity-50 transition-opacity duration-300 group-hover:opacity-100">
@@ -200,18 +199,18 @@ export const ProjectsSection = () => {
           <motion.div
             className="flex flex-col items-center gap-8 md:flex-row-reverse"
             initial={{ opacity: 0, y: 30 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true, amount: 0.3 }}
             transition={{ duration: 0.6, ease: "easeOut", delay: 0.3 }}
+            viewport={{ once: true, amount: 0.3 }}
+            whileInView={{ opacity: 1, y: 0 }}
           >
             <div className="relative w-full shrink-0 pt-4 pr-4 md:w-1/2">
               <div className="relative h-full w-full">
                 <AspectRatio ratio={576 / 449}>
                   <Image
-                    src={appPersonalSite}
-                    fill
-                    className="relative z-20 rounded-2xl border border-neutral-900/50 object-cover shadow-sm shadow-neutral-900"
                     alt="process-diagram"
+                    className="relative z-20 rounded-2xl border border-neutral-900/50 object-cover shadow-neutral-900 shadow-sm"
+                    fill
+                    src={appPersonalSite}
                   />
                 </AspectRatio>
                 <div className="absolute -top-4 -right-4 z-10 h-full w-full rounded-2xl bg-neutral-950/90" />
@@ -241,9 +240,9 @@ export const ProjectsSection = () => {
           <motion.div
             className="flex flex-col items-center gap-8 md:flex-row"
             initial={{ opacity: 0, y: 30 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true, amount: 0.3 }}
             transition={{ duration: 0.6, ease: "easeOut", delay: 0.3 }}
+            viewport={{ once: true, amount: 0.3 }}
+            whileInView={{ opacity: 1, y: 0 }}
           >
             <div className="lora-400">
               <div className="flex flex-col justify-between gap-2 sm:flex-row">
@@ -260,7 +259,7 @@ export const ProjectsSection = () => {
                 {["TypeScript", "Pusher", "Vitest"]
                   .sort()
                   .map((tech, index) => (
-                    <Pill key={index} content={tech} />
+                    <Pill content={tech} key={index} />
                   ))}
               </div>
               <div className="mt-6 flex flex-wrap gap-4">

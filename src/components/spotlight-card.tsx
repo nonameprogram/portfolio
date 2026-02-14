@@ -1,9 +1,5 @@
-import React, { useRef } from "react";
-
-interface Position {
-  x: number;
-  y: number;
-}
+import type React from "react";
+import { useRef } from "react";
 
 interface SpotlightCardProps extends React.PropsWithChildren {
   className?: string;
@@ -18,7 +14,9 @@ export const SpotlightCard: React.FC<SpotlightCardProps> = ({
   const divRef = useRef<HTMLDivElement>(null);
 
   const handleMouseMove: React.MouseEventHandler<HTMLDivElement> = (e) => {
-    if (!divRef.current) return;
+    if (!divRef.current) {
+      return;
+    }
 
     const rect = divRef.current.getBoundingClientRect();
     const x = e.clientX - rect.left;
@@ -30,10 +28,12 @@ export const SpotlightCard: React.FC<SpotlightCardProps> = ({
   };
 
   return (
+    // biome-ignore lint/a11y/noNoninteractiveElementInteractions: support only desktop
+    // biome-ignore lint/a11y/noStaticElementInteractions: support only desktop
     <div
-      ref={divRef}
-      onMouseMove={handleMouseMove}
       className={`card-spotlight ${className}`}
+      onMouseMove={handleMouseMove}
+      ref={divRef}
     >
       {children}
     </div>

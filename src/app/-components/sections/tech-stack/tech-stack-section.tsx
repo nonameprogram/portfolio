@@ -1,10 +1,9 @@
 "use client";
 
 import { motion } from "motion/react";
-import React from "react";
-import { Pill } from "@/components/pill";
-import { techStack } from "@/app/-components/sections/tech-stack/constants";
 import { CertificatesSection } from "@/app/-components/sections/tech-stack/certificates-section";
+import { techStack } from "@/app/-components/sections/tech-stack/constants";
+import { Pill } from "@/components/pill";
 import { cn } from "@/utils/cn";
 
 const data = [
@@ -50,16 +49,16 @@ export const TechStackSection = () => {
     <div className="space-y-8">
       <motion.div
         className="flex flex-col gap-16 py-16"
-        initial={{ opacity: 0, y: 30 }}
-        whileInView={{ opacity: 1, y: 0 }}
-        viewport={{ once: true }}
-        transition={{ duration: 1 }}
         id="techstack"
+        initial={{ opacity: 0, y: 30 }}
+        transition={{ duration: 1 }}
+        viewport={{ once: true }}
+        whileInView={{ opacity: 1, y: 0 }}
       >
         <div className="lora-400 inline-flex flex-wrap justify-center gap-x-2 text-center text-4xl">
           <div>02</div>
           <div>/</div>
-          <div className="bg-linear-to-br from-violet-100 to-violet-300 bg-clip-text whitespace-nowrap text-transparent">
+          <div className="whitespace-nowrap bg-linear-to-br from-violet-100 to-violet-300 bg-clip-text text-transparent">
             TechStack
           </div>
         </div>
@@ -75,22 +74,22 @@ export const TechStackSection = () => {
                 item.className
               )}
               initial={{ opacity: 0, y: 30 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true, amount: 0.3 }}
+              key={index}
               transition={{
                 duration: 0.6,
                 ease: "easeOut",
                 delay: 0.15 * index,
               }}
-              key={index}
+              viewport={{ once: true, amount: 0.3 }}
+              whileInView={{ opacity: 1, y: 0 }}
             >
               <div className="group relative h-full w-full">
                 <div className="absolute -top-4 -right-4 h-full w-full bg-neutral-900 transition-colors duration-300 group-hover:bg-violet-900" />
-                <div className="bg-secondary-bg relative z-10 h-full w-full border border-neutral-700 p-4">
+                <div className="relative z-10 h-full w-full border border-neutral-700 bg-secondary-bg p-4">
                   <div className="inter-500 text-sm">{item.label}</div>
                   <div className="mt-4 flex flex-wrap gap-2 text-sm">
                     {item.items.map((tech, index) => (
-                      <Pill key={index} content={tech} />
+                      <Pill content={tech} key={index} />
                     ))}
                   </div>
                 </div>

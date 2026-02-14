@@ -1,6 +1,6 @@
+import { SiTypescript } from "@icons-pack/react-simple-icons";
 import { RocketIcon } from "@radix-ui/react-icons";
 import { FlaskConicalIcon, ShieldIcon } from "lucide-react";
-import { SiTypescript } from "@icons-pack/react-simple-icons";
 
 export const aboutMeEntries = [
   {

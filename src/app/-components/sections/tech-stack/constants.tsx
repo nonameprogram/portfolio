@@ -1,69 +1,66 @@
-import React from "react";
 import {
-  SiNodered,
-  SiNoderedHex,
-  SiReact,
-  SiReactHex,
-  SiRedux,
-  SiReduxHex,
+  SiApollographql,
+  SiDocker,
+  SiDockerHex,
+  SiDrizzle,
+  SiDrizzleHex,
+  SiExpress,
+  SiExpressHex,
+  SiFastify,
+  SiFastifyHex,
+  SiGithubactions,
+  SiGithubactionsHex,
+  SiJest,
+  SiJestHex,
   SiLaravel,
   SiLaravelHex,
+  SiMongodb,
+  SiMongodbHex,
+  SiMysql,
+  SiMysqlHex,
   SiNestjs,
   SiNestjsHex,
   SiNextdotjs,
   SiNextdotjsHex,
-  SiExpress,
-  SiExpressHex,
-  SiNodedotjs,
-  SiNodedotjsHex,
-  SiVite,
-  SiViteHex,
-  SiRedis,
-  SiRedisHex,
-  SiMysql,
-  SiMysqlHex,
-  SiPostgresql,
-  SiPostgresqlHex,
-  SiMongodb,
-  SiMongodbHex,
-  SiDocker,
-  SiDockerHex,
-  SiGithubactions,
-  SiGithubactionsHex,
-  SiVitest,
-  SiVitestHex,
-  SiTestinglibrary,
-  SiTestinglibraryHex,
-  SiJest,
-  SiJestHex,
-  SiStorybook,
-  SiStorybookHex,
   SiNextra,
   SiNextraHex,
-  SiTailwindcss,
-  SiTailwindcssHex,
-  SiDrizzle,
-  SiDrizzleHex,
-  SiPrisma,
-  SiPrismaHex,
-  SiTurborepo,
-  SiTurborepoHex,
+  SiNodedotjs,
+  SiNodedotjsHex,
+  SiNodered,
+  SiNoderedHex,
   SiNx,
   SiNxHex,
-  SiFastify,
-  SiFastifyHex,
+  SiPostgresql,
+  SiPostgresqlHex,
+  SiPrisma,
+  SiPrismaHex,
+  SiPusher,
+  SiRadixui,
+  SiReact,
+  SiReactHex,
   SiReacthookform,
   SiReacthookformHex,
-  SiFormik,
-  SiFormikHex,
+  SiReactrouter,
+  SiRedis,
+  SiRedisHex,
+  SiRedux,
+  SiReduxHex,
+  SiStorybook,
+  SiStorybookHex,
+  SiTailwindcss,
+  SiTailwindcssHex,
+  SiTestinglibrary,
+  SiTestinglibraryHex,
+  SiTurborepo,
+  SiTurborepoHex,
+  SiVite,
+  SiViteHex,
+  SiVitest,
+  SiVitestHex,
   SiZod,
   SiZodHex,
-  SiRadixui,
-  SiApollographql,
-  SiPusher,
-  SiSocketdotio,
-  SiReactrouter,
 } from "@icons-pack/react-simple-icons";
+import type React from "react";
 
 const TanStack = (props: React.ComponentProps<"svg">) => (
   <svg
@@ -82,8 +79,8 @@ export const techStack = {
     {
       icon: (
         <SiVite
+          className="!fill-violet-300 !text-white size-3"
           color={SiViteHex}
-          className="size-3 !fill-violet-300 !text-white"
         />
       ),
       label: "Vite",
@@ -91,8 +88,8 @@ export const techStack = {
     {
       icon: (
         <SiReact
+          className="!fill-violet-300 !text-white size-3"
           color={SiReactHex}
-          className="size-3 !fill-violet-300 !text-white"
         />
       ),
       label: "React",
@@ -100,8 +97,8 @@ export const techStack = {
     {
       icon: (
         <SiReactrouter
+          className="!fill-violet-300 !text-white size-3"
           color={SiReactHex}
-          className="size-3 !fill-violet-300 !text-white"
         />
       ),
       label: "React Router",
@@ -109,49 +106,49 @@ export const techStack = {
     {
       icon: (
         <SiNextdotjs
+          className="!fill-violet-300 !text-white size-3"
           color={SiNextdotjsHex}
-          className="size-3 !fill-violet-300 !text-white"
         />
       ),
       label: "Next.js",
     },
     {
-      icon: <TanStack className="size-3 !fill-violet-300 !text-white" />,
+      icon: <TanStack className="!fill-violet-300 !text-white size-3" />,
       label: "TanStack",
     },
     {
       icon: (
         <SiRedux
+          className="!fill-violet-300 !text-white size-3"
           color={SiReduxHex}
-          className="size-3 !fill-violet-300 !text-white"
         />
       ),
       label: "Redux Toolkit",
     },
     {
-      icon: <SiApollographql className="size-3 !fill-violet-300 !text-white" />,
+      icon: <SiApollographql className="!fill-violet-300 !text-white size-3" />,
       label: "Apollo Client",
     },
     {
       icon: (
         <SiTurborepo
+          className="!fill-violet-300 !text-white size-3"
           color={SiTurborepoHex}
-          className="size-3 !fill-violet-300 !text-white"
         />
       ),
       label: "Turborepo",
     },
     {
       icon: (
-        <SiNx color={SiNxHex} className="size-3 !fill-violet-300 !text-white" />
+        <SiNx className="!fill-violet-300 !text-white size-3" color={SiNxHex} />
       ),
       label: "Nx",
     },
     {
       icon: (
         <SiPusher
+          className="!fill-violet-300 !text-white size-3"
           color={SiNxHex}
-          className="size-3 !fill-violet-300 !text-white"
         />
       ),
       label: "Pusher",
@@ -162,10 +159,10 @@ export const techStack = {
     {
       icon: (
         <svg
+          className="size-3 fill-violet-300"
           role="img"
           viewBox="0 0 24 24"
           xmlns="http://www.w3.org/2000/svg"
-          className="size-3 fill-violet-300"
         >
           <title>Sass</title>
           <path d="M12 0c6.627 0 12 5.373 12 12s-5.373 12-12 12S0 18.627 0 12 5.373 0 12 0zM9.615 15.998c.175.645.156 1.248-.024 1.792l-.065.18c-.024.061-.052.12-.078.176-.14.29-.326.56-.555.81-.698.759-1.672 1.047-2.09.805-.45-.262-.226-1.335.584-2.19.871-.918 2.12-1.509 2.12-1.509v-.003l.108-.061zm9.911-10.861c-.542-2.133-4.077-2.834-7.422-1.645-1.989.707-4.144 1.818-5.693 3.267C4.568 8.48 4.275 9.98 4.396 10.607c.427 2.211 3.457 3.657 4.703 4.73v.006c-.367.18-3.056 1.529-3.686 2.925-.675 1.47.105 2.521.615 2.655 1.575.436 3.195-.36 4.065-1.649.84-1.261.766-2.881.404-3.676.496-.135 1.08-.195 1.83-.104 2.101.24 2.521 1.56 2.43 2.1-.09.539-.523.854-.674.944-.15.091-.195.12-.181.181.015.09.091.09.21.075.165-.03 1.096-.45 1.141-1.471.045-1.29-1.186-2.729-3.375-2.7-.9.016-1.471.091-1.875.256-.03-.045-.061-.075-.105-.105-1.35-1.455-3.855-2.475-3.75-4.41.03-.705.285-2.564 4.8-4.814 3.705-1.846 6.661-1.335 7.171-.21.733 1.604-1.576 4.59-5.431 5.024-1.47.165-2.235-.404-2.431-.615-.209-.225-.239-.24-.314-.194-.12.06-.045.255 0 .375.12.3.585.825 1.396 1.095.704.225 2.43.359 4.5-.45 2.324-.899 4.139-3.405 3.614-5.505l.073.067z" />
@@ -176,8 +173,8 @@ export const techStack = {
     {
       icon: (
         <SiTailwindcss
+          className="!fill-violet-300 !text-white size-3"
           color={SiTailwindcssHex}
-          className="size-3 !fill-violet-300 !text-white"
         />
       ),
       label: "TailwindCSS",
@@ -185,20 +182,20 @@ export const techStack = {
     "Motion",
     "Shadcn UI",
     {
-      icon: <SiRadixui className="size-3 !fill-violet-300 !text-white" />,
+      icon: <SiRadixui className="!fill-violet-300 !text-white size-3" />,
       label: "Radix UI",
     },
   ],
   form: [
     {
-      icon: <TanStack className="size-3 !fill-violet-300 !text-white" />,
+      icon: <TanStack className="!fill-violet-300 !text-white size-3" />,
       label: "TanStack Form",
     },
     {
       icon: (
         <SiReacthookform
+          className="!fill-violet-300 !text-white size-3"
           color={SiReacthookformHex}
-          className="size-3 !fill-violet-300 !text-white"
         />
       ),
       label: "React Hook Form",
@@ -206,8 +203,8 @@ export const techStack = {
     {
       icon: (
         <SiZod
+          className="!fill-violet-300 !text-white size-3"
           color={SiZodHex}
-          className="size-3 !fill-violet-300 !text-white"
         />
       ),
       label: "Zod",
@@ -218,8 +215,8 @@ export const techStack = {
     {
       icon: (
         <SiNodedotjs
+          className="!fill-violet-300 !text-white size-3"
           color={SiNodedotjsHex}
-          className="size-3 !fill-violet-300 !text-white"
         />
       ),
       label: "Node.js",
@@ -227,8 +224,8 @@ export const techStack = {
     {
       icon: (
         <SiExpress
+          className="!fill-violet-300 !text-white size-3"
           color={SiExpressHex}
-          className="size-3 !fill-violet-300 !text-white"
         />
       ),
       label: "Express",
@@ -236,8 +233,8 @@ export const techStack = {
     {
       icon: (
         <SiNestjs
+          className="!fill-violet-300 !text-white size-3"
           color={SiNestjsHex}
-          className="size-3 !fill-violet-300 !text-white"
         />
       ),
       label: "NestJS",
@@ -245,8 +242,8 @@ export const techStack = {
     {
       icon: (
         <SiFastify
+          className="!fill-violet-300 !text-white size-3"
           color={SiFastifyHex}
-          className="size-3 !fill-violet-300 !text-white"
         />
       ),
       label: "Fastify",
@@ -254,8 +251,8 @@ export const techStack = {
     {
       icon: (
         <SiNodered
+          className="!fill-violet-300 !text-white size-3"
           color={SiNoderedHex}
-          className="size-3 !fill-violet-300 !text-white"
         />
       ),
       label: "Node-RED",
@@ -263,8 +260,8 @@ export const techStack = {
     {
       icon: (
         <SiLaravel
+          className="!fill-violet-300 !text-white size-3"
           color={SiLaravelHex}
-          className="size-3 !fill-violet-300 !text-white"
         />
       ),
       label: "Laravel",
@@ -274,8 +271,8 @@ export const techStack = {
     {
       icon: (
         <SiJest
+          className="!fill-violet-300 !text-white size-3"
           color={SiJestHex}
-          className="size-3 !fill-violet-300 !text-white"
         />
       ),
       label: "Jest",
@@ -283,8 +280,8 @@ export const techStack = {
     {
       icon: (
         <SiVitest
+          className="!fill-violet-300 !text-white size-3"
           color={SiVitestHex}
-          className="size-3 !fill-violet-300 !text-white"
         />
       ),
       label: "Vitest",
@@ -292,8 +289,8 @@ export const techStack = {
     {
       icon: (
         <SiTestinglibrary
+          className="!fill-violet-300 !text-white size-3"
           color={SiTestinglibraryHex}
-          className="size-3 !fill-violet-300 !text-white"
         />
       ),
       label: "React Testing Library",
@@ -303,8 +300,8 @@ export const techStack = {
     {
       icon: (
         <SiNextra
+          className="!fill-violet-300 !text-white size-3"
           color={SiNextraHex}
-          className="size-3 !fill-violet-300 !text-white"
         />
       ),
       label: "Nextra",
@@ -312,8 +309,8 @@ export const techStack = {
     {
       icon: (
         <SiStorybook
+          className="!fill-violet-300 !text-white size-3"
           color={SiStorybookHex}
-          className="size-3 !fill-violet-300 !text-white"
         />
       ),
       label: "Storybook",
@@ -323,8 +320,8 @@ export const techStack = {
     {
       icon: (
         <SiMysql
+          className="!fill-violet-300 !text-white size-3"
           color={SiMysqlHex}
-          className="size-3 !fill-violet-300 !text-white"
         />
       ),
       label: "MySQL",
@@ -332,8 +329,8 @@ export const techStack = {
     {
       icon: (
         <SiPostgresql
+          className="!fill-violet-300 !text-white size-3"
           color={SiPostgresqlHex}
-          className="size-3 !fill-violet-300 !text-white"
         />
       ),
       label: "PostgreSQL",
@@ -341,8 +338,8 @@ export const techStack = {
     {
       icon: (
         <SiMongodb
+          className="!fill-violet-300 !text-white size-3"
           color={SiMongodbHex}
-          className="size-3 !fill-violet-300 !text-white"
         />
       ),
       label: "MongoDB",
@@ -350,8 +347,8 @@ export const techStack = {
     {
       icon: (
         <SiRedis
+          className="!fill-violet-300 !text-white size-3"
           color={SiRedisHex}
-          className="size-3 !fill-violet-300 !text-white"
         />
       ),
       label: "Redis",
@@ -359,8 +356,8 @@ export const techStack = {
     {
       icon: (
         <SiDrizzle
+          className="!fill-violet-300 !text-white size-3"
           color={SiDrizzleHex}
-          className="size-3 !fill-violet-300 !text-white"
         />
       ),
       label: "Drizzle",
@@ -368,8 +365,8 @@ export const techStack = {
     {
       icon: (
         <SiPrisma
+          className="!fill-violet-300 !text-white size-3"
           color={SiPrismaHex}
-          className="size-3 !fill-violet-300 !text-white"
         />
       ),
       label: "Prisma",
@@ -377,8 +374,8 @@ export const techStack = {
     {
       icon: (
         <SiLaravel
+          className="!fill-violet-300 !text-white size-3"
           color={SiLaravelHex}
-          className="size-3 !fill-violet-300 !text-white"
         />
       ),
       label: "Eloquent",
@@ -388,8 +385,8 @@ export const techStack = {
     {
       icon: (
         <SiDocker
+          className="!fill-violet-300 !text-white size-3"
           color={SiDockerHex}
-          className="size-3 !fill-violet-300 !text-white"
         />
       ),
       label: "Docker",
@@ -397,8 +394,8 @@ export const techStack = {
     {
       icon: (
         <SiGithubactions
+          className="!fill-violet-300 !text-white size-3"
           color={SiGithubactionsHex}
-          className="size-3 !fill-violet-300 !text-white"
         />
       ),
       label: "Github Actions",
