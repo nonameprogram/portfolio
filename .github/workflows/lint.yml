@@ -1,9 +1,11 @@
 name: Lint
+
 on:
   push:
 
 jobs:
   build:
+    name: Lint
     runs-on: ubuntu-22.04
     strategy:
       matrix:
