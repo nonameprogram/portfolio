@@ -11,7 +11,7 @@ export type PillProps = {
 export const Pill = ({ content, className }: PillProps) => (
   <div
     className={cn(
-      "inter-400 bg-neutral-900 px-3 py-1 transition-colors duration-300 hover:bg-neutral-800",
+      "bg-neutral-900 px-3 py-1 transition-colors duration-300 hover:bg-neutral-800",
       className
     )}
   >

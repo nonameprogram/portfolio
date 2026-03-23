@@ -63,6 +63,16 @@ import {
   SiPusher,
   SiSocketdotio,
   SiReactrouter,
+  SiShadcnui,
+  SiShadcnuiHex,
+  SiSass,
+  SiSassHex,
+  SiJavascript,
+  SiJavascriptHex,
+  SiTypescript,
+  SiTypescriptHex,
+  SiPhp,
+  SiPhpHex,
 } from "@icons-pack/react-simple-icons";
 
 const TanStack = (props: React.ComponentProps<"svg">) => (
@@ -77,13 +87,106 @@ const TanStack = (props: React.ComponentProps<"svg">) => (
   </svg>
 );
 
+export const techStacks = [
+    {images: [
+    {
+      logo: <SiJavascript
+          color={SiJavascriptHex}
+          className="size-8 !fill-white !text-white"
+        />
+    },
+    {
+      logo: <SiTypescript
+          color={SiTypescriptHex}
+          className="size-8 !fill-white !text-white"
+        />
+    },
+  ]},
+  {images: [
+    {
+      logo: <SiReact
+          color={SiReactHex}
+          className="size-8 !fill-white !text-white"
+        />
+    },
+    {
+      logo: <SiNextdotjs
+          color={SiNextdotjsHex}
+          className="size-8 !fill-white !text-white"
+        />
+    }
+  ]},
+  {images: [
+    {
+      logo: <SiNestjs
+          color={SiNestjsHex}
+          className="size-8 !fill-white !text-white"
+        />
+    },
+    {
+      logo: <SiNodedotjs
+          color={SiNodedotjsHex}
+          className="size-8 !fill-white !text-white"
+        />
+    },
+     {
+      logo: <SiLaravel
+          color={SiLaravelHex}
+          className="size-8 !fill-white !text-white"
+        />
+    }
+  ]},
+    {images: [
+    {
+      logo: <SiMysql
+          color={SiMysqlHex}
+          className="size-8 !fill-white !text-white"
+        />
+    },
+    {
+      logo: <SiPostgresql
+          color={SiPostgresqlHex}
+          className="size-8 !fill-white !text-white"
+        />
+    }
+  ]},
+  {images: [
+    {
+      logo: <SiTailwindcss
+          color={SiTailwindcssHex}
+          className="size-8 !fill-white !text-white"
+        />
+    },
+    {
+      logo: <SiSass
+          color={SiSassHex}
+          className="size-8 !fill-white !text-white"
+        />
+    }
+  ]},
+   {images: [
+    {
+      logo: <SiDocker
+          color={SiDockerHex}
+          className="size-8 !fill-white !text-white"
+        />
+    },
+    {
+      logo: <SiGithubactions
+          color={SiGithubactionsHex}
+          className="size-8 !fill-white !text-white"
+        />
+    }
+  ]},
+]
+
 export const techStack = {
   frontend: [
     {
       icon: (
         <SiVite
           color={SiViteHex}
-          className="size-3 !fill-violet-300 !text-white"
+          className="size-3 !fill-white !text-white"
         />
       ),
       label: "Vite",
@@ -92,7 +195,7 @@ export const techStack = {
       icon: (
         <SiReact
           color={SiReactHex}
-          className="size-3 !fill-violet-300 !text-white"
+          className="size-3 !fill-white !text-white"
         />
       ),
       label: "React",
@@ -101,7 +204,7 @@ export const techStack = {
       icon: (
         <SiReactrouter
           color={SiReactHex}
-          className="size-3 !fill-violet-300 !text-white"
+          className="size-3 !fill-white !text-white"
         />
       ),
       label: "React Router",
@@ -110,40 +213,40 @@ export const techStack = {
       icon: (
         <SiNextdotjs
           color={SiNextdotjsHex}
-          className="size-3 !fill-violet-300 !text-white"
+          className="size-3 !fill-white !text-white"
         />
       ),
       label: "Next.js",
     },
     {
-      icon: <TanStack className="size-3 !fill-violet-300 !text-white" />,
+      icon: <TanStack className="size-3 !fill-white !text-white" />,
       label: "TanStack",
     },
     {
       icon: (
         <SiRedux
           color={SiReduxHex}
-          className="size-3 !fill-violet-300 !text-white"
+          className="size-3 !fill-white !text-white"
         />
       ),
       label: "Redux Toolkit",
     },
     {
-      icon: <SiApollographql className="size-3 !fill-violet-300 !text-white" />,
+      icon: <SiApollographql className="size-3 !fill-white !text-white" />,
       label: "Apollo Client",
     },
     {
       icon: (
         <SiTurborepo
           color={SiTurborepoHex}
-          className="size-3 !fill-violet-300 !text-white"
+          className="size-3 !fill-white !text-white"
         />
       ),
       label: "Turborepo",
     },
     {
       icon: (
-        <SiNx color={SiNxHex} className="size-3 !fill-violet-300 !text-white" />
+        <SiNx color={SiNxHex} className="size-3 !fill-white !text-white" />
       ),
       label: "Nx",
     },
@@ -151,7 +254,7 @@ export const techStack = {
       icon: (
         <SiPusher
           color={SiNxHex}
-          className="size-3 !fill-violet-300 !text-white"
+          className="size-3 !fill-white !text-white"
         />
       ),
       label: "Pusher",
@@ -177,7 +280,7 @@ export const techStack = {
       icon: (
         <SiTailwindcss
           color={SiTailwindcssHex}
-          className="size-3 !fill-violet-300 !text-white"
+          className="size-3 !fill-white !text-white"
         />
       ),
       label: "TailwindCSS",
@@ -185,20 +288,20 @@ export const techStack = {
     "Motion",
     "Shadcn UI",
     {
-      icon: <SiRadixui className="size-3 !fill-violet-300 !text-white" />,
+      icon: <SiRadixui className="size-3 !fill-white !text-white" />,
       label: "Radix UI",
     },
   ],
   form: [
     {
-      icon: <TanStack className="size-3 !fill-violet-300 !text-white" />,
+      icon: <TanStack className="size-3 !fill-white !text-white" />,
       label: "TanStack Form",
     },
     {
       icon: (
         <SiReacthookform
           color={SiReacthookformHex}
-          className="size-3 !fill-violet-300 !text-white"
+          className="size-3 !fill-white !text-white"
         />
       ),
       label: "React Hook Form",
@@ -207,7 +310,7 @@ export const techStack = {
       icon: (
         <SiZod
           color={SiZodHex}
-          className="size-3 !fill-violet-300 !text-white"
+          className="size-3 !fill-white !text-white"
         />
       ),
       label: "Zod",
@@ -219,7 +322,7 @@ export const techStack = {
       icon: (
         <SiNodedotjs
           color={SiNodedotjsHex}
-          className="size-3 !fill-violet-300 !text-white"
+          className="size-3 !fill-white !text-white"
         />
       ),
       label: "Node.js",
@@ -228,7 +331,7 @@ export const techStack = {
       icon: (
         <SiExpress
           color={SiExpressHex}
-          className="size-3 !fill-violet-300 !text-white"
+          className="size-3 !fill-white !text-white"
         />
       ),
       label: "Express",
@@ -237,7 +340,7 @@ export const techStack = {
       icon: (
         <SiNestjs
           color={SiNestjsHex}
-          className="size-3 !fill-violet-300 !text-white"
+          className="size-3 !fill-white !text-white"
         />
       ),
       label: "NestJS",
@@ -246,7 +349,7 @@ export const techStack = {
       icon: (
         <SiFastify
           color={SiFastifyHex}
-          className="size-3 !fill-violet-300 !text-white"
+          className="size-3 !fill-white !text-white"
         />
       ),
       label: "Fastify",
@@ -255,7 +358,7 @@ export const techStack = {
       icon: (
         <SiNodered
           color={SiNoderedHex}
-          className="size-3 !fill-violet-300 !text-white"
+          className="size-3 !fill-white !text-white"
         />
       ),
       label: "Node-RED",
@@ -264,7 +367,7 @@ export const techStack = {
       icon: (
         <SiLaravel
           color={SiLaravelHex}
-          className="size-3 !fill-violet-300 !text-white"
+          className="size-3 !fill-white !text-white"
         />
       ),
       label: "Laravel",
@@ -275,7 +378,7 @@ export const techStack = {
       icon: (
         <SiJest
           color={SiJestHex}
-          className="size-3 !fill-violet-300 !text-white"
+          className="size-3 !fill-white !text-white"
         />
       ),
       label: "Jest",
@@ -284,7 +387,7 @@ export const techStack = {
       icon: (
         <SiVitest
           color={SiVitestHex}
-          className="size-3 !fill-violet-300 !text-white"
+          className="size-3 !fill-white !text-white"
         />
       ),
       label: "Vitest",
@@ -293,7 +396,7 @@ export const techStack = {
       icon: (
         <SiTestinglibrary
           color={SiTestinglibraryHex}
-          className="size-3 !fill-violet-300 !text-white"
+          className="size-3 !fill-white !text-white"
         />
       ),
       label: "React Testing Library",
@@ -304,7 +407,7 @@ export const techStack = {
       icon: (
         <SiNextra
           color={SiNextraHex}
-          className="size-3 !fill-violet-300 !text-white"
+          className="size-3 !fill-white !text-white"
         />
       ),
       label: "Nextra",
@@ -313,7 +416,7 @@ export const techStack = {
       icon: (
         <SiStorybook
           color={SiStorybookHex}
-          className="size-3 !fill-violet-300 !text-white"
+          className="size-3 !fill-white !text-white"
         />
       ),
       label: "Storybook",
@@ -324,7 +427,7 @@ export const techStack = {
       icon: (
         <SiMysql
           color={SiMysqlHex}
-          className="size-3 !fill-violet-300 !text-white"
+          className="size-3 !fill-white !text-white"
         />
       ),
       label: "MySQL",
@@ -333,7 +436,7 @@ export const techStack = {
       icon: (
         <SiPostgresql
           color={SiPostgresqlHex}
-          className="size-3 !fill-violet-300 !text-white"
+          className="size-3 !fill-white !text-white"
         />
       ),
       label: "PostgreSQL",
@@ -342,7 +445,7 @@ export const techStack = {
       icon: (
         <SiMongodb
           color={SiMongodbHex}
-          className="size-3 !fill-violet-300 !text-white"
+          className="size-3 !fill-white !text-white"
         />
       ),
       label: "MongoDB",
@@ -351,7 +454,7 @@ export const techStack = {
       icon: (
         <SiRedis
           color={SiRedisHex}
-          className="size-3 !fill-violet-300 !text-white"
+          className="size-3 !fill-white !text-white"
         />
       ),
       label: "Redis",
@@ -360,7 +463,7 @@ export const techStack = {
       icon: (
         <SiDrizzle
           color={SiDrizzleHex}
-          className="size-3 !fill-violet-300 !text-white"
+          className="size-3 !fill-white !text-white"
         />
       ),
       label: "Drizzle",
@@ -369,7 +472,7 @@ export const techStack = {
       icon: (
         <SiPrisma
           color={SiPrismaHex}
-          className="size-3 !fill-violet-300 !text-white"
+          className="size-3 !fill-white !text-white"
         />
       ),
       label: "Prisma",
@@ -378,7 +481,7 @@ export const techStack = {
       icon: (
         <SiLaravel
           color={SiLaravelHex}
-          className="size-3 !fill-violet-300 !text-white"
+          className="size-3 !fill-white !text-white"
         />
       ),
       label: "Eloquent",
@@ -389,7 +492,7 @@ export const techStack = {
       icon: (
         <SiDocker
           color={SiDockerHex}
-          className="size-3 !fill-violet-300 !text-white"
+          className="size-3 !fill-white !text-white"
         />
       ),
       label: "Docker",
@@ -398,7 +501,7 @@ export const techStack = {
       icon: (
         <SiGithubactions
           color={SiGithubactionsHex}
-          className="size-3 !fill-violet-300 !text-white"
+          className="size-3 !fill-white !text-white"
         />
       ),
       label: "Github Actions",
@@ -430,52 +533,6 @@ export const certifications = [
       issueDate: "Jan 2026",
       completed: true,
       credentialUrl: "/certs/nestjs-advanced-concepts.pdf",
-    },
-  },
-  // {
-  //   provider: {
-  //     url: "https://courses.nestjs.com",
-  //     name: "Official NestJS Courses",
-  //   },
-  //   certificate: {
-  //     label: "NestJS Architecture & Advanced Patterns",
-  //     issueDate: "Jan 2026",
-  //     credentialUrl: "",
-  //   },
-  // },
-  // {
-  //   provider: {
-  //     url: "https://courses.nestjs.com",
-  //     name: "Official NestJS Courses",
-  //   },
-  //   certificate: {
-  //     label: "NestJS Microservices",
-  //     issueDate: "Jan 2026",
-  //     credentialUrl: "",
-  //   },
-  // },
-  {
-    provider: {
-      url: "https://www.totaltypescript.com",
-      name: "TotalTypeScript",
-    },
-    certificate: {
-      label: "TypeScript Workshop",
-      issueDate: "Expected Jan 2026",
-      completed: false,
-      credentialUrl: null,
-    },
-  },
-  {
-    provider: {
-      url: "https://boot.dev",
-      name: "Boot.dev",
-    },
-    certificate: {
-      label: "Learn Kubernetes",
-      issueDate: "Expected Feb 2026",
-      completed: false,
-      credentialUrl: null,
     },
   },
 ];
