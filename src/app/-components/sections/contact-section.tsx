@@ -38,9 +38,26 @@ function AnimatedLink({ name, href }: { name: string; href: string }) {
   );
 }
 
+import { Marquee } from "@/components/marquee";
+
 export const ContactSection = () => {
   return (
-    <div className="w-full text-white py-24 px-6 sm:px-48 min-h-[70vh] flex flex-col justify-between" id="contact">
+    <div className="w-full flex flex-col overflow-hidden" id="contact">
+      {/* Marquee Bar */}
+      <div className="w-[110%] bg-neutral-200 py-1.5 overflow-hidden border-y border-neutral-300 -rotate-[2.5deg] -translate-x-1/2 left-1/2 relative scale-105 my-12">
+        <Marquee className="[--duration:30s] [--gap:4rem]" repeat={6}>
+          <div className="flex items-center gap-12 text-neutral-900 font-bold uppercase text-[10px] tracking-widest whitespace-nowrap">
+            <span>REACT NATIVE CORE CONTRIBUTORS</span>
+            <div className="size-1 bg-neutral-900 rounded-full" />
+            <span>TRUSTED BY META, MICROSOFT, AND THE COMMUNITY</span>
+            <div className="size-1 bg-neutral-900 rounded-full" />
+            <span>WE DON'T FOLLOW BEST PRACTICES, WE SET THEM</span>
+            <div className="size-1 bg-neutral-900 rounded-full" />
+          </div>
+        </Marquee>
+      </div>
+
+      <div className="w-full text-white py-24 px-6 sm:px-48 min-h-[70vh] flex flex-col justify-between">
       <motion.div
         initial={{ opacity: 0, y: 30 }}
         whileInView={{ opacity: 1, y: 0 }}
@@ -85,6 +102,7 @@ export const ContactSection = () => {
           </div>
         </div>
       </motion.div>
+      </div>
     </div>
   );
 };

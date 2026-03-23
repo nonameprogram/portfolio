@@ -21,7 +21,6 @@ export const Navigation = () => {
   const { scrollY } = useScroll();
   const [hidden, setHidden] = useState(false);
   const [scrolled, setScrolled] = useState(false);
-  const [isScrollingUp, setIsScrollingUp] = useState(false);
 
   useMotionValueEvent(scrollY, "change", (latest: number) => {
     const previous = scrollY.getPrevious() ?? 0;
@@ -30,7 +29,6 @@ export const Navigation = () => {
     } else {
       setHidden(false);
     }
-    setIsScrollingUp(latest < previous);
     setScrolled(latest > 50);
   });
 
@@ -59,7 +57,7 @@ export const Navigation = () => {
     >
       <nav className={cn(
         "flex items-center justify-end gap-6 px-8 py-4 w-full text-sm transition-all duration-300",
-        scrolled && isScrollingUp ? "bg-black/50 backdrop-blur-md" : "bg-transparent"
+        scrolled ? "bg-black/50 backdrop-blur-md" : "bg-transparent"
       )}>
         {navItems.map((item) => (
           <a
