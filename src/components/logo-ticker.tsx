@@ -3,7 +3,6 @@
 import Image from "next/image";
 import type React from "react";
 import { useEffect, useRef, useState } from "react";
-import type { NumberKeyframeTrack } from "three/src/Three.Core.js";
 
 export type LogoItem = {
   id?: string;
@@ -29,7 +28,7 @@ const WAVE_MS = 100;
 const LogoColumn: React.FC<{
   images: LogoItem[];
   colIndex: number;
-  tick: NumberKeyframeTrack;
+  tick: number;
 }> = ({ images, colIndex, tick }) => {
   const [currentIdx, setCurrentIdx] = useState(0);
   const [phase, setPhase] = useState<"idle" | "exit" | "reset">("idle");
