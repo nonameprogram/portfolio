@@ -49,7 +49,7 @@ function ParallaxText({ items = [], scrollSpeed = -0.05, initialX = 0 }: Paralla
 }
 
 export const ScrollText = ({ 
-  items = ["Frontend", "Backend", "Mobile", "DevOps"], 
+  items = ["Frontend", "Backend", "Mobile", "Architecture", "AI"], 
   scrollSpeed = -0.01, 
   initialX = -1.5 
 }: { 

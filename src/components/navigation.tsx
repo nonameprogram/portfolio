@@ -8,12 +8,13 @@ import {
   useMotionValueEvent,
 } from "motion/react";
 import { cn } from "@/utils/cn";
+import { SectionContainer } from "./section-container";
 
 const navItems = [
   { name: "Home", link: "#" },
-  { name: "About Me", link: "#about-me" },
-  { name: "TechStack", link: "#techstack" },
-  { name: "Career", link: "#career" },
+  { name: "About", link: "#about" },
+  { name: "Expertise", link: "#expertise" },
+  { name: "Technologies", link: "#tech" },
   { name: "Contact", link: "#contact" },
 ];
 
@@ -55,8 +56,8 @@ export const Navigation = () => {
       transition={{ duration: 0.35, ease: "easeInOut" }}
       className="fixed top-0 left-0 right-0 z-50 w-full"
     >
-      <nav className={cn(
-        "flex items-center justify-end gap-6 px-8 py-4 w-full text-sm transition-all duration-300",
+      <SectionContainer className={cn(
+        "flex items-center justify-end gap-6 py-4 transition-all duration-300",
         scrolled ? "bg-black/50 backdrop-blur-md" : "bg-transparent"
       )}>
         {navItems.map((item) => (
@@ -69,7 +70,7 @@ export const Navigation = () => {
             {item.name}
           </a>
         ))}
-      </nav>
+      </SectionContainer>
     </motion.div>
   );
 };

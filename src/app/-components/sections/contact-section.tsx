@@ -16,7 +16,6 @@ function AnimatedLink({ name, href }: { name: string; href: string }) {
           <span>{name}</span>
           <span className="absolute top-full left-0">{name}</span>
         </div>
-        {/* Underline that shrinks to the left on hover */}
         <div className="absolute bottom-0 left-0 w-full h-[1.5px] bg-white transition-transform duration-500 ease-in-out origin-left group-hover:scale-x-0" />
       </div>
       <svg
@@ -39,70 +38,76 @@ function AnimatedLink({ name, href }: { name: string; href: string }) {
 }
 
 import { Marquee } from "@/components/marquee";
+import { SectionContainer } from "@/components/section-container";
 
 export const ContactSection = () => {
   return (
     <div className="w-full flex flex-col overflow-hidden" id="contact">
-      {/* Marquee Bar */}
-      <div className="w-[110%] bg-neutral-200 py-1.5 overflow-hidden border-y border-neutral-300 -rotate-[2.5deg] -translate-x-1/2 left-1/2 relative scale-105 my-12">
-        <Marquee className="[--duration:30s] [--gap:4rem]" repeat={6}>
-          <div className="flex items-center gap-12 text-neutral-900 font-bold uppercase text-[10px] tracking-widest whitespace-nowrap">
-            <span>REACT NATIVE CORE CONTRIBUTORS</span>
-            <div className="size-1 bg-neutral-900 rounded-full" />
-            <span>TRUSTED BY META, MICROSOFT, AND THE COMMUNITY</span>
-            <div className="size-1 bg-neutral-900 rounded-full" />
-            <span>WE DON'T FOLLOW BEST PRACTICES, WE SET THEM</span>
-            <div className="size-1 bg-neutral-900 rounded-full" />
-          </div>
-        </Marquee>
+      <div className="py-24 relative overflow-visible">
+        <div className="w-[110%] bg-neutral-200 py-1.5 border-y border-neutral-300 -rotate-[2.5deg] -translate-x-1/2 left-1/2 relative scale-105">
+          <Marquee className="[--duration:30s] [--gap:4rem]" repeat={6}>
+            <div className="flex items-center gap-12 text-neutral-900 font-bold uppercase text-[10px] tracking-widest whitespace-nowrap">
+              <span>PRECISION ENGINEERING</span>
+              <div className="size-1 bg-neutral-900 rounded-full" />
+              <span>STRUCTURAL INTEGRITY</span>
+              <div className="size-1 bg-neutral-900 rounded-full" />
+              <span>HIGH-PERFORMANCE SYSTEMS</span>
+              <div className="size-1 bg-neutral-900 rounded-full" />
+              <span>SCALABLE ARCHITECTURE</span>
+              <div className="size-1 bg-neutral-900 rounded-full" />
+              <span>BEYOND BEST PRACTICES</span>
+              <div className="size-1 bg-neutral-900 rounded-full" />
+            </div>
+          </Marquee>
+        </div>
       </div>
 
-      <div className="w-full text-white py-24 px-6 sm:px-48 min-h-[70vh] flex flex-col justify-between">
-      <motion.div
-        initial={{ opacity: 0, y: 30 }}
-        whileInView={{ opacity: 1, y: 0 }}
-        viewport={{ once: true, amount: 0.3 }}
-        transition={{ duration: 0.6, ease: "easeOut" }}
-      >
-        <h2 className="text-4xl md:text-6xl lg:text-8xl font-light tracking-tight leading-[0.9] max-w-7xl">
+      <SectionContainer className="text-white py-24 min-h-[70vh] flex flex-col justify-between">
+        <motion.div
+          initial={{ opacity: 0, y: 30 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true, amount: 0.3 }}
+          transition={{ duration: 0.6, ease: "easeOut" }}
+        >
+          <h2 className="text-5xl md:text-6xl lg:text-8xl font-light tracking-tight leading-[0.9] max-w-7xl">
           Bridging the gap<br />
           between humans and<br />
           digital experiences
-        </h2>
-      </motion.div>
-      <motion.div
-        className="flex flex-col md:flex-row justify-between items-start md:items-end mt-48 gap-16"
-        initial={{ opacity: 0, y: 30 }}
-        whileInView={{ opacity: 1, y: 0 }}
-        viewport={{ once: true, amount: 0.3 }}
-        transition={{ duration: 0.6, ease: "easeOut", delay: 0.2 }}
-      >
-        <div className="flex flex-col gap-2">
-          <span className="text-neutral-400 font-medium">For work:</span>
-          <a
-            className="text-2xl md:text-4xl hover:opacity-70 transition-opacity tracking-tight font-light"
-            href="mailto:contact@bkosinski.dev"
-          >
-            contact@bkosinski.dev
-          </a>
-        </div>
-        <div className="flex flex-row flex-wrap gap-16 md:gap-32">
-          <div className="flex flex-col gap-4">
-            <span className="text-neutral-400 font-medium">Socials</span>
-            <div className="flex flex-col gap-3">
-              <AnimatedLink name="LinkedIn" href="https://www.linkedin.com/in/bart%C5%82omiej-kosi%C5%84ski-9141051b9/" />
+          </h2>
+        </motion.div>
+        <motion.div
+          className="flex flex-col md:flex-row justify-between items-start md:items-end mt-48 gap-16"
+          initial={{ opacity: 0, y: 30 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true, amount: 0.3 }}
+          transition={{ duration: 0.6, ease: "easeOut", delay: 0.2 }}
+        >
+          <div className="flex flex-col gap-2">
+            <span className="text-neutral-400 font-medium">For work:</span>
+            <a
+              className="text-2xl md:text-4xl hover:opacity-70 transition-opacity tracking-tight font-light"
+              href="mailto:contact@bkosinski.dev"
+            >
+              contact@bkosinski.dev
+            </a>
+          </div>
+          <div className="flex flex-row flex-wrap gap-16 md:gap-32">
+            <div className="flex flex-col gap-4">
+              <span className="text-neutral-400 font-medium">Socials</span>
+              <div className="flex flex-col gap-3">
+                <AnimatedLink name="LinkedIn" href="https://www.linkedin.com/in/bart%C5%82omiej-kosi%C5%84ski-9141051b9/" />
+              </div>
+            </div>
+            <div className="flex flex-col gap-4">
+              <span className="text-neutral-400 font-medium">GitHub</span>
+              <div className="flex flex-col gap-3">
+                <AnimatedLink name="Personal" href="https://github.com/nonameprogram" />
+                <AnimatedLink name="Work" href="https://github.com/whatisphp" />
+              </div>
             </div>
           </div>
-          <div className="flex flex-col gap-4">
-            <span className="text-neutral-400 font-medium">GitHub</span>
-            <div className="flex flex-col gap-3">
-              <AnimatedLink name="Personal" href="https://github.com/nonameprogram" />
-              <AnimatedLink name="Work" href="https://github.com/whatisphp" />
-            </div>
-          </div>
-        </div>
-      </motion.div>
-      </div>
+        </motion.div>
+      </SectionContainer>
     </div>
   );
 };

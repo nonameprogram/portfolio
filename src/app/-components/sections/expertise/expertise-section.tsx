@@ -2,7 +2,7 @@
 
 import React from "react";
 import { motion } from "motion/react";
-import { aboutMeEntries } from "@/app/-components/sections/about-me/constants";
+import { aboutMeEntries } from "@/app/-components/sections/expertise/constants";
 import { cn } from "@/utils/cn";
 
 const gridVariants = {
@@ -14,22 +14,22 @@ const gridVariants = {
   },
 };
 
-export const AboutMeSection = () => {
+export const ExpertiseSection = () => {
   return (
     <motion.div
       className="py-16 flex flex-col gap-24"
-      id="about-me"
+      id="expertise"
       initial={{ opacity: 0 }}
       whileInView={{ opacity: 1 }}
       viewport={{ once: true }}
       transition={{ duration: 1 }}
     >
-      <div className="flex w-full flex-col gap-y-4">
+      <div className="flex flex-col md:flex-row gap-8 justify-between md:items-end w-full">
         <h2 className="text-3xl font-light tracking-tight md:text-6xl lg:text-7xl text-white">
-          Technical expertise
+          Precision Engineering
         </h2>
-        <p className="text-base text-neutral-400 max-w-sm">
-          Everything you need. From strategic architecture to effective implementation.
+        <p className="text-base text-neutral-400 max-w-sm md:text-right">
+          Building for the long term. Combining technical rigor with strategic foresight to deliver software that evolves as fast as your vision.
         </p>
       </div>
 

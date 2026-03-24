@@ -2,6 +2,7 @@
 
 import React, { useCallback } from "react";
 import useEmblaCarousel from "embla-carousel-react";
+import { SectionContainer } from "@/components/section-container";
 
 const DATA = [
   {
@@ -94,8 +95,7 @@ export const ExpertiseCarousel = () => {
         </div>
       </div>
       
-      {/* Navigation Buttons placed under the carousel */}
-      <div className="px-6 md:px-0 md:pl-[calc(50%-14vw)] lg:pl-[calc(50%-42vw)] mt-12 flex gap-4">
+      <SectionContainer className="mt-12 flex gap-4">
         <button
           onClick={scrollPrev}
           disabled={prevBtnDisabled}
@@ -124,7 +124,7 @@ export const ExpertiseCarousel = () => {
             <path d="M5 12H19M19 12L12 5M19 12L12 19" />
           </svg>
         </button>
-      </div>
+      </SectionContainer>
     </div>
   );
 };

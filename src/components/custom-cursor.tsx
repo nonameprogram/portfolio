@@ -10,13 +10,11 @@ export const CustomCursor = () => {
   const cursorX = useMotionValue(-100);
   const cursorY = useMotionValue(-100);
 
-  // Spring configuration for the outer circle's delay
   const springConfig = { damping: 25, stiffness: 300, mass: 0.5 };
   const cursorXSpring = useSpring(cursorX, springConfig);
   const cursorYSpring = useSpring(cursorY, springConfig);
 
   useEffect(() => {
-    // Only show custom cursor on devices with a mouse
     if (window.matchMedia("(pointer: coarse)").matches) return;
 
     const moveCursor = (e: MouseEvent) => {
@@ -32,7 +30,6 @@ export const CustomCursor = () => {
     window.addEventListener("mouseleave", handleMouseLeave);
     window.addEventListener("mouseenter", handleMouseEnter);
 
-    // Add interactivity feedback for links and buttons
     const handleMouseOver = (e: MouseEvent) => {
       const target = e.target as HTMLElement;
       if (
@@ -69,7 +66,6 @@ export const CustomCursor = () => {
         }
       `}} />
 
-      {/* Outer Circle (Delayed) */}
       <motion.div
         className="pointer-events-none fixed left-0 top-0 z-[9999] rounded-full border border-blue-500 hidden md:block"
         style={{
@@ -88,7 +84,6 @@ export const CustomCursor = () => {
         transition={{ type: "spring", stiffness: 300, damping: 20 }}
       />
       
-      {/* Inner Dot (Instant) */}
       <motion.div
         className="pointer-events-none fixed left-0 top-0 z-[10000] rounded-full bg-blue-500 hidden md:block"
         style={{

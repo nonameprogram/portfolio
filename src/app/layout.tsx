@@ -1,7 +1,6 @@
 import type React from "react";
 import type { Metadata } from "next";
 import localFont from "next/font/local";
-import { TooltipProvider } from "@/components/tooltip";
 import { GoogleAnalytics } from "@next/third-parties/google";
 import { Navigation } from "@/components/navigation";
 import "./globals.css";
@@ -33,11 +32,11 @@ export const metadata: Metadata = {
   ],
   authors: [{ name: "Bartłomiej Kosiński" }],
   openGraph: {
-    title: "Bartłomiej Kosiński | Software Developer",
+    title: "Bartłomiej Kosiński | Fullstack Developer",
     description:
-      "Software Developer focused on secure, high-performance web applications.",
+      "Fullstack Developer",
     url: "https://bkosinski.dev",
-    siteName: "Bartłomiej Kosiński | Software Developer",
+    siteName: "Bartłomiej Kosiński | Fullstack Developer",
     locale: "en_US",
     type: "website",
   },
@@ -56,7 +55,7 @@ export default function RootLayout({
         className={`${overusedGrotesk.variable} ${overusedGrotesk.className} antialiased`}
       >
         <Navigation />
-        <TooltipProvider>{children}</TooltipProvider>
+        {children}
         {process.env.NODE_ENV === "production" && (
           <GoogleAnalytics gaId="G-VZXG93D33R" />
         )}

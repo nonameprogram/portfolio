@@ -1,6 +1,7 @@
 'use client'
 
 import React, { useEffect, useRef, useState } from 'react'
+import { NumberKeyframeTrack } from 'three/src/Three.Core.js'
 
 export type LogoItem = {
   id?: string
@@ -20,44 +21,35 @@ export type LogoTickerProps = {
   className?: string
 }
 
-const EXIT_MS = 300     // duration of slide animation
-const WAVE_MS = 100     // stagger between columns
+const EXIT_MS = 300
+const WAVE_MS = 100
 
-// ─── Single column — reacts to the external `tick` prop ─────────────────────
 const LogoColumn: React.FC<{
   images: LogoItem[]
   colIndex: number
-  tick: number          // increments every cycle, driven by parent interval
+  tick: NumberKeyframeTrack
 }> = ({ images, colIndex, tick }) => {
   const [currentIdx, setCurrentIdx] = useState(0)
   const [phase, setPhase] = useState<'idle' | 'exit' | 'reset'>('idle')
 
-  // Track which tick we have already handled
   const lastTickRef = useRef(-1)
   const timerRef = useRef<ReturnType<typeof setTimeout> | null>(null)
   const rafRef = useRef(0)
 
   useEffect(() => {
     if (images.length <= 1) return
-    if (tick === lastTickRef.current) return   // same tick, ignore
+    if (tick === lastTickRef.current) return
 
     lastTickRef.current = tick
 
-    // Clear any leftover timers from previous cycle
     if (timerRef.current) clearTimeout(timerRef.current)
     cancelAnimationFrame(rafRef.current)
-
-    // Stagger: delay this column by colIndex × WAVE_MS
     timerRef.current = setTimeout(() => {
-      // 1. Trigger exit animation
       setPhase('exit')
-
-      // 2. After exit completes: advance index, snap reset (no transition)
       timerRef.current = setTimeout(() => {
         setCurrentIdx((prev) => (prev + 1) % images.length)
         setPhase('reset')
 
-        // 3. Two rAF = one paint: re-enable transitions, go idle
         rafRef.current = requestAnimationFrame(() => {
           rafRef.current = requestAnimationFrame(() => {
             setPhase('idle')
@@ -128,7 +120,6 @@ const LogoColumn: React.FC<{
   )
 }
 
-// ─── Parent — single interval, all columns share the same tick ───────────────
 export const LogoTicker: React.FC<LogoTickerProps> = ({
   title,
   columns,

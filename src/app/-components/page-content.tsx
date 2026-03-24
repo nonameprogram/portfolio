@@ -1,11 +1,12 @@
 import React from "react";
 import "react-medium-image-zoom/dist/styles.css";
-import { AboutMeSection } from "@/app/-components/sections/about-me/about-me-section";
+import { ExpertiseSection } from "@/app/-components/sections/expertise/expertise-section";
 import { Technologies } from "@/app/-components/sections/tech-stack/technologies";
 import { ExpertiseCarousel } from "@/app/-components/sections/expertise-carousel";
 import { ContactSection } from "@/app/-components/sections/contact-section";
 import { ScrollText } from "@/components/scroll-text";
 import { AboutScrollSection } from "@/app/-components/sections/about-scroll-section";
+import { SectionContainer } from "@/components/section-container";
 
 export default function PageContent() {
   return (
@@ -17,10 +18,10 @@ export default function PageContent() {
           <AboutScrollSection />
         </div>
         
-<div className="px-6 sm:px-48 flex flex-col gap-24">
-          <AboutMeSection />
+        <SectionContainer className="flex flex-col gap-24">
+          <ExpertiseSection />
           <Technologies />
-        </div>
+        </SectionContainer>
 
         <ContactSection />
       </div>

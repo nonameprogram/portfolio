@@ -5,7 +5,7 @@ import React from "react";
 import { ArrowTopRightIcon, ExternalLinkIcon } from "@radix-ui/react-icons";
 import { CircleDashedIcon } from "lucide-react";
 import { certifications } from "@/app/-components/sections/tech-stack/constants";
-import { AnimatedLink } from "@/components/animated-link";
+import { AnimatedLink } from "@/components/animated-link-2";
 
 export const CertificatesSection = () => {
   return (
@@ -18,15 +18,15 @@ export const CertificatesSection = () => {
         transition={{ duration: 1 }}
       >
         <h2 className="text-3xl font-light tracking-tight md:text-6xl lg:text-7xl text-white">
-          Certifications
+          Recent Certificates
         </h2>
         <p className="text-base text-neutral-400 max-w-sm md:text-right">
-          A list of my ongoing and completed professional certifications.
+          A list of my professional certifications and achievements.
         </p>
       </motion.div>
 
       <div className="flex flex-col w-full">
-        {certifications.map((item, index) => (
+        {certifications.filter(item => item.certificate.completed).map((item, index) => (
           <motion.div
             className="group mb-8 w-full"
             key={index}
@@ -44,10 +44,7 @@ export const CertificatesSection = () => {
                 <div className="text-xl md:text-2xl text-white">
                   {item.certificate.label}
                 </div>
-                <AnimatedLink href={item.provider.url} className="w-max gap-1">
-                  <div className="text-base md:text-lg text-neutral-400">{item.provider.name}</div>
-                  <ExternalLinkIcon className="text-neutral-400" />
-                </AnimatedLink>
+                <AnimatedLink href={item.provider.url} name={item.provider.name} />
               </div>
               <div className="flex flex-col items-end gap-y-3">
                 <div className="text-right text-base md:text-lg text-neutral-400">

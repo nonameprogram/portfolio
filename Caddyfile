@@ -1,3 +1,0 @@
-bkosinski.dev {
-    reverse_proxy web:3000
-}
