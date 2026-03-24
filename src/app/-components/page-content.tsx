@@ -1,4 +1,3 @@
-import "react-medium-image-zoom/dist/styles.css";
 import { AboutScrollSection } from "@/app/-components/sections/about-scroll-section";
 import { ContactSection } from "@/app/-components/sections/contact-section";
 import { ExpertiseSection } from "@/app/-components/sections/expertise/expertise-section";

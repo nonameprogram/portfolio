@@ -1,6 +1,11 @@
 "use client";
 
-import { motion, useScroll, useTransform } from "motion/react";
+import {
+  type MotionValue,
+  motion,
+  useScroll,
+  useTransform,
+} from "motion/react";
 import { useRef } from "react";
 import { cn } from "@/utils/cn";
 
@@ -11,7 +16,7 @@ const Word = ({
   end,
 }: {
   word: string;
-  progress: any;
+  progress: MotionValue<number>;
   start: number;
   end: number;
 }) => {
@@ -36,7 +41,10 @@ export const TextReveal = ({
     offset: ["start 80%", "end 50%"],
   });
 
-  const words = text.split(/\s+/);
+  const words = text.trim().split(/\s+/).filter(Boolean);
+  if (words.length === 0) {
+    return null;
+  }
 
   return (
     <div className={cn("flex flex-wrap", className)} ref={container}>
