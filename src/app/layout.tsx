@@ -1,18 +1,14 @@
 import { GoogleAnalytics } from "@next/third-parties/google";
 import type { Metadata } from "next";
-import { Geist, Geist_Mono } from "next/font/google";
+import localFont from "next/font/local";
 import type React from "react";
-import { TooltipProvider } from "@/components/tooltip";
+import { Navigation } from "@/components/navigation";
 import "./globals.css";
 
-const geistSans = Geist({
-  variable: "--font-geist-sans",
-  subsets: ["latin"],
-});
-
-const geistMono = Geist_Mono({
-  variable: "--font-geist-mono",
-  subsets: ["latin"],
+const overusedGrotesk = localFont({
+  src: "../../public/OverusedGrotesk-VF.woff2",
+  variable: "--font-overused-grotesk",
+  display: "swap",
 });
 
 export const metadata: Metadata = {
@@ -34,11 +30,10 @@ export const metadata: Metadata = {
   ],
   authors: [{ name: "Bartłomiej Kosiński" }],
   openGraph: {
-    title: "Bartłomiej Kosiński | Software Developer",
-    description:
-      "Software Developer focused on secure, high-performance web applications.",
+    title: "Bartłomiej Kosiński | Fullstack Developer",
+    description: "Fullstack Developer",
     url: "https://bkosinski.dev",
-    siteName: "Bartłomiej Kosiński | Software Developer",
+    siteName: "Bartłomiej Kosiński | Fullstack Developer",
     locale: "en_US",
     type: "website",
   },
@@ -50,17 +45,14 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en">
-      <head>
-        <link
-          href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Lora:ital,wght@0,400..700;1,400..700&display=swap"
-          rel="stylesheet"
-        />
-      </head>
+    <html className="scroll-smooth" lang="en">
+      <head />
+
       <body
-        className={`${geistSans.variable} ${geistMono.variable} antialiased`}
+        className={`${overusedGrotesk.variable} ${overusedGrotesk.className} antialiased`}
       >
-        <TooltipProvider>{children}</TooltipProvider>
+        <Navigation />
+        {children}
         {process.env.NODE_ENV === "production" && (
           <GoogleAnalytics gaId="G-VZXG93D33R" />
         )}

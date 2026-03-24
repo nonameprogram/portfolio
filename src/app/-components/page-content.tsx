@@ -1,30 +1,27 @@
-import "react-medium-image-zoom/dist/styles.css";
-import { AboutMeSection } from "@/app/-components/sections/about-me/about-me-section";
-import { CareerSection } from "@/app/-components/sections/career/career-section";
+import { AboutScrollSection } from "@/app/-components/sections/about-scroll-section";
 import { ContactSection } from "@/app/-components/sections/contact-section";
-import { ProjectsSection } from "@/app/-components/sections/projects-section";
-import { TechStackSection } from "@/app/-components/sections/tech-stack/tech-stack-section";
-import { Separator } from "@/components/separator";
+import { ExpertiseSection } from "@/app/-components/sections/expertise/expertise-section";
+import { ExpertiseCarousel } from "@/app/-components/sections/expertise-carousel";
+import { Technologies } from "@/app/-components/sections/tech-stack/technologies";
+import { ScrollText } from "@/components/scroll-text";
+import { SectionContainer } from "@/components/section-container";
 
 export default function PageContent() {
   return (
-    <div className="relative flex flex-col rounded-t-4xl bg-secondary-bg">
-      <div className="!max-w-7xl container relative mx-auto flex grow flex-col gap-16 px-6 sm:px-12">
-        <div className="relative flex gap-x-4">
-          <div className="relative grid grid-cols-1 gap-24">
-            <div className="col-span-3 xl:col-span-2">
-              <AboutMeSection />
-              <Separator />
-              <TechStackSection />
-              <Separator />
-              <CareerSection />
-              <Separator />
-              <ProjectsSection />
-              <Separator />
-              <ContactSection />
-            </div>
-          </div>
+    <div className="relative flex flex-col bg-secondary-bg">
+      <div className="relative flex grow flex-col gap-24 pt-16 pb-24">
+        <div className="flex w-full flex-col gap-12">
+          <ScrollText />
+          <ExpertiseCarousel />
+          <AboutScrollSection />
         </div>
+
+        <SectionContainer className="flex flex-col gap-24">
+          <ExpertiseSection />
+          <Technologies />
+        </SectionContainer>
+
+        <ContactSection />
       </div>
     </div>
   );
