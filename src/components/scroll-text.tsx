@@ -1,16 +1,6 @@
 "use client";
 
-import { useRef } from "react";
-import {
-  motion,
-  useScroll,
-  useTransform,
-} from "motion/react";
-
-const wrap = (min: number, max: number, v: number) => {
-  const rangeSize = max - min;
-  return ((((v - min) % rangeSize) + rangeSize) % rangeSize) + min;
-};
+import { motion, useScroll, useTransform } from "motion/react";
 
 interface ParallaxProps {
   items: string[];
@@ -18,7 +8,11 @@ interface ParallaxProps {
   initialX?: number;
 }
 
-function ParallaxText({ items = [], scrollSpeed = -0.05, initialX = 0 }: ParallaxProps) {
+function ParallaxText({
+  items = [],
+  scrollSpeed = -0.05,
+  initialX = 0,
+}: ParallaxProps) {
   const { scrollY } = useScroll();
 
   const x = useTransform(scrollY, (y) => {
@@ -26,13 +20,15 @@ function ParallaxText({ items = [], scrollSpeed = -0.05, initialX = 0 }: Paralla
   });
 
   const content = items.map((item, index) => (
-    <span key={index} className="block">{item}</span>
+    <span className="block" key={index}>
+      {item}
+    </span>
   ));
 
   return (
-    <div className="overflow-hidden m-0 flex flex-nowrap whitespace-nowrap">
+    <div className="m-0 flex flex-nowrap overflow-hidden whitespace-nowrap">
       <motion.div
-        className="flex gap-16 md:gap-32 whitespace-nowrap flex-nowrap text-white font-light tracking-tight leading-none text-6xl md:text-[10rem]"
+        className="flex flex-nowrap gap-16 whitespace-nowrap font-light text-6xl text-white leading-none tracking-tight md:gap-32 md:text-[10rem]"
         style={{ x }}
       >
         {content}
@@ -48,18 +44,22 @@ function ParallaxText({ items = [], scrollSpeed = -0.05, initialX = 0 }: Paralla
   );
 }
 
-export const ScrollText = ({ 
-  items = ["Frontend", "Backend", "Mobile", "Architecture", "AI"], 
-  scrollSpeed = -0.01, 
-  initialX = -1.5 
-}: { 
+export const ScrollText = ({
+  items = ["Frontend", "Backend", "Mobile", "Architecture", "AI"],
+  scrollSpeed = -0.01,
+  initialX = -1.5,
+}: {
   items?: string[];
   scrollSpeed?: number;
   initialX?: number;
 }) => {
   return (
-    <div className="w-full overflow-hidden flex flex-col">
-      <ParallaxText items={items} scrollSpeed={scrollSpeed} initialX={initialX} />
+    <div className="flex w-full flex-col overflow-hidden">
+      <ParallaxText
+        initialX={initialX}
+        items={items}
+        scrollSpeed={scrollSpeed}
+      />
     </div>
   );
 };

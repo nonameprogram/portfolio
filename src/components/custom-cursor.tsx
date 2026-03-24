@@ -1,12 +1,12 @@
 "use client";
 
-import { useEffect, useState } from "react";
 import { motion, useMotionValue, useSpring } from "motion/react";
+import { useEffect, useState } from "react";
 
 export const CustomCursor = () => {
   const [isVisible, setIsVisible] = useState(false);
   const [isHovering, setIsHovering] = useState(false);
-  
+
   const cursorX = useMotionValue(-100);
   const cursorY = useMotionValue(-100);
 
@@ -15,12 +15,16 @@ export const CustomCursor = () => {
   const cursorYSpring = useSpring(cursorY, springConfig);
 
   useEffect(() => {
-    if (window.matchMedia("(pointer: coarse)").matches) return;
+    if (window.matchMedia("(pointer: coarse)").matches) {
+      return;
+    }
 
     const moveCursor = (e: MouseEvent) => {
       cursorX.set(e.clientX);
       cursorY.set(e.clientY);
-      if (!isVisible) setIsVisible(true);
+      if (!isVisible) {
+        setIsVisible(true);
+      }
     };
 
     const handleMouseLeave = () => setIsVisible(false);
@@ -43,7 +47,7 @@ export const CustomCursor = () => {
         setIsHovering(false);
       }
     };
-    
+
     window.addEventListener("mouseover", handleMouseOver);
 
     return () => {
@@ -54,20 +58,33 @@ export const CustomCursor = () => {
     };
   }, [cursorX, cursorY, isVisible]);
 
-  if (typeof window === "undefined") return null;
+  if (typeof window === "undefined") {
+    return null;
+  }
 
   return (
     <>
-      <style dangerouslySetInnerHTML={{ __html: `
+      <style
+        // biome-ignore lint/security/noDangerouslySetInnerHtml: conditional cursor style
+        dangerouslySetInnerHTML={{
+          __html: `
         @media (pointer: fine) {
           body, a, button, input, [role="button"], label {
             cursor: none !important;
           }
         }
-      `}} />
+      `,
+        }}
+      />
 
       <motion.div
-        className="pointer-events-none fixed left-0 top-0 z-[9999] rounded-full border border-blue-500 hidden md:block"
+        animate={{
+          scale: isHovering ? 1.5 : 1,
+          backgroundColor: isHovering
+            ? "rgba(59, 130, 246, 0.1)"
+            : "rgba(59, 130, 246, 0)",
+        }}
+        className="pointer-events-none fixed top-0 left-0 z-[9999] hidden rounded-full border border-blue-500 md:block"
         style={{
           x: cursorXSpring,
           y: cursorYSpring,
@@ -77,15 +94,11 @@ export const CustomCursor = () => {
           translateY: "-50%",
           opacity: isVisible ? 1 : 0,
         }}
-        animate={{
-          scale: isHovering ? 1.5 : 1,
-          backgroundColor: isHovering ? "rgba(59, 130, 246, 0.1)" : "rgba(59, 130, 246, 0)",
-        }}
         transition={{ type: "spring", stiffness: 300, damping: 20 }}
       />
-      
+
       <motion.div
-        className="pointer-events-none fixed left-0 top-0 z-[10000] rounded-full bg-blue-500 hidden md:block"
+        className="pointer-events-none fixed top-0 left-0 z-[10000] hidden rounded-full bg-blue-500 md:block"
         style={{
           x: cursorX,
           y: cursorY,

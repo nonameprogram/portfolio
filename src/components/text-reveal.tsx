@@ -1,7 +1,7 @@
 "use client";
 
-import { useRef } from "react";
 import { motion, useScroll, useTransform } from "motion/react";
+import { useRef } from "react";
 import { cn } from "@/utils/cn";
 
 const Word = ({
@@ -17,7 +17,7 @@ const Word = ({
 }) => {
   const color = useTransform(progress, [start, end], ["#52525b", "#ffffff"]); // text-neutral-600 to white
   return (
-    <motion.span className="mr-2 md:mr-3 mt-2 md:mt-3" style={{ color }}>
+    <motion.span className="mt-2 mr-2 md:mt-3 md:mr-3" style={{ color }}>
       {word}
     </motion.span>
   );
@@ -39,17 +39,17 @@ export const TextReveal = ({
   const words = text.split(/\s+/);
 
   return (
-    <div ref={container} className={cn("flex flex-wrap", className)}>
+    <div className={cn("flex flex-wrap", className)} ref={container}>
       {words.map((word, i) => {
         const start = i / words.length;
         const end = start + 1 / words.length;
         return (
           <Word
+            end={end}
             key={i}
-            word={word}
             progress={scrollYProgress}
             start={start}
-            end={end}
+            word={word}
           />
         );
       })}

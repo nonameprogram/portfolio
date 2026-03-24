@@ -1,5 +1,5 @@
+import type React from "react";
 import { cn } from "@/utils/cn";
-import React from "react";
 
 interface SectionContainerProps {
   children: React.ReactNode;
@@ -7,9 +7,19 @@ interface SectionContainerProps {
   id?: string;
 }
 
-export const SectionContainer = ({ children, className, id }: SectionContainerProps) => {
+export const SectionContainer = ({
+  children,
+  className,
+  id,
+}: SectionContainerProps) => {
   return (
-    <div className={cn("px-6 md:px-24 lg:px-48 w-full max-w-[2400px] mx-auto", className)} id={id}>
+    <div
+      className={cn(
+        "mx-auto w-full max-w-[2400px] px-6 md:px-24 lg:px-48",
+        className
+      )}
+      id={id}
+    >
       {children}
     </div>
   );

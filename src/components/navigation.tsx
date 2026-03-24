@@ -1,12 +1,8 @@
 "use client";
 
-import type { ReactNode, MouseEvent } from "react";
+import { motion, useMotionValueEvent, useScroll } from "motion/react";
+import type { MouseEvent } from "react";
 import { useState } from "react";
-import {
-  motion,
-  useScroll,
-  useMotionValueEvent,
-} from "motion/react";
 import { cn } from "@/utils/cn";
 import { SectionContainer } from "./section-container";
 
@@ -48,24 +44,24 @@ export const Navigation = () => {
 
   return (
     <motion.div
+      animate={hidden ? "hidden" : "visible"}
+      className={cn(
+        "fixed top-0 right-0 left-0 z-50 w-full transition-all duration-300",
+        scrolled ? "bg-black/50 backdrop-blur-md" : "bg-transparent"
+      )}
+      transition={{ duration: 0.35, ease: "easeInOut" }}
       variants={{
         visible: { y: 0, opacity: 1 },
         hidden: { y: "-100%", opacity: 0 },
       }}
-      animate={hidden ? "hidden" : "visible"}
-      transition={{ duration: 0.35, ease: "easeInOut" }}
-      className="fixed top-0 left-0 right-0 z-50 w-full"
     >
-      <SectionContainer className={cn(
-        "flex items-center justify-end gap-6 py-4 transition-all duration-300",
-        scrolled ? "bg-black/50 backdrop-blur-md" : "bg-transparent"
-      )}>
+      <SectionContainer className="flex items-center justify-end gap-6 py-4">
         {navItems.map((item) => (
           <a
-            key={item.name}
-            href={item.link}
-            onClick={(e) => handleClick(e, item.link)}
             className="font-medium text-white transition-colors hover:text-neutral-300"
+            href={item.link}
+            key={item.name}
+            onClick={(e) => handleClick(e, item.link)}
           >
             {item.name}
           </a>

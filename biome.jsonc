@@ -12,7 +12,7 @@
         "noUnknownAtRules": "off",
         "noConsole": "off",
         "noBitwiseOperators": "off",
-        "noArrayIndexKey": "warn"
+        "noArrayIndexKey": "off"
       },
       "style": {
         "noMagicNumbers": "off",

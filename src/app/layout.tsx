@@ -1,7 +1,7 @@
-import type React from "react";
+import { GoogleAnalytics } from "@next/third-parties/google";
 import type { Metadata } from "next";
 import localFont from "next/font/local";
-import { GoogleAnalytics } from "@next/third-parties/google";
+import type React from "react";
 import { Navigation } from "@/components/navigation";
 import "./globals.css";
 
@@ -10,8 +10,6 @@ const overusedGrotesk = localFont({
   variable: "--font-overused-grotesk",
   display: "swap",
 });
-
-import { CustomCursor } from "@/components/custom-cursor";
 
 export const metadata: Metadata = {
   title: "Bartłomiej Kosiński | Software Developer",
@@ -33,8 +31,7 @@ export const metadata: Metadata = {
   authors: [{ name: "Bartłomiej Kosiński" }],
   openGraph: {
     title: "Bartłomiej Kosiński | Fullstack Developer",
-    description:
-      "Fullstack Developer",
+    description: "Fullstack Developer",
     url: "https://bkosinski.dev",
     siteName: "Bartłomiej Kosiński | Fullstack Developer",
     locale: "en_US",
@@ -48,7 +45,7 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en" className="scroll-smooth">
+    <html className="scroll-smooth" lang="en">
       <head />
 
       <body
