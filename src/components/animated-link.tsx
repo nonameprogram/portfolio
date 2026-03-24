@@ -1,7 +1,8 @@
-import React from "react";
+import type React from "react";
 import { cn } from "@/utils/cn";
 
-export interface AnimatedLinkProps extends React.AnchorHTMLAttributes<HTMLAnchorElement> {
+export interface AnimatedLinkProps
+  extends React.AnchorHTMLAttributes<HTMLAnchorElement> {
   /**
    * @default true
    */
