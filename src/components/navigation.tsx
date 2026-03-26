@@ -20,6 +20,9 @@ const navItems = [
   { name: "Contact", link: "#contact" },
 ];
 
+const HIDE_SCROLL_THRESHOLD = 150;
+const SCROLLED_SCROLL_THRESHOLD = 50;
+
 export const Navigation = () => {
   const { scrollY } = useScroll();
   const [hidden, setHidden] = useState(false);
@@ -28,12 +31,16 @@ export const Navigation = () => {
 
   useMotionValueEvent(scrollY, "change", (latest: number) => {
     const previous = scrollY.getPrevious() ?? 0;
-    if (!isMobileMenuOpen && latest > previous && latest > 150) {
+    if (
+      !isMobileMenuOpen &&
+      latest > previous &&
+      latest > HIDE_SCROLL_THRESHOLD
+    ) {
       setHidden(true);
     } else {
       setHidden(false);
     }
-    setScrolled(latest > 50);
+    setScrolled(latest > SCROLLED_SCROLL_THRESHOLD);
   });
 
   useEffect(() => {
@@ -78,9 +85,7 @@ export const Navigation = () => {
           hidden: { y: "-100%", opacity: 0 },
         }}
       >
-        <SectionContainer className="flex items-center justify-between gap-6 py-4 md:justify-end">
-          <div className="md:hidden" />
-
+        <SectionContainer className="flex items-center justify-start gap-6 py-4 md:justify-end">
           <nav className="hidden items-center gap-8 md:flex">
             {navItems.map((item) => (
               <a
@@ -96,7 +101,7 @@ export const Navigation = () => {
 
           <button
             aria-label="Toggle menu"
-            className="relative z-[60] flex h-10 w-10 items-center justify-center rounded-full border border-white/10 bg-white/5 text-white transition-all hover:bg-white/10 md:hidden"
+            className="relative z-[60] ml-auto flex h-10 w-10 items-center justify-center rounded-full border border-white/10 bg-white/5 text-white transition-all hover:bg-white/10 md:ml-0 md:hidden"
             onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
             type="button"
           >
