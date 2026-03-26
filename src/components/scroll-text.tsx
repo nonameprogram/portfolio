@@ -28,7 +28,7 @@ function ParallaxText({
   return (
     <div className="m-0 flex flex-nowrap overflow-hidden whitespace-nowrap">
       <motion.div
-        className="flex flex-nowrap gap-16 whitespace-nowrap font-light text-6xl text-white leading-none tracking-tight md:gap-32 md:text-[10rem]"
+        className="flex flex-nowrap gap-16 whitespace-nowrap font-light text-5xl text-white leading-none tracking-tight tracking-tight md:gap-32 md:text-6xl lg:text-8xl"
         style={{ x }}
       >
         {content}
@@ -45,7 +45,7 @@ function ParallaxText({
 }
 
 export const ScrollText = ({
-  items = ["Frontend", "Backend", "Mobile", "Architecture", "AI"],
+  items = ["Engineering Digital Products That Stay Steps Ahead"],
   scrollSpeed = -0.01,
   initialX = -1.5,
 }: {
