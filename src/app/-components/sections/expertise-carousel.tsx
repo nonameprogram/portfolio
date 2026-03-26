@@ -84,7 +84,7 @@ export const ExpertiseCarousel = () => {
                 <h3 className="whitespace-pre-line font-medium text-2xl text-[#111] leading-snug transition-colors duration-300 group-hover:text-accent md:text-3xl">
                   {item.title}
                 </h3>
-                <div className="mt-4 grid grid-rows-[0fr] transition-[grid-template-rows] duration-500 ease-out group-hover:grid-rows-[1fr]">
+                <div className="responsive-card-description group-hover:!grid-rows-[1fr] mt-4 grid transition-[grid-template-rows] duration-500 ease-out">
                   <div className="overflow-hidden">
                     <p className="pt-4 text-[#555] text-lg leading-relaxed">
                       {item.desc}
