@@ -1,0 +1,26 @@
+{
+  "ci": {
+    "collect": {
+      "url": ["http://localhost:3000/"],
+      "startServerCommand": "pnpm run start",
+      "startServerReadyPattern": "Ready in"
+    },
+    "assert": {
+      "preset": "lighthouse:no-pwa",
+      "assertions": {
+        "categories:performance": [
+          "warn",
+          { "aggregationMethod": "optimistic", "minScore": 0.9 }
+        ],
+        "categories:accessibility": [
+          "error",
+          { "aggregationMethod": "optimistic", "minScore": 0.9 }
+        ]
+      }
+    },
+    "upload": {
+      "target": "temporary-public-storage",
+      "artifactName": "lhci-report"
+    }
+  }
+}
