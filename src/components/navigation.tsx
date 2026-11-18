@@ -17,6 +17,7 @@ const navItems = [
   { name: "About", link: "#about" },
   { name: "Expertise", link: "#expertise" },
   { name: "Technologies", link: "#tech" },
+  { name: "Process", link: "#process" },
   { name: "Contact", link: "#contact" },
 ];
 

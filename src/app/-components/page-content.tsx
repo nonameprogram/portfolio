@@ -1,6 +1,7 @@
 import { AboutScrollSection } from "@/app/-components/sections/about-scroll-section";
 import { ContactSection } from "@/app/-components/sections/contact-section";
 import { ExpertiseSection } from "@/app/-components/sections/expertise/expertise-section";
+import { ProcessSection } from "@/app/-components/sections/process/process-section";
 import { Technologies } from "@/app/-components/sections/tech-stack/technologies";
 import { SectionContainer } from "@/components/section-container";
 
@@ -13,6 +14,7 @@ export default function PageContent() {
         <SectionContainer className="flex flex-col gap-24">
           <ExpertiseSection />
           <Technologies />
+          <ProcessSection />
         </SectionContainer>
 
         <ContactSection />
