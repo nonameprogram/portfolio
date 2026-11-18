@@ -3,6 +3,10 @@ name: Lighthouse
 on:
   push:
 
+permissions:
+  contents: read
+  pull-requests: write
+
 jobs:
   lighthouse:
     name: Lighthouse
@@ -36,6 +40,14 @@ jobs:
         env:
           LHCI_GITHUB_APP_TOKEN: ${{ secrets.LHCI_GITHUB_APP_TOKEN }}
         run: pnpm lighthouse
+      # Dependabot-triggered runs only get a read-only token, so they can't comment.
+      - name: Comment Lighthouse results on PR
+        if: ${{ !cancelled() && github.actor != 'dependabot[bot]' }}
+        uses: actions/github-script@v9
+        with:
+          script: |
+            const comment = require("./.github/scripts/lighthouse-comment.js");
+            await comment({ github, context, core });
       - name: Upload Lighthouse reports
         if: ${{ !cancelled() }}
         uses: actions/upload-artifact@v4
