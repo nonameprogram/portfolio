@@ -92,7 +92,7 @@ export const ExpertiseCarousel = () => {
                   </div>
                 </div>
                 <div className="mt-auto flex items-end pt-8">
-                  <span className="text-[#aaa] text-sm uppercase tracking-widest transition-colors duration-300 group-hover:text-[#888]">
+                  <span className="text-[#737373] text-sm uppercase tracking-widest transition-colors duration-300 group-hover:text-[#555]">
                     {item.category}
                   </span>
                 </div>
