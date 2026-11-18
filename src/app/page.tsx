@@ -10,7 +10,7 @@ export default function Home() {
   const ref = React.useRef(null);
 
   return (
-    <div className="flex flex-col">
+    <main className="flex flex-col">
       <div
         className="relative flex w-full flex-col"
         ref={ref}
@@ -67,6 +67,6 @@ export default function Home() {
         </SectionContainer>
       </div>
       <PageContent />
-    </div>
+    </main>
   );
 }

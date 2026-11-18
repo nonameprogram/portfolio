@@ -1,0 +1,35 @@
+{
+  "ci": {
+    "collect": {
+      "url": ["http://localhost:3000/"],
+      "startServerCommand": "pnpm run start",
+      "startServerReadyPattern": "Ready in",
+      "numberOfRuns": 3
+    },
+    "assert": {
+      "assertions": {
+        "categories:performance": [
+          "warn",
+          { "aggregationMethod": "median-run", "minScore": 0.9 }
+        ],
+        "categories:accessibility": [
+          "error",
+          { "aggregationMethod": "median-run", "minScore": 0.9 }
+        ],
+        "categories:best-practices": [
+          "error",
+          { "aggregationMethod": "median-run", "minScore": 0.9 }
+        ],
+        "categories:seo": [
+          "error",
+          { "aggregationMethod": "median-run", "minScore": 0.9 }
+        ],
+        "color-contrast": "warn",
+        "landmark-one-main": "error"
+      }
+    },
+    "upload": {
+      "target": "temporary-public-storage"
+    }
+  }
+}

@@ -5,7 +5,6 @@ const nextConfig: NextConfig = {
   turbopack: {
     root: path.join(import.meta.dirname),
   },
-  output: "standalone",
 };
 
 export default nextConfig;
