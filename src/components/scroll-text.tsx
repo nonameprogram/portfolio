@@ -3,9 +3,9 @@
 import { motion, useScroll, useTransform } from "motion/react";
 
 interface ParallaxProps {
+  initialX?: number;
   items: string[];
   scrollSpeed?: number;
-  initialX?: number;
 }
 
 function ParallaxText({
@@ -15,9 +15,7 @@ function ParallaxText({
 }: ParallaxProps) {
   const { scrollY } = useScroll();
 
-  const x = useTransform(scrollY, (y) => {
-    return `${initialX + y * scrollSpeed}%`;
-  });
+  const x = useTransform(scrollY, (y) => `${initialX + y * scrollSpeed}%`);
 
   const content = items.map((item, index) => (
     <span className="block" key={index}>
@@ -28,7 +26,7 @@ function ParallaxText({
   return (
     <div className="m-0 flex flex-nowrap overflow-hidden whitespace-nowrap">
       <motion.div
-        className="flex flex-nowrap gap-16 whitespace-nowrap font-light text-5xl text-white leading-none tracking-tight tracking-tight md:gap-32 md:text-6xl lg:text-8xl"
+        className="flex flex-nowrap gap-16 whitespace-nowrap font-light text-5xl text-white leading-none tracking-tight md:gap-32 md:text-6xl lg:text-8xl"
         style={{ x }}
       >
         {content}
@@ -52,14 +50,8 @@ export const ScrollText = ({
   items?: string[];
   scrollSpeed?: number;
   initialX?: number;
-}) => {
-  return (
-    <div className="flex w-full flex-col overflow-hidden">
-      <ParallaxText
-        initialX={initialX}
-        items={items}
-        scrollSpeed={scrollSpeed}
-      />
-    </div>
-  );
-};
+}) => (
+  <div className="flex w-full flex-col overflow-hidden">
+    <ParallaxText initialX={initialX} items={items} scrollSpeed={scrollSpeed} />
+  </div>
+);

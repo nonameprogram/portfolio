@@ -5,6 +5,23 @@
     "ultracite/biome/react",
     "ultracite/biome/next"
   ],
+  "html": {
+    "formatter": {
+      "enabled": false
+    }
+  },
+  "assist": {
+    "actions": {
+      "source": {
+        "useSortedAttributes": "off",
+        "useSortedKeys": "off",
+        "useSortedInterfaceMembers": "off",
+        "useSortedProperties": "off",
+        "useSortedTypeFields": "off",
+        "useSortedPackageJson": "off"
+      }
+    }
+  },
   "linter": {
     "rules": {
       "suspicious": {
@@ -12,7 +29,9 @@
         "noUnknownAtRules": "off",
         "noConsole": "off",
         "noBitwiseOperators": "off",
-        "noArrayIndexKey": "off"
+        "noArrayIndexKey": "off",
+        "noUnnecessaryConditions": "off",
+        "noLeakedRender": "off"
       },
       "style": {
         "noMagicNumbers": "off",
@@ -21,9 +40,6 @@
         "useConsistentBuiltinInstantiation": "off",
         "useFragmentSyntax": "off",
         "useForOf": "off"
-      },
-      "nursery": {
-        "noUnnecessaryConditions": "off"
       },
       "complexity": {
         "noExcessiveCognitiveComplexity": "off",
@@ -39,7 +55,8 @@
       },
       "performance": {
         "useTopLevelRegex": "off",
-        "noNamespaceImport": "off"
+        "noNamespaceImport": "off",
+        "noJsxPropsBind": "off"
       }
     }
   }
