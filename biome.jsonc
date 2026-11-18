@@ -5,6 +5,23 @@
     "ultracite/biome/react",
     "ultracite/biome/next"
   ],
+  "html": {
+    "formatter": {
+      "enabled": false
+    }
+  },
+  "assist": {
+    "actions": {
+      "source": {
+        "useSortedAttributes": "off",
+        "useSortedKeys": "off",
+        "useSortedInterfaceMembers": "off",
+        "useSortedProperties": "off",
+        "useSortedTypeFields": "off",
+        "useSortedPackageJson": "off"
+      }
+    }
+  },
   "linter": {
     "rules": {
       "suspicious": {
