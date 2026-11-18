@@ -6,41 +6,41 @@ import { SectionContainer } from "@/components/section-container";
 
 const DATA = [
   {
-    title: "AI\nPrototyping",
-    desc: "Accelerating the validation of your vision. Using cutting-edge AI to rapid-fire prototype user experiences and technical benchmarks.",
     category: "Innovation",
+    desc: "Accelerating the validation of your vision. Using cutting-edge AI to rapid-fire prototype user experiences and technical benchmarks.",
+    title: "AI\nPrototyping",
   },
   {
-    title: "The Shared\nBlueprint",
-    desc: "The key to long-lived apps with many developers. Clear, maintainable insights that empower collaboration across the entire development process.",
     category: "Documentation",
+    desc: "The key to long-lived apps with many developers. Clear, maintainable insights that empower collaboration across the entire development process.",
+    title: "The Shared\nBlueprint",
   },
   {
-    title: "Zero\nSurprises",
-    desc: "The driver of customer satisfaction. Well-tested applications that run flawlessly, instill confidence, and never frustrate the user.",
     category: "Testing",
+    desc: "The driver of customer satisfaction. Well-tested applications that run flawlessly, instill confidence, and never frustrate the user.",
+    title: "Zero\nSurprises",
   },
   {
-    title: "Architecting\nfor Change",
-    desc: "Building clean, adaptable structures that embrace new requirements. A scalable foundation that grows right alongside your business goals.",
     category: "Architecture",
+    desc: "Building clean, adaptable structures that embrace new requirements. A scalable foundation that grows right alongside your business goals.",
+    title: "Architecting\nfor Change",
   },
   {
-    title: "Frictionless\nDelivery",
-    desc: "Automating the path from code to production. Ensuring seamless, predictable deployments so features reach users faster and safer.",
     category: "Automation",
+    desc: "Automating the path from code to production. Ensuring seamless, predictable deployments so features reach users faster and safer.",
+    title: "Frictionless\nDelivery",
   },
   {
-    title: "Uncompromising\nSpeed",
-    desc: "Optimizing execution to the millisecond. Delivering lightning-fast digital experiences that keep your users engaged and fully satisfied.",
     category: "Optimization",
+    desc: "Optimizing execution to the millisecond. Delivering lightning-fast digital experiences that keep your users engaged and fully satisfied.",
+    title: "Uncompromising\nSpeed",
   },
 ];
 
 export const ExpertiseCarousel = () => {
   const [emblaRef, emblaApi] = useEmblaCarousel({
-    loop: true,
     align: "center",
+    loop: true,
   });
   const [prevBtnDisabled, setPrevBtnDisabled] = React.useState(true);
   const [nextBtnDisabled, setNextBtnDisabled] = React.useState(true);
@@ -57,9 +57,9 @@ export const ExpertiseCarousel = () => {
     }
   }, [emblaApi]);
 
-  const onSelect = useCallback((emblaApi: any) => {
-    setPrevBtnDisabled(!emblaApi.canScrollPrev());
-    setNextBtnDisabled(!emblaApi.canScrollNext());
+  const onSelect = useCallback((api: any) => {
+    setPrevBtnDisabled(!api.canScrollPrev());
+    setNextBtnDisabled(!api.canScrollNext());
   }, []);
 
   React.useEffect(() => {
