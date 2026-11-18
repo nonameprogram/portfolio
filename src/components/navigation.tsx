@@ -1,5 +1,6 @@
 "use client";
 
+import { useLenis } from "lenis/react";
 import { Menu as MenuIcon, X as XIcon } from "lucide-react";
 import {
   AnimatePresence,
@@ -8,7 +9,7 @@ import {
   useScroll,
 } from "motion/react";
 import type { MouseEvent } from "react";
-import { useEffect, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import { cn } from "@/utils/cn";
 import { SectionContainer } from "./section-container";
 
@@ -28,6 +29,8 @@ export const Navigation = () => {
   const [hidden, setHidden] = useState(false);
   const [scrolled, setScrolled] = useState(false);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
+  const lenis = useLenis();
+  const navRef = useRef<HTMLDivElement>(null);
 
   useMotionValueEvent(scrollY, "change", (latest: number) => {
     const previous = scrollY.getPrevious() ?? 0;
@@ -43,30 +46,50 @@ export const Navigation = () => {
     setScrolled(latest > SCROLLED_SCROLL_THRESHOLD);
   });
 
+  // Lock page scroll behind the mobile menu.
   useEffect(() => {
-    if (isMobileMenuOpen) {
-      document.body.style.overflow = "hidden";
-    } else {
-      document.body.style.overflow = "";
+    if (!lenis) {
+      return;
     }
-    return () => {
-      document.body.style.overflow = "";
-    };
-  }, [isMobileMenuOpen]);
+    if (isMobileMenuOpen) {
+      lenis.stop();
+    } else {
+      lenis.start();
+    }
+  }, [isMobileMenuOpen, lenis]);
 
   const handleClick = (e: MouseEvent<HTMLAnchorElement>, link: string) => {
+    if (!link.startsWith("#")) {
+      return;
+    }
+    e.preventDefault();
     setIsMobileMenuOpen(false);
 
-    if (link.startsWith("#") && link.length > 1) {
-      e.preventDefault();
-      const section = document.querySelector(link);
+    const section = link.length > 1 ? document.querySelector(link) : null;
+    if (link.length > 1 && !section) {
+      return;
+    }
+
+    if (!lenis) {
       if (section) {
         section.scrollIntoView({ behavior: "smooth" });
+      } else {
+        window.scrollTo({ behavior: "smooth", top: 0 });
       }
-    } else if (link === "#") {
-      e.preventDefault();
-      window.scrollTo({ top: 0, behavior: "smooth" });
+      return;
     }
+
+    // The nav hides while scrolling down and reappears while scrolling up,
+    // so only upward jumps need room for it above the section.
+    const targetTop = section
+      ? section.getBoundingClientRect().top + window.scrollY
+      : 0;
+    const navHeight = navRef.current?.offsetHeight ?? 0;
+    const offset = targetTop < window.scrollY ? -navHeight : 0;
+
+    // The menu may have just stopped Lenis; resume before scrolling.
+    lenis.start();
+    lenis.scrollTo(section ?? 0, { duration: 1.2, offset });
   };
 
   return (
@@ -79,6 +102,7 @@ export const Navigation = () => {
             ? "bg-black/80 backdrop-blur-lg"
             : "bg-transparent"
         )}
+        ref={navRef}
         transition={{ duration: 0.35, ease: "easeInOut" }}
         variants={{
           visible: { y: 0, opacity: 1 },

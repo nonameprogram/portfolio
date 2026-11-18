@@ -3,6 +3,8 @@ import type { Metadata } from "next";
 import localFont from "next/font/local";
 import type React from "react";
 import { Navigation } from "@/components/navigation";
+import { SmoothScroll } from "@/components/smooth-scroll";
+import "lenis/dist/lenis.css";
 import "./globals.css";
 
 const overusedGrotesk = localFont({
@@ -45,14 +47,16 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html className="scroll-smooth" lang="en">
+    <html lang="en">
       <head />
 
       <body
         className={`${overusedGrotesk.variable} ${overusedGrotesk.className} antialiased`}
       >
-        <Navigation />
-        {children}
+        <SmoothScroll>
+          <Navigation />
+          {children}
+        </SmoothScroll>
         {process.env.NODE_ENV === "production" && (
           <GoogleAnalytics gaId="G-VZXG93D33R" />
         )}
