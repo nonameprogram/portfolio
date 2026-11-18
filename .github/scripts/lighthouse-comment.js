@@ -9,7 +9,7 @@ const MARKER = "<!-- lighthouse-ci-results -->";
 const CATEGORIES = [
   ["performance", "Performance"],
   ["accessibility", "Accessibility"],
-  ["best-practices", "Best practices"],
+  ["best-practices", "Best Practices"],
   ["seo", "SEO"],
 ];
 const METRICS = [
@@ -20,17 +20,37 @@ const METRICS = [
   ["speed-index", "Speed Index"],
 ];
 
-const readJson = (file, fallback) => {
-  const fullPath = path.join(LHCI_DIR, file);
-  if (!fs.existsSync(fullPath)) {
-    return fallback;
+// Returns `undefined` when the file does not exist.
+const readJson = (file) => {
+  try {
+    return JSON.parse(fs.readFileSync(path.join(LHCI_DIR, file), "utf8"));
+  } catch (error) {
+    if (error.code === "ENOENT") {
+      return;
+    }
+    throw error;
   }
-  return JSON.parse(fs.readFileSync(fullPath, "utf8"));
+};
+
+const listLhrFiles = () => {
+  try {
+    return fs
+      .readdirSync(LHCI_DIR)
+      .filter((file) => file.startsWith("lhr-") && file.endsWith(".json"));
+  } catch (error) {
+    if (error.code === "ENOENT") {
+      return [];
+    }
+    throw error;
+  }
 };
 
 const median = (values) => {
   const sorted = [...values].sort((a, b) => a - b);
-  return sorted[Math.floor((sorted.length - 1) / 2)];
+  const middle = Math.floor(sorted.length / 2);
+  return sorted.length % 2 === 0
+    ? (sorted[middle - 1] + sorted[middle]) / 2
+    : sorted[middle];
 };
 
 const scoreBadge = (score) => {
@@ -43,12 +63,18 @@ const scoreBadge = (score) => {
   return "🔴";
 };
 
+const pageLabel = (url) => {
+  try {
+    const { pathname, search } = new URL(url);
+    return `\`${pathname}${search}\``;
+  } catch {
+    return `\`${url}\``;
+  }
+};
+
 const loadRunsByUrl = () => {
   const runs = new Map();
-  for (const file of fs.readdirSync(LHCI_DIR)) {
-    if (!(file.startsWith("lhr-") && file.endsWith(".json"))) {
-      continue;
-    }
+  for (const file of listLhrFiles()) {
     const lhr = readJson(file);
     const url = lhr.requestedUrl;
     runs.set(url, [...(runs.get(url) ?? []), lhr]);
@@ -56,84 +82,142 @@ const loadRunsByUrl = () => {
   return runs;
 };
 
-const renderUrlSection = (url, lhrs, reportUrl) => {
-  const scores = CATEGORIES.map(([id, label]) => {
-    const values = lhrs
-      .map((lhr) => lhr.categories[id]?.score)
-      .filter((value) => typeof value === "number");
-    if (values.length === 0) {
-      return `| ${label} | – |`;
-    }
-    const score = Math.round(median(values) * 100);
-    return `| ${scoreBadge(score)} ${label} | **${score}** |`;
-  });
+const scoreCell = (lhrs, id) => {
+  const values = lhrs
+    .map((lhr) => lhr.categories[id]?.score)
+    .filter((value) => typeof value === "number");
+  if (values.length === 0) {
+    return "–";
+  }
+  const score = Math.round(median(values) * 100);
+  return `${scoreBadge(score)} ${score}`;
+};
 
-  // Metrics come from the run with the median performance score.
-  const byPerformance = [...lhrs].sort(
+// Metrics come from an actual run: the one with the median performance score.
+const representativeRun = (lhrs) => {
+  const sorted = [...lhrs].sort(
     (a, b) =>
       (a.categories.performance?.score ?? 0) -
       (b.categories.performance?.score ?? 0)
   );
-  const representative = byPerformance[Math.floor((lhrs.length - 1) / 2)];
-  const metrics = METRICS.map(
-    ([id, label]) =>
-      `${label} ${representative.audits[id]?.displayValue ?? "–"}`
-  ).join(" · ");
-
-  const title = reportUrl ? `[${url}](${reportUrl})` : `\`${url}\``;
-  return [
-    `#### ${title}`,
-    "",
-    "| Category | Score |",
-    "| --- | --- |",
-    ...scores,
-    "",
-    `<sub>${metrics}</sub>`,
-  ].join("\n");
+  return sorted[Math.floor((sorted.length - 1) / 2)];
 };
 
-const renderAssertions = (results) => {
-  const failed = results.filter((result) => !result.passed);
-  if (failed.length === 0) {
-    return "✅ All assertions passed.";
+const renderScoresTable = (runsByUrl, links) => {
+  const header = `| Page | ${CATEGORIES.map(([, label]) => label).join(" | ")} | Report |`;
+  const divider = `| --- | ${CATEGORIES.map(() => ":---:").join(" | ")} | --- |`;
+  const rows = [...runsByUrl].map(([url, lhrs]) => {
+    const scores = CATEGORIES.map(([id]) => scoreCell(lhrs, id)).join(" | ");
+    const report = links[url] ? `[View report ↗](${links[url]})` : "–";
+    return `| ${pageLabel(url)} | ${scores} | ${report} |`;
+  });
+  return [header, divider, ...rows].join("\n");
+};
+
+const renderMetricsTable = (runsByUrl) => {
+  const header = `| Page | ${METRICS.map(([, label]) => label).join(" | ")} |`;
+  const divider = `| --- | ${METRICS.map(() => ":---:").join(" | ")} |`;
+  const rows = [...runsByUrl].map(([url, lhrs]) => {
+    const run = representativeRun(lhrs);
+    const values = METRICS.map(
+      ([id]) => run.audits[id]?.displayValue ?? "–"
+    ).join(" | ");
+    return `| ${pageLabel(url)} | ${values} |`;
+  });
+  return [header, divider, ...rows].join("\n");
+};
+
+const formatValue = (value) =>
+  typeof value === "number" ? Math.round(value * 100) / 100 : value;
+
+const summarizeAssertions = (assertions) => {
+  if (assertions === undefined) {
+    return { status: "⚪ Assertion results unavailable", failed: [] };
   }
-  const lines = failed.map((result) => {
-    const icon = result.level === "error" ? "❌" : "⚠️";
+  const failed = assertions.filter((result) => !result.passed);
+  const errors = failed.filter((result) => result.level === "error").length;
+  const warnings = failed.length - errors;
+  if (errors > 0) {
+    return {
+      status: `❌ Failed — ${errors} error${errors === 1 ? "" : "s"}${warnings ? `, ${warnings} warning${warnings === 1 ? "" : "s"}` : ""}`,
+      failed,
+    };
+  }
+  if (warnings > 0) {
+    return {
+      status: `⚠️ Passed with ${warnings} warning${warnings === 1 ? "" : "s"}`,
+      failed,
+    };
+  }
+  return { status: "✅ All assertions passed", failed };
+};
+
+const renderAssertionDetails = (failed) => {
+  if (failed.length === 0) {
+    return "";
+  }
+  const rows = failed.map((result) => {
+    const level = result.level === "error" ? "❌ Error" : "⚠️ Warning";
     const id = result.auditProperty
       ? `${result.auditId}.${result.auditProperty}`
       : result.auditId;
-    const actual =
-      typeof result.actual === "number"
-        ? Math.round(result.actual * 100) / 100
-        : result.actual;
-    return `- ${icon} \`${id}\` — ${result.auditTitle ?? ""} (expected ${result.operator} ${result.expected}, found ${actual})`;
+    const audit = result.auditDocumentationLink
+      ? `[\`${id}\`](${result.auditDocumentationLink})`
+      : `\`${id}\``;
+    return `| ${level} | ${audit} | ${result.auditTitle ?? ""} | ${result.operator} ${formatValue(result.expected)} | ${formatValue(result.actual)} |`;
   });
-  return ["**Assertions**", "", ...lines].join("\n");
+  return [
+    "<details>",
+    `<summary>Assertion details (${failed.length})</summary>`,
+    "",
+    "| Level | Audit | Description | Expected | Actual |",
+    "| --- | --- | --- | :---: | :---: |",
+    ...rows,
+    "",
+    "</details>",
+  ].join("\n");
 };
 
-const buildBody = (sha) => {
+const buildBody = ({ sha, commitUrl, runUrl }) => {
   const runsByUrl = loadRunsByUrl();
-  const links = readJson("links.json", {});
-  const assertions = readJson("assertion-results.json", []);
+  const shortSha = `[\`${sha.slice(0, 7)}\`](${commitUrl})`;
+  const footer = `<sub>Commit ${shortSha} · [Workflow run](${runUrl})</sub>`;
 
   if (runsByUrl.size === 0) {
-    return `${MARKER}\n### 🔦 Lighthouse\n\nNo Lighthouse results were produced for \`${sha.slice(0, 7)}\`. Check the workflow logs.`;
+    return [
+      MARKER,
+      "## Lighthouse Report",
+      "",
+      "**⚪ No results** — Lighthouse did not produce any reports for this commit. See the workflow run for details.",
+      "",
+      footer,
+    ].join("\n");
   }
 
-  const runCount = Math.max(...[...runsByUrl.values()].map((l) => l.length));
-  const sections = [...runsByUrl].map(([url, lhrs]) =>
-    renderUrlSection(url, lhrs, links[url])
+  const links = readJson("links.json") ?? {};
+  const { status, failed } = summarizeAssertions(
+    readJson("assertion-results.json")
   );
+  const runCount = Math.max(...[...runsByUrl.values()].map((l) => l.length));
 
   return [
     MARKER,
-    "### 🔦 Lighthouse",
+    "## Lighthouse Report",
     "",
-    `Commit \`${sha.slice(0, 7)}\` · median of ${runCount} run${runCount === 1 ? "" : "s"}`,
+    `**${status}** · median of ${runCount} run${runCount === 1 ? "" : "s"}`,
     "",
-    ...sections,
+    renderScoresTable(runsByUrl, links),
     "",
-    renderAssertions(assertions),
+    "<details>",
+    "<summary>Performance metrics</summary>",
+    "",
+    renderMetricsTable(runsByUrl),
+    "",
+    "</details>",
+    "",
+    renderAssertionDetails(failed),
+    "",
+    footer,
   ].join("\n");
 };
 
@@ -170,16 +254,21 @@ module.exports = async ({ github, context, core }) => {
   const {
     repo: { owner, repo },
     sha,
+    serverUrl,
+    runId,
   } = context;
-  const body = buildBody(sha);
+  const repoUrl = `${serverUrl}/${owner}/${repo}`;
+  const body = buildBody({
+    sha,
+    commitUrl: `${repoUrl}/commit/${sha}`,
+    runUrl: `${repoUrl}/actions/runs/${runId}`,
+  });
   await core.summary.addRaw(body.replace(MARKER, "")).write();
 
-  const { data: pulls } =
-    await github.rest.repos.listPullRequestsAssociatedWithCommit({
-      owner,
-      repo,
-      commit_sha: sha,
-    });
+  const pulls = await github.paginate(
+    github.rest.repos.listPullRequestsAssociatedWithCommit,
+    { owner, repo, commit_sha: sha, per_page: 100 }
+  );
   const openPulls = pulls.filter((pull) => pull.state === "open");
   if (openPulls.length === 0) {
     core.info("No open pull request for this commit; skipping comment.");
