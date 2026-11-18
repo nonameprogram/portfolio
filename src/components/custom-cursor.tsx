@@ -1,114 +1,168 @@
 "use client";
 
-import { motion, useMotionValue, useSpring } from "motion/react";
-import { useEffect, useState } from "react";
+import {
+  motion,
+  useMotionValue,
+  useReducedMotion,
+  useSpring,
+} from "motion/react";
+import { useEffect, useRef, useState } from "react";
+
+const SIZE = 10;
+const HOVER_SIZE = 32;
+const PRESSED_SCALE = 0.8;
+
+// Critically damped (damping ≈ 2·√(stiffness·mass)): the square catches up
+// smoothly without overshooting and settles exactly on the real pointer.
+const FOLLOW_SPRING = {
+  damping: 20,
+  mass: 0.5,
+  restDelta: 0.01,
+  stiffness: 200,
+};
+
+const INTERACTIVE_SELECTOR =
+  "a, button, [role='button'], label, summary, input, select, textarea";
+const FINE_POINTER_QUERY = "(hover: hover) and (pointer: fine)";
+// Hides the native cursor (see globals.css). Added only once the pointer
+// position is known, so there is never a moment without any cursor.
+const ACTIVE_CLASS = "has-custom-cursor";
 
 export const CustomCursor = () => {
-  const [isVisible, setIsVisible] = useState(false);
-  const [isHovering, setIsHovering] = useState(false);
+  const reduceMotion = useReducedMotion();
+  const [enabled, setEnabled] = useState(false);
+  const [visible, setVisible] = useState(false);
+  const [hovering, setHovering] = useState(false);
+  const [pressed, setPressed] = useState(false);
+  const visibleRef = useRef(false);
 
-  const cursorX = useMotionValue(-100);
-  const cursorY = useMotionValue(-100);
-
-  const springConfig = { damping: 25, stiffness: 300, mass: 0.5 };
-  const cursorXSpring = useSpring(cursorX, springConfig);
-  const cursorYSpring = useSpring(cursorY, springConfig);
+  const x = useMotionValue(0);
+  const y = useMotionValue(0);
+  const springX = useSpring(x, FOLLOW_SPRING);
+  const springY = useSpring(y, FOLLOW_SPRING);
 
   useEffect(() => {
-    if (window.matchMedia("(pointer: coarse)").matches) {
+    const media = window.matchMedia(FINE_POINTER_QUERY);
+    const update = () => setEnabled(media.matches);
+    update();
+    media.addEventListener("change", update);
+    return () => media.removeEventListener("change", update);
+  }, []);
+
+  useEffect(() => {
+    if (!enabled) {
       return;
     }
 
-    const moveCursor = (e: MouseEvent) => {
-      cursorX.set(e.clientX);
-      cursorY.set(e.clientY);
-      if (!isVisible) {
-        setIsVisible(true);
-      }
+    const root = document.documentElement;
+
+    const show = (clientX: number, clientY: number) => {
+      // Appear right where the pointer is instead of flying in.
+      x.jump(clientX);
+      y.jump(clientY);
+      springX.jump(clientX);
+      springY.jump(clientY);
+      root.classList.add(ACTIVE_CLASS);
+      visibleRef.current = true;
+      setVisible(true);
     };
 
-    const handleMouseLeave = () => setIsVisible(false);
-    const handleMouseEnter = () => setIsVisible(true);
+    const hide = () => {
+      visibleRef.current = false;
+      setVisible(false);
+      setPressed(false);
+    };
 
-    window.addEventListener("mousemove", moveCursor);
-    window.addEventListener("mouseleave", handleMouseLeave);
-    window.addEventListener("mouseenter", handleMouseEnter);
-
-    const handleMouseOver = (e: MouseEvent) => {
-      const target = e.target as HTMLElement;
-      if (
-        target.tagName.toLowerCase() === "a" ||
-        target.tagName.toLowerCase() === "button" ||
-        target.closest("a") ||
-        target.closest("button")
-      ) {
-        setIsHovering(true);
+    const onMove = (e: PointerEvent) => {
+      if (e.pointerType !== "mouse") {
+        return;
+      }
+      if (visibleRef.current) {
+        x.set(e.clientX);
+        y.set(e.clientY);
       } else {
-        setIsHovering(false);
+        show(e.clientX, e.clientY);
       }
     };
 
-    window.addEventListener("mouseover", handleMouseOver);
+    const onOver = (e: PointerEvent) => {
+      onMove(e);
+      const target = e.target instanceof Element ? e.target : null;
+      setHovering(Boolean(target?.closest(INTERACTIVE_SELECTOR)));
+    };
+
+    const onOut = (e: PointerEvent) => {
+      if (!e.relatedTarget) {
+        hide();
+      }
+    };
+
+    const onDown = (e: PointerEvent) => {
+      if (e.pointerType === "mouse") {
+        setPressed(true);
+      }
+    };
+    const onUp = () => setPressed(false);
+
+    document.addEventListener("pointermove", onMove, { passive: true });
+    document.addEventListener("pointerover", onOver, { passive: true });
+    document.addEventListener("pointerout", onOut, { passive: true });
+    document.addEventListener("pointerdown", onDown, { passive: true });
+    document.addEventListener("pointerup", onUp, { passive: true });
+    window.addEventListener("blur", hide);
 
     return () => {
-      window.removeEventListener("mousemove", moveCursor);
-      window.removeEventListener("mouseleave", handleMouseLeave);
-      window.removeEventListener("mouseenter", handleMouseEnter);
-      window.removeEventListener("mouseover", handleMouseOver);
+      document.removeEventListener("pointermove", onMove);
+      document.removeEventListener("pointerover", onOver);
+      document.removeEventListener("pointerout", onOut);
+      document.removeEventListener("pointerdown", onDown);
+      document.removeEventListener("pointerup", onUp);
+      window.removeEventListener("blur", hide);
+      root.classList.remove(ACTIVE_CLASS);
+      visibleRef.current = false;
     };
-  }, [cursorX, cursorY, isVisible]);
+  }, [enabled, x, y, springX, springY]);
 
-  if (typeof window === "undefined") {
+  if (!enabled) {
     return null;
   }
 
-  return (
-    <>
-      <style
-        // biome-ignore lint/security/noDangerouslySetInnerHtml: conditional cursor style
-        dangerouslySetInnerHTML={{
-          __html: `
-        @media (pointer: fine) {
-          body, a, button, input, [role="button"], label {
-            cursor: none !important;
-          }
-        }
-      `,
-        }}
-      />
+  const size = hovering ? HOVER_SIZE : SIZE;
 
+  return (
+    <motion.div
+      aria-hidden="true"
+      className="pointer-events-none fixed top-0 left-0 z-[9999] flex size-0 items-center justify-center mix-blend-difference"
+      style={{
+        x: reduceMotion ? x : springX,
+        y: reduceMotion ? y : springY,
+      }}
+    >
       <motion.div
         animate={{
-          scale: isHovering ? 1.5 : 1,
-          backgroundColor: isHovering
-            ? "rgba(59, 130, 246, 0.1)"
-            : "rgba(59, 130, 246, 0)",
+          backgroundColor: hovering
+            ? "rgba(255, 255, 255, 0)"
+            : "rgba(255, 255, 255, 1)",
+          height: size,
+          opacity: visible ? 1 : 0,
+          scale: pressed ? PRESSED_SCALE : 1,
+          width: size,
         }}
-        className="pointer-events-none fixed top-0 left-0 z-[9999] hidden rounded-full border border-blue-500 md:block"
-        style={{
-          x: cursorXSpring,
-          y: cursorYSpring,
-          width: 40,
-          height: 40,
-          translateX: "-50%",
-          translateY: "-50%",
-          opacity: isVisible ? 1 : 0,
-        }}
-        transition={{ type: "spring", stiffness: 300, damping: 20 }}
+        className="shrink-0 border-2 border-white"
+        initial={false}
+        transition={
+          reduceMotion
+            ? { duration: 0 }
+            : {
+                damping: 28,
+                // Appear instantly (the native cursor is already hidden),
+                // fade out softly when the pointer leaves the window.
+                opacity: { duration: visible ? 0 : 0.15 },
+                stiffness: 400,
+                type: "spring",
+              }
+        }
       />
-
-      <motion.div
-        className="pointer-events-none fixed top-0 left-0 z-[10000] hidden rounded-full bg-blue-500 md:block"
-        style={{
-          x: cursorX,
-          y: cursorY,
-          width: 8,
-          height: 8,
-          translateX: "-50%",
-          translateY: "-50%",
-          opacity: isVisible ? (isHovering ? 0 : 1) : 0,
-        }}
-      />
-    </>
+    </motion.div>
   );
 };

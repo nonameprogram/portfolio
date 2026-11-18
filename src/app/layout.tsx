@@ -2,6 +2,7 @@ import { GoogleAnalytics } from "@next/third-parties/google";
 import type { Metadata } from "next";
 import localFont from "next/font/local";
 import type React from "react";
+import { CustomCursor } from "@/components/custom-cursor";
 import { Navigation } from "@/components/navigation";
 import { SmoothScroll } from "@/components/smooth-scroll";
 import "lenis/dist/lenis.css";
@@ -53,6 +54,7 @@ export default function RootLayout({
       <body
         className={`${overusedGrotesk.variable} ${overusedGrotesk.className} antialiased`}
       >
+        <CustomCursor />
         <SmoothScroll>
           <Navigation />
           {children}
