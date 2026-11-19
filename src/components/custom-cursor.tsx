@@ -11,6 +11,8 @@ import { useEffect, useRef, useState } from "react";
 const SIZE = 10;
 const HOVER_SIZE = 32;
 const PRESSED_SCALE = 0.8;
+// Scale the square grows from when it appears and shrinks to when it leaves.
+const HIDDEN_SCALE = 0.5;
 
 // Critically damped (damping ≈ 2·√(stiffness·mass)): the square catches up
 // smoothly without overshooting and settles exactly on the real pointer.
@@ -128,6 +130,7 @@ export const CustomCursor = () => {
   }
 
   const size = hovering ? HOVER_SIZE : SIZE;
+  const pressedScale = pressed ? PRESSED_SCALE : 1;
 
   return (
     <motion.div
@@ -145,7 +148,7 @@ export const CustomCursor = () => {
             : "rgba(255, 255, 255, 1)",
           height: size,
           opacity: visible ? 1 : 0,
-          scale: pressed ? PRESSED_SCALE : 1,
+          scale: visible ? pressedScale : HIDDEN_SCALE,
           width: size,
         }}
         className="shrink-0 border-2 border-white"
@@ -155,9 +158,13 @@ export const CustomCursor = () => {
             ? { duration: 0 }
             : {
                 damping: 28,
-                // Appear instantly (the native cursor is already hidden),
-                // fade out softly when the pointer leaves the window.
-                opacity: { duration: visible ? 0 : 0.15 },
+                // The native cursor is hidden the moment this one appears,
+                // so fade in fast (easeOut is mostly opaque within a frame or
+                // two) while the scale spring does the visible "pop" in.
+                // Fade out a bit slower when the pointer leaves the window.
+                opacity: visible
+                  ? { duration: 0.1, ease: "easeOut" }
+                  : { duration: 0.15 },
                 stiffness: 400,
                 type: "spring",
               }
