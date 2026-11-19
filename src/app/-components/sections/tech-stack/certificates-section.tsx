@@ -1,7 +1,6 @@
 "use client";
 
-import { ArrowTopRightIcon } from "@radix-ui/react-icons";
-import { CircleDashedIcon } from "lucide-react";
+import { ArrowUpRightIcon, CircleDashedIcon } from "lucide-react";
 import { motion } from "motion/react";
 import { certifications } from "@/app/-components/sections/tech-stack/constants";
 import { AnimatedLink } from "@/components/animated-link";
@@ -62,7 +61,7 @@ export const CertificatesSection = () => (
                   >
                     <div className="flex items-center gap-2 rounded-full border border-neutral-700 py-1.5 pr-3 pl-4 transition-colors hover:border-neutral-500">
                       <span className="text-sm">Credential</span>
-                      <ArrowTopRightIcon className="size-4" />
+                      <ArrowUpRightIcon className="size-4" />
                     </div>
                   </a>
                 ) : (
